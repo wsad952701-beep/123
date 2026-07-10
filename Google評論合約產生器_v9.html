@@ -1307,21 +1307,14 @@ html, body {
         </div>
       </div>
 
-      <!-- 客戶專用：完成後儲存PDF按鈕 -->
-      <button class="client-save-btn" onclick="clientSavePDF()">
-        🖨️ 完成簽名，列印 / 存 PDF
-      </button>
-      <button class="client-save-btn" id="btnSaveImage" style="background:#1a5c9e;margin-top:8px;" onclick="saveAsImage()">
-        📸 儲存合約圖片到手機相簿
+      <!-- 客戶專用：完成簽名後儲存合約圖片按鈕 -->
+      <button class="client-save-btn" id="btnSaveImage" onclick="saveAsImage()">
+        📸 完成簽名，儲存合約到手機相簿
       </button>
       <div class="mobile-pdf-hint">
         📸 <strong>儲存合約圖片到相簿：</strong><br>
         &nbsp;・<strong>iOS：</strong>點按鈕後開新頁面，長按圖片 → 選「儲存到照片」即入相簿<br>
-        &nbsp;・<strong>Android：</strong>自動下載 JPG，直接進相簿（或下載資料夾）<br>
-        <br>
-        🖨️ <strong>存 PDF：</strong><br>
-        &nbsp;・<strong>iOS：</strong>「分享」→「列印」→ 兩指放大預覽 → 「分享」→「儲存至檔案」<br>
-        &nbsp;・<strong>Android：</strong>點「下載」或「儲存為 PDF」
+        &nbsp;・<strong>Android：</strong>自動下載 JPG，直接進相簿（或下載資料夾）
       </div>
 
       <div class="provider-line">
@@ -1389,6 +1382,15 @@ html, body {
     el.addEventListener('input', updateAll);
     el.addEventListener('change', updateAll);
   });
+
+  // 預設收合設定面板（桌面版），手機版本來就預設隱藏，不受影響
+  if (window.innerWidth > 640) {
+    const panel = document.getElementById('settingsPanel');
+    const btn   = document.getElementById('panelCollapseBtn');
+    panel.classList.add('collapsed');
+    btn.textContent = '▶';
+    btn.title = '展開設定';
+  }
 })();
 
 /* ── WARRANTY TOGGLE ── */
@@ -1774,6 +1776,9 @@ function generateClientPDF() {
 
 /* ── 儲存合約圖片到手機相簿 ── */
 async function saveAsImage() {
+  if (!pads[1].hasSig) { alert('請先完成第一處簽名。'); return; }
+  if (!pads[2].hasSig) { alert('請再完成確認簽名（第二格）。'); return; }
+
   const btn = document.getElementById('btnSaveImage');
   const origText = btn.textContent;
   btn.textContent = '⏳ 產生圖片中…';
