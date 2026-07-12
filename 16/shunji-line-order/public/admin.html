@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>訂單後台｜順記燒臘館</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23A8181C'/%3E%3Ctext x='32' y='45' font-size='40' font-family='serif' font-weight='700' fill='%23F2D391' text-anchor='middle'%3E順%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700&family=Oswald:wght@500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#14100D; --charcoal-2:#1C1713; --charcoal-3:#241D18;
+    --lacquer:#A8181C; --gold:#D6A44E; --gold-2:#F2D391;
+    --rice:#F5F0E6; --muted:rgba(245,240,230,.58); --muted-2:rgba(245,240,230,.42);
+    --jade:#87A25C; --glaze:#C4611F;
+    --serif:"Noto Serif TC",serif;
+    --sans:"Noto Sans TC","PingFang TC",system-ui,sans-serif;
+    --num:"Oswald",sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  body{margin:0;background:var(--charcoal);color:var(--rice);
+    font-family:var(--sans);line-height:1.8;-webkit-font-smoothing:antialiased}
+  button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+  h1,h2,h3{margin:0;font-family:var(--serif);letter-spacing:.06em}
+  ul{margin:0;padding:0;list-style:none}
+
+  header{
+    position:sticky;top:0;z-index:10;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    padding:14px clamp(14px,4vw,28px);
+    background:rgba(20,16,13,.94);backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(214,164,78,.18);
+  }
+  .seal{width:38px;height:38px;border-radius:10px;background:var(--lacquer);color:var(--gold-2);
+    display:grid;place-items:center;font-family:var(--serif);font-size:19px;font-weight:700;flex:0 0 auto}
+  header h1{font-size:1.06rem}
+  header .sub{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--gold);display:block}
+  .grow{flex:1}
+  .refresh{padding:8px 16px;border-radius:999px;border:1px solid rgba(214,164,78,.35);
+    color:var(--gold-2);font-size:13px;transition:background .2s}
+  .refresh:hover{background:rgba(214,164,78,.12)}
+  .refresh.spin{opacity:.5;pointer-events:none}
+
+  main{max-width:1080px;margin:0 auto;padding:22px clamp(14px,4vw,28px) 80px}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:11px;margin-bottom:26px}
+  .stat{padding:15px 17px;border-radius:13px;background:var(--charcoal-2);
+    border:1px solid rgba(214,164,78,.15)}
+  .stat b{display:block;font-family:var(--num);font-size:1.75rem;font-weight:600;color:var(--gold-2);line-height:1.3}
+  .stat span{font-size:12px;letter-spacing:.1em;color:var(--muted-2)}
+  .stat.hot b{color:var(--glaze)}
+
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+  .f{padding:7px 16px;border-radius:999px;font-size:13px;
+    border:1px solid rgba(214,164,78,.28);color:var(--muted);transition:all .2s}
+  .f:hover{border-color:var(--gold);color:var(--gold-2)}
+  .f[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#241706;font-weight:700}
+
+  .order{
+    border-radius:14px;background:var(--charcoal-2);
+    border:1px solid rgba(214,164,78,.14);margin-bottom:12px;overflow:hidden;
+    transition:border-color .25s;
+  }
+  .order.new{border-color:rgba(196,97,31,.5);box-shadow:0 0 0 1px rgba(196,97,31,.12)}
+  .order.cancelled{opacity:.42}
+  .order.done{opacity:.62}
+
+  .o-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:15px 18px;cursor:pointer}
+  .o-no{font-family:var(--mono);font-size:14px;font-weight:600;letter-spacing:.08em;color:var(--gold-2)}
+  .tag{padding:3px 11px;border-radius:999px;font-size:11.5px;letter-spacing:.08em;font-weight:700}
+  .tag.new{background:rgba(196,97,31,.18);color:#E9A464;border:1px solid rgba(196,97,31,.45)}
+  .tag.confirmed{background:rgba(214,164,78,.15);color:var(--gold-2);border:1px solid rgba(214,164,78,.4)}
+  .tag.done{background:rgba(135,162,92,.15);color:var(--jade);border:1px solid rgba(135,162,92,.42)}
+  .tag.cancelled{background:rgba(255,255,255,.05);color:var(--muted-2);border:1px solid rgba(255,255,255,.12)}
+  .tag.pick{background:rgba(135,162,92,.12);color:var(--jade);border:1px solid rgba(135,162,92,.3)}
+  .o-when{font-size:13px;color:var(--muted)}
+  .o-when b{color:var(--rice);font-weight:500}
+  .o-amt{margin-left:auto;font-family:var(--num);font-size:1.28rem;font-weight:600;color:var(--gold-2)}
+  .o-caret{color:var(--muted-2);font-size:12px;transition:transform .25s}
+  .order.open .o-caret{transform:rotate(180deg)}
+
+  .o-body{display:none;padding:0 18px 18px;border-top:1px solid rgba(214,164,78,.12)}
+  .order.open .o-body{display:block}
+  .o-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px 22px;padding:16px 0}
+  .row{display:flex;gap:10px;font-size:13.5px}
+  .row .k{flex:0 0 66px;color:var(--muted-2);letter-spacing:.06em}
+  .row .v{color:var(--rice);word-break:break-all}
+  .row .v a{color:var(--gold-2)}
+
+  .items{padding:14px 16px;border-radius:11px;background:rgba(0,0,0,.24);margin-bottom:14px}
+  .items li{display:flex;justify-content:space-between;gap:14px;font-size:13.5px;padding:4px 0}
+  .items li+li{border-top:1px solid rgba(214,164,78,.09)}
+  .items b{font-family:var(--num);color:var(--gold-2);font-weight:500}
+  .memo{padding:11px 14px;border-radius:9px;font-size:13px;line-height:1.75;
+    background:rgba(196,97,31,.08);border:1px solid rgba(196,97,31,.25);color:#EFC9A4;margin-bottom:14px}
+
+  .acts{display:flex;gap:8px;flex-wrap:wrap}
+  .act{padding:9px 17px;border-radius:9px;font-size:13px;font-weight:500;
+    border:1px solid rgba(214,164,78,.3);color:var(--gold-2);transition:all .18s}
+  .act:hover{background:rgba(214,164,78,.14);transform:translateY(-1px)}
+  .act.ok{border-color:rgba(135,162,92,.5);color:var(--jade)}
+  .act.ok:hover{background:rgba(135,162,92,.14)}
+  .act.no{border-color:rgba(168,24,28,.5);color:#E88A82}
+  .act.no:hover{background:rgba(168,24,28,.16)}
+  .act.copy{border-color:rgba(255,255,255,.16);color:var(--muted)}
+  .act.copy:hover{background:rgba(255,255,255,.06)}
+
+  .empty{padding:70px 20px;text-align:center;color:var(--muted-2)}
+  .empty span{display:block;font-size:38px;margin-bottom:12px;opacity:.35}
+
+  .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);
+    padding:12px 22px;border-radius:999px;background:var(--charcoal-3);
+    border:1px solid rgba(214,164,78,.35);font-size:13.5px;
+    opacity:0;pointer-events:none;transition:all .25s;z-index:50;
+    box-shadow:0 18px 44px -14px rgba(0,0,0,.9)}
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+
+  @media(max-width:560px){
+    .o-amt{margin-left:0;width:100%}
+    .row .k{flex-basis:60px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="seal">順</span>
+  <h1>訂單後台<span class="sub">SHUNJI ADMIN</span></h1>
+  <div class="grow"></div>
+  <button class="refresh" id="refresh">重新整理</button>
+</header>
+
+<main>
+  <div class="stats" id="stats"></div>
+
+  <div class="filters" id="filters">
+    <button class="f" data-s="all" aria-pressed="true">全部</button>
+    <button class="f" data-s="new" aria-pressed="false">待確認</button>
+    <button class="f" data-s="confirmed" aria-pressed="false">已確認</button>
+    <button class="f" data-s="done" aria-pressed="false">已完成</button>
+    <button class="f" data-s="cancelled" aria-pressed="false">已取消</button>
+  </div>
+
+  <div id="list"></div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  'use strict';
+  var ORDERS = [], FILTER = 'all';
+  var ST = { 'new':'待確認', 'confirmed':'已確認', 'done':'已完成', 'cancelled':'已取消' };
+  var DAY = ['日','一','二','三','四','五','六'];
+
+  var $ = function(s){ return document.querySelector(s); };
+  var money = function(v){ return (v||0).toLocaleString('en-US'); };
+  var pad = function(n){ return (n<10?'0':'')+n; };
+  function esc(s){
+    return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  var tT;
+  function toast(m){
+    var t = $('#toast');
+    t.textContent = m; t.classList.add('show');
+    clearTimeout(tT); tT = setTimeout(function(){ t.classList.remove('show'); }, 2200);
+  }
+
+  function whenTxt(o){
+    var w = new Date(o.date + 'T' + o.time + ':00');
+    if(isNaN(w)) return o.date + ' ' + o.time;
+    return (w.getMonth()+1) + '/' + w.getDate() + '（' + DAY[w.getDay()] + '） '
+         + pad(w.getHours()) + ':' + pad(w.getMinutes());
+  }
+
+  function load(){
+    var btn = $('#refresh');
+    btn.classList.add('spin');
+    fetch('/admin/api/orders', { credentials:'same-origin' })
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        btn.classList.remove('spin');
+        if(!d.ok) return;
+        ORDERS = d.orders;
+        paintStats(d.stats);
+        paint();
+      })
+      .catch(function(){
+        btn.classList.remove('spin');
+        toast('讀取失敗，請重新整理');
+      });
+  }
+
+  function paintStats(s){
+    $('#stats').innerHTML =
+      '<div class="stat' + (s.pending ? ' hot' : '') + '"><b>' + s.pending + '</b><span>待確認</span></div>' +
+      '<div class="stat"><b>' + s.ordersToday + '</b><span>今日訂單</span></div>' +
+      '<div class="stat"><b>' + money(s.revenueToday) + '</b><span>今日金額</span></div>' +
+      '<div class="stat"><b>' + s.users + '</b><span>綁定 LINE 人數</span></div>' +
+      '<div class="stat"><b>' + s.ordersTotal + '</b><span>訂單總數</span></div>';
+  }
+
+  function paint(){
+    var rows = ORDERS.filter(function(o){ return FILTER === 'all' || o.status === FILTER; });
+
+    if(!rows.length){
+      $('#list').innerHTML = '<div class="empty"><span>⊙</span>目前沒有' +
+        (FILTER === 'all' ? '訂單' : ST[FILTER] + '的訂單') + '</div>';
+      return;
+    }
+
+    $('#list').innerHTML = rows.map(function(o){
+      var items = o.items.map(function(i){
+        return '<li><span>' + esc(i.name) + ' ×' + i.qty + ' ' + esc(i.unit) + '</span>' +
+               '<b>' + money(i.subtotal) + '</b></li>';
+      }).join('');
+
+      var tel = o.tel.replace(/\D/g,'');
+
+      return '<article class="order ' + o.status + '" data-no="' + esc(o.orderNo) + '">' +
+        '<div class="o-head">' +
+          '<span class="o-no">' + esc(o.orderNo) + '</span>' +
+          '<span class="tag ' + o.status + '">' + ST[o.status] + '</span>' +
+          (o.pickup ? '<span class="tag pick">自取</span>' : '') +
+          '<span class="o-when"><b>' + whenTxt(o) + '</b>　' + esc(o.org) + '</span>' +
+          '<span class="o-amt">NT$' + money(o.total) + '</span>' +
+          '<span class="o-caret">▼</span>' +
+        '</div>' +
+        '<div class="o-body">' +
+          '<div class="o-grid">' +
+            '<div class="row"><span class="k">聯絡人</span><span class="v">' + esc(o.name) + '</span></div>' +
+            '<div class="row"><span class="k">電話</span><span class="v"><a href="tel:' + tel + '">' + esc(o.tel) + '</a></span></div>' +
+            '<div class="row"><span class="k">單位</span><span class="v">' + esc(o.org) + '</span></div>' +
+            '<div class="row"><span class="k">LINE</span><span class="v">' + esc(o.lineName) + '</span></div>' +
+            (o.pickup ? '' :
+              '<div class="row"><span class="k">地址</span><span class="v">' + esc(o.addr) + '</span></div>' +
+              '<div class="row"><span class="k">份數</span><span class="v">' + o.boxes + ' 份</span></div>') +
+            '<div class="row"><span class="k">下單</span><span class="v">' +
+              new Date(o.createdAt).toLocaleString('zh-TW', {hour12:false}) + '</span></div>' +
+          '</div>' +
+          (o.memo ? '<p class="memo">備註：' + esc(o.memo) + '</p>' : '') +
+          '<ul class="items">' + items + '</ul>' +
+          '<div class="acts">' +
+            (o.status === 'new' ? '<button class="act ok" data-set="confirmed">確認接單</button>' : '') +
+            (o.status === 'confirmed' ? '<button class="act ok" data-set="done">完成出餐</button>' : '') +
+            (o.status !== 'cancelled' && o.status !== 'done' ? '<button class="act no" data-set="cancelled">取消訂單</button>' : '') +
+            (o.status === 'cancelled' || o.status === 'done' ? '<button class="act" data-set="new">改回待確認</button>' : '') +
+            '<button class="act copy" data-copy>複製訂單</button>' +
+          '</div>' +
+        '</div>' +
+      '</article>';
+    }).join('');
+
+    document.querySelectorAll('.o-head').forEach(function(h){
+      h.addEventListener('click', function(){ h.parentNode.classList.toggle('open'); });
+    });
+
+    document.querySelectorAll('[data-set]').forEach(function(b){
+      b.addEventListener('click', function(e){
+        e.stopPropagation();
+        var no = b.closest('.order').getAttribute('data-no');
+        var st = b.getAttribute('data-set');
+        if(st === 'cancelled' && !confirm('確定要取消 ' + no + ' 嗎？')) return;
+
+        fetch('/admin/api/orders/' + encodeURIComponent(no) + '/status', {
+          method:'POST', credentials:'same-origin',
+          headers:{ 'Content-Type':'application/json' },
+          body: JSON.stringify({ status: st })
+        })
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          if(!d.ok){ toast(d.message || '更新失敗'); return; }
+          toast(no + ' → ' + ST[st]);
+          load();
+        })
+        .catch(function(){ toast('更新失敗'); });
+      });
+    });
+
+    document.querySelectorAll('[data-copy]').forEach(function(b){
+      b.addEventListener('click', function(e){
+        e.stopPropagation();
+        var no = b.closest('.order').getAttribute('data-no');
+        var o = ORDERS.filter(function(x){ return x.orderNo === no; })[0];
+        if(!o) return;
+        navigator.clipboard.writeText(o.text)
+          .then(function(){ toast('已複製 ' + no); })
+          .catch(function(){ toast('複製失敗'); });
+      });
+    });
+  }
+
+  document.querySelectorAll('.f').forEach(function(f){
+    f.addEventListener('click', function(){
+      document.querySelectorAll('.f').forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+      f.setAttribute('aria-pressed','true');
+      FILTER = f.getAttribute('data-s');
+      paint();
+    });
+  });
+
+  $('#refresh').addEventListener('click', load);
+
+  load();
+  setInterval(load, 30000);   /* 每 30 秒自動抓新訂單 */
+})();
+</script>
+</body>
+</html>

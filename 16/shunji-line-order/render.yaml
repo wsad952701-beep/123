@@ -1,0 +1,30 @@
+# Render 一鍵部署設定（把整個資料夾推上 GitHub 後，Render 會自動讀這個檔）
+services:
+  - type: web
+    name: shunji-roast
+    runtime: node
+    plan: starter          # free 方案沒有永久磁碟，訂單會在重啟後消失
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz
+    disk:
+      name: shunji-data
+      mountPath: /opt/render/project/src/data   # 訂單資料庫存這裡，不會被清掉
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: BASE_URL
+        sync: false        # ← 部署後到 Render 後台手動填你的網址
+      - key: LINE_CHANNEL_ID
+        sync: false
+      - key: LINE_CHANNEL_SECRET
+        sync: false
+      - key: ADMIN_USER
+        value: admin
+      - key: ADMIN_PASS
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true   # Render 會自動生一串亂碼
+      - key: LINE_FORCE_CONSENT
+        value: "true"
