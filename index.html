@@ -1,1916 +1,2883 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<script>
-// 強制避開手機內建瀏覽器（LINE／FB 等 App 內嵌瀏覽器）的頑固快取，
-// 確保每次打開都抓到最新版本，不用手動清快取。
-(function () {
-  if (!location.search.includes('_v=')) {
-    location.replace(location.pathname + '?_v=' + Date.now());
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>順記燒臘館｜正宗港式燒臘・龍眼木炭現烤・中壢便當外送</title>
+<meta name="description" content="順記燒臘館 — 桃園市中壢區南園二路12號。香港老師傅工法，龍眼木炭掛爐現烤，每日現做不隔夜。燒鵝、燒鴨、蜜汁叉燒、脆皮燒肉、玫瑰油雞。便當外送、公司行號團膳、聚餐拼盤、年節三牲。訂購專線 03-264-0001。">
+<meta name="theme-color" content="#14100D">
+<meta name="keywords" content="順記燒臘館,中壢燒臘,桃園燒臘,港式燒臘,便當外送,燒鵝,燒鴨,叉燒,脆皮燒肉,團膳,聚餐拼盤,年節三牲">
+<link rel="canonical" href="https://www.shunji-roast.tw/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.shunji-roast.tw/">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="順記燒臘館">
+<meta property="og:title" content="順記燒臘館｜龍眼木炭掛爐現烤・正宗港式燒臘">
+<meta property="og:description" content="香港老師傅工法，每日現做不隔夜。中壢南園二路，便當外送・團膳・聚餐拼盤。訂購專線 03-264-0001。">
+<!-- ══════════════════════════════════════════════════════════════════
+     ★ 上線前唯一要改的地方：網址
+       把整份檔案裡的  https://www.shunji-roast.tw  全部取代成你的實際網址
+       （共 4 處：og:image、og:url、canonical、以及下方 JSON-LD 的 "image"）
+
+       GitHub Pages 的網址長這樣：
+         https://你的帳號.github.io/倉庫名稱      ← 結尾不要加斜線
+       例如帳號 shunji、倉庫名 web：
+         https://shunji.github.io/web
+
+       ※ 不改也能正常瀏覽、正常點餐，只是分享到 LINE 時不會顯示預覽縮圖。
+     ══════════════════════════════════════════════════════════════════ -->
+<meta property="og:image" content="https://www.shunji-roast.tw/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23A8181C'/%3E%3Ctext x='32' y='45' font-size='40' font-family='serif' font-weight='700' fill='%23F2D391' text-anchor='middle'%3E順%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@600;700;900&family=Oswald:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "順記燒臘館",
+  "alternateName": "Shunji Roast House",
+  "description": "正宗港式燒臘。龍眼木炭掛爐現烤，香港老師傅傳統工法，每日現做不隔夜。提供便當外送、公司行號團膳、聚餐拼盤與年節三牲預訂。",
+  "servesCuisine": ["粵菜", "港式燒臘", "Cantonese", "Barbecue"],
+  "image": "https://www.shunji-roast.tw/og-image.jpg",
+  "telephone": "+886-3-264-0001",
+  "priceRange": "NT$110 - NT$1980",
+  "currenciesAccepted": "TWD",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "南園二路12號",
+    "addressLocality": "中壢區",
+    "addressRegion": "桃園市",
+    "postalCode": "320",
+    "addressCountry": "TW"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 24.9717817, "longitude": 121.2356849 },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=%E9%A0%86%E8%A8%98%E7%87%92%E8%87%98%E9%A4%A8&query_place_id=ChIJvXlQ50QjaDQRBy1_aML9eFs",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "11:00", "closes": "13:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "16:00", "closes": "19:00" }
+  ],
+  "acceptsReservations": "False",
+  "hasMenu": {
+    "@type": "Menu",
+    "name": "順記燒臘館 菜單",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "name": "招牌飯類",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "碳燒原隻燒鵝腿飯", "offers": { "@type": "Offer", "price": "220", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "碳燒原隻燒鴨腿飯", "offers": { "@type": "Offer", "price": "160", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "原隻雞腿飯", "offers": { "@type": "Offer", "price": "150", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "碳燒蜜汁雞腿飯", "offers": { "@type": "Offer", "price": "130", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "順記三寶飯", "description": "鴨、雞、叉燒", "offers": { "@type": "Offer", "price": "140", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "順記四寶飯", "description": "鴨、雞、叉燒、香腸", "offers": { "@type": "Offer", "price": "150", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "順記雙拼飯", "description": "六選二", "offers": { "@type": "Offer", "price": "130", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "順記特製雙拼飯", "description": "一鴨一雞", "offers": { "@type": "Offer", "price": "150", "priceCurrency": "TWD" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "燒味飯",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "碳燒脆皮燒鵝飯", "offers": { "@type": "Offer", "price": "160", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "碳燒脆皮燒鴨飯", "offers": { "@type": "Offer", "price": "130", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "碳燒脆皮燒肉飯", "offers": { "@type": "Offer", "price": "120", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "碳燒蜜汁叉燒飯", "offers": { "@type": "Offer", "price": "120", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "玫瑰油雞飯", "offers": { "@type": "Offer", "price": "120", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "香港臘味飯", "offers": { "@type": "Offer", "price": "120", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "蜜汁香腸飯", "offers": { "@type": "Offer", "price": "110", "priceCurrency": "TWD" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "整隻・部位",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "碳燒脆皮大鵝（整隻）", "offers": { "@type": "Offer", "price": "1980", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "碳燒脆皮大鴨（整隻）", "offers": { "@type": "Offer", "price": "1200", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "玫瑰醬油雞（整隻）", "offers": { "@type": "Offer", "price": "750", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "碳燒原隻燒鵝腿", "offers": { "@type": "Offer", "price": "190", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "碳燒原隻燒鴨腿", "offers": { "@type": "Offer", "price": "140", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "原隻油雞腿", "offers": { "@type": "Offer", "price": "120", "priceCurrency": "TWD" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "秤重單點（每兩）",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "碳燒脆皮燒肉／兩", "offers": { "@type": "Offer", "price": "40", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "碳燒蜜汁叉燒／兩", "offers": { "@type": "Offer", "price": "40", "priceCurrency": "TWD" } },
+          { "@type": "MenuItem", "name": "香港臘味／兩", "offers": { "@type": "Offer", "price": "40", "priceCurrency": "TWD" } }
+        ]
+      }
+    ]
   }
-})();
+}
 </script>
-<title>Google 評論合約產生器</title>
+
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ============================================================
+   順記燒臘館 — 設計系統
+   兩個世界：炭爐（暗）／ 菜單（牛皮紙）
+   ============================================================ */
+:root{
+  --charcoal:#14100D;
+  --charcoal-2:#1C1713;
+  --charcoal-3:#241D18;
+  --lacquer:#A8181C;
+  --lacquer-d:#7C1114;
+  --gold:#D6A44E;
+  --gold-2:#F2D391;
+  --gold-d:#9A7431;
+  --glaze:#C4611F;
+  --kraft:#EADDC2;
+  --kraft-2:#DCCCA9;
+  --kraft-line:#C4AF87;
+  --ink:#2B2015;
+  --ink-2:#5C4A34;
+  --rice:#F5F0E6;
+  --muted:rgba(245,240,230,.60);
+  --muted-2:rgba(245,240,230,.50);
+  --jade:#87A25C;
 
-:root {
-  --navy:   #152540;
-  --gold:   #b89a3e;
-  --gold-lt:#f0e6c0;
-  --red:    #b52b2b;
-  --gray1:  #f7f8fa;
-  --gray2:  #e4e6ea;
-  --gray3:  #999;
-  --text:   #1a1a1a;
-  --panel-w:330px;
-}
+  --serif:"Noto Serif TC","Songti TC","SimSun","PingFang TC",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif;
+  --num:"Oswald","Noto Sans TC",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
 
-html, body {
-  height: 100%;
-  font-family: 'Microsoft JhengHei', 'PingFang TC', 'Noto Sans TC', sans-serif;
-  font-size: 16px;
-  color: var(--text);
-  background: #d4d8e0;
-}
-
-/* ── APP SHELL ── */
-.app { display: flex; height: 100vh; overflow: hidden; }
-
-/* ── SETTINGS PANEL ── */
-.panel {
-  width: var(--panel-w);
-  min-width: var(--panel-w);
-  background: var(--navy);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  box-shadow: 3px 0 18px rgba(0,0,0,.28);
-  z-index: 10;
-}
-.panel {
-  transition: width 0.28s cubic-bezier(.4,0,.2,1), min-width 0.28s cubic-bezier(.4,0,.2,1);
-}
-.panel.collapsed {
-  width: 38px !important;
-  min-width: 38px !important;
-}
-.panel.collapsed .panel-body,
-.panel.collapsed .panel-footer,
-.panel.collapsed .panel-header-main {
-  display: none !important;
-}
-.panel.collapsed .panel-header {
-  padding: 12px 0;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border-bottom: none;
-  height: 100%;
-  gap: 0;
+  --maxw:1200px;
+  --pad:clamp(18px,4vw,44px);
+  --r:12px;
+  --ease:cubic-bezier(.22,.61,.36,1);
 }
 
-.panel-header {
-  padding: 18px 20px 14px;
-  background: rgba(0,0,0,.22);
-  border-bottom: 1px solid rgba(255,255,255,.1);
-  flex-shrink: 0;
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:82px;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--charcoal);
+  color:var(--rice);
+  font-family:var(--sans);
+  font-weight:400;
+  line-height:1.9;
+  letter-spacing:.02em;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
 }
-.panel-header-main {
-  flex: 1;
-  min-width: 0;
-}
-.panel-header h1 {
-  font-size: 16px;
-  font-weight: 700;
-  color: #fff;
-}
-.panel-header p {
-  font-size: 12.5px;
-  color: rgba(255,255,255,.5);
-  margin-top: 4px;
-  line-height: 1.5;
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:700;line-height:1.28;letter-spacing:.04em;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+ul,ol{margin:0;padding:0;list-style:none}
+
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:3px}
+
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip{position:fixed;top:-100px;left:12px;z-index:200;background:var(--gold);color:#1a1208;padding:10px 16px;border-radius:8px;font-weight:700;transition:top .2s}
+.skip:focus{top:12px}
+
+/* 金字浮雕 — 招牌用 */
+.gold{
+  background:linear-gradient(178deg,var(--gold-2) 0%,var(--gold) 40%,#A87C33 74%,#EBCB86 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 1px 0 rgba(0,0,0,.55));
 }
 
-/* 收合 / 展開小按鈕 */
-.panel-collapse-btn {
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  margin-top: 2px;
-  background: rgba(255,255,255,.1);
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: 4px;
-  color: rgba(255,255,255,.65);
-  cursor: pointer;
-  font-size: 11px;
-  font-weight: 700;
-  font-family: inherit;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background .15s, color .15s;
-  line-height: 1;
-  padding: 0;
-}
-.panel-collapse-btn:hover {
-  background: rgba(255,255,255,.22);
-  color: #fff;
-}
-/* 收合時按鈕旋轉方向提示 */
-.panel.collapsed .panel-collapse-btn {
-  margin-top: 0;
-  font-size: 13px;
-  width: 28px;
-  height: 28px;
+/* ---------- 顆粒 / 爐火氛圍 ---------- */
+.grain{
+  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.035;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-.panel-body {
-  flex: 1;
-  overflow-y: auto;
-  padding: 16px;
+/* ---------- 閱讀進度（scroll-driven，純 CSS）---------- */
+.progress{
+  position:fixed;top:0;left:0;height:2px;width:100%;z-index:120;transform-origin:0 50%;transform:scaleX(0);
+  background:linear-gradient(90deg,var(--lacquer),var(--glaze),var(--gold-2));
 }
-.panel-body::-webkit-scrollbar { width: 4px; }
-.panel-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,.2); border-radius: 4px; }
-
-.sgroup { margin-bottom: 20px; }
-.sgroup-title {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 10px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid rgba(255,255,255,.1);
-}
-.srow {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-bottom: 10px;
-}
-.srow label {
-  font-size: 12.5px;
-  color: rgba(255,255,255,.65);
-  font-weight: 500;
-}
-.srow input[type="text"],
-.srow input[type="number"],
-.srow input[type="date"],
-.srow textarea {
-  background: rgba(255,255,255,.1);
-  border: 1px solid rgba(255,255,255,.2);
-  border-radius: 5px;
-  padding: 7px 10px;
-  font-size: 14.5px;
-  color: #fff;
-  font-family: inherit;
-  outline: none;
-  width: 100%;
-  transition: border-color .15s, background .15s;
-}
-.srow input:focus, .srow textarea:focus {
-  border-color: var(--gold);
-  background: rgba(255,255,255,.15);
-}
-.srow textarea { height: 72px; resize: vertical; line-height: 1.5; }
-
-/* toggle */
-.toggle-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-.toggle-row > label:first-child {
-  font-size: 13px;
-  color: rgba(255,255,255,.85);
-  font-weight: 600;
-}
-.toggle {
-  position: relative;
-  width: 42px;
-  height: 22px;
-  flex-shrink: 0;
-}
-.toggle input { opacity: 0; width: 0; height: 0; }
-.toggle-track {
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,.2);
-  border-radius: 22px;
-  cursor: pointer;
-  transition: background .2s;
-}
-.toggle input:checked + .toggle-track { background: var(--gold); }
-.toggle-track::before {
-  content: '';
-  position: absolute;
-  width: 16px; height: 16px;
-  left: 3px; top: 3px;
-  background: #fff;
-  border-radius: 50%;
-  transition: transform .2s;
-}
-.toggle input:checked + .toggle-track::before { transform: translateX(20px); }
-
-.warranty-sub {
-  background: rgba(184,154,62,.1);
-  border: 1px solid rgba(184,154,62,.3);
-  border-radius: 6px;
-  padding: 10px 10px 4px;
-  margin-bottom: 8px;
-}
-.warranty-sub.hidden { display: none; }
-
-/* panel footer */
-.panel-footer {
-  padding: 14px 16px;
-  background: rgba(0,0,0,.22);
-  border-top: 1px solid rgba(255,255,255,.1);
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.btn-print {
-  background: var(--gold);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 13px 0;
-  font-size: 14.5px;
-  font-family: inherit;
-  font-weight: 700;
-  cursor: pointer;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  transition: opacity .15s;
-}
-.btn-print:hover { opacity: .86; }
-.btn-reset {
-  background: transparent;
-  color: rgba(255,255,255,.4);
-  border: 1px solid rgba(255,255,255,.15);
-  border-radius: 6px;
-  padding: 7px 0;
-  font-size: 12.5px;
-  font-family: inherit;
-  cursor: pointer;
-  width: 100%;
-  transition: all .15s;
-}
-.btn-reset:hover { color: rgba(255,255,255,.75); border-color: rgba(255,255,255,.35); }
-.btn-client {
-  background: #1a7a4a;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 13px 0;
-  font-size: 14.5px;
-  font-family: inherit;
-  font-weight: 700;
-  cursor: pointer;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  transition: opacity .15s;
-}
-.btn-client:hover { opacity: .86; }
-.btn-print-mine {
-  background: transparent;
-  color: rgba(255,255,255,.55);
-  border: 1px solid rgba(255,255,255,.2);
-  border-radius: 6px;
-  padding: 8px 0;
-  font-size: 12.5px;
-  font-family: inherit;
-  font-weight: 600;
-  cursor: pointer;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  transition: all .15s;
-}
-.btn-print-mine:hover { color: rgba(255,255,255,.85); border-color: rgba(255,255,255,.4); }
-
-/* ── CONTRACT AREA ── */
-.contract-area {
-  flex: 1;
-  overflow-y: auto;
-  padding: 28px 28px 60px;
+@supports (animation-timeline:scroll()){
+  .progress{animation:grow linear both;animation-timeline:scroll(root block);}
+  @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 }
 
-/* ── CONTRACT DOC ── */
-.contract-doc {
-  max-width: 820px;
-  margin: 0 auto;
-  background: #fff;
-  box-shadow: 0 4px 28px rgba(0,0,0,.16);
+/* ---------- 導覽列 ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:110;
+  display:flex;align-items:center;gap:16px;
+  padding:14px var(--pad);
+  transition:background .35s var(--ease),backdrop-filter .35s,border-color .35s,padding .35s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.nav.stuck{
+  background:rgba(15,12,10,.78);
+  backdrop-filter:blur(16px) saturate(140%);
+  -webkit-backdrop-filter:blur(16px) saturate(140%);
+  border-bottom-color:rgba(214,164,78,.20);
+  padding-block:9px;
+}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex:0 0 auto}
+.seal{
+  width:42px;height:42px;flex:0 0 auto;border-radius:50%;
+  display:grid;place-items:center;
+  background:radial-gradient(circle at 34% 28%,#C22026,var(--lacquer) 55%,var(--lacquer-d));
+  box-shadow:inset 0 0 0 1px rgba(242,211,145,.55),0 3px 12px rgba(0,0,0,.5);
+  font-family:var(--serif);font-weight:900;font-size:22px;color:var(--gold-2);
+  letter-spacing:0;line-height:1;padding-bottom:1px;
+  transition:transform .5s var(--ease);
+}
+.brand:hover .seal{transform:rotate(-8deg)}
+.brand-txt{display:flex;flex-direction:column;line-height:1.16}
+.brand-cn{font-family:var(--serif);font-weight:700;font-size:19.5px;letter-spacing:.14em;color:var(--rice)}
+.brand-en{font-family:var(--mono);font-size:10.5px;letter-spacing:.30em;color:var(--gold);text-transform:uppercase}
+.nav-links{display:flex;gap:4px;margin-left:auto}
+.nav-links a{
+  text-decoration:none;font-size:16px;font-weight:400;letter-spacing:.14em;
+  padding:8px 13px;border-radius:8px;color:var(--muted);transition:color .25s,background .25s;
+}
+.nav-links a:hover{color:var(--gold-2);background:rgba(214,164,78,.08)}
+.nav-call{
+  display:inline-flex;align-items:center;gap:7px;flex:0 0 auto;
+  padding:9px 17px;border-radius:999px;text-decoration:none;
+  background:linear-gradient(180deg,#BD1D22,var(--lacquer-d));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 4px 16px rgba(168,24,28,.35);
+  font-family:var(--num);font-weight:500;font-size:17.5px;letter-spacing:.06em;color:#FFF3DC;
+  transition:transform .2s var(--ease),box-shadow .2s;
+}
+.nav-call:hover{transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 7px 22px rgba(168,24,28,.5)}
+.nav-call svg{width:14px;height:14px;fill:currentColor}
+@media(max-width:960px){.nav-links{display:none}.nav-call{margin-left:auto}}
+/* 小螢幕：字放大後「品牌 + 電話號碼」擠不下 → 電話鈕收成圓形圖示。
+   號碼仍可點（aria-label 帶著），底部工具列也還有一顆「撥號」。 */
+@media(max-width:520px){
+  .nav-call{padding:0;width:44px;height:44px;border-radius:50%;justify-content:center;gap:0}
+  .nav-call .nc-num{display:none}
+  .nav-call svg{width:19px;height:19px}
+  .brand-en{letter-spacing:.20em}
+}
+@media(max-width:360px){
+  .brand-en{display:none}
 }
 
-/* doc header */
-.doc-header {
-  background: var(--navy);
-  color: #fff;
-  padding: 28px 40px 22px;
-  border-bottom: 4px solid var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* ---------- HERO ---------- */
+.hero{position:relative;z-index:2;padding:132px 0 70px;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(58% 46% at 78% 24%,rgba(196,97,31,.30),transparent 68%),
+    radial-gradient(46% 40% at 12% 78%,rgba(168,24,28,.20),transparent 70%),
+    radial-gradient(90% 70% at 50% 0%,#221A14,transparent 72%);
 }
-.doc-header-left .eyebrow {
-  font-size: 11px;
-  letter-spacing: 3px;
-  color: var(--gold);
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 7px;
+.hero-in{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(28px,5vw,72px);align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:13px;letter-spacing:.30em;color:var(--gold);
+  text-transform:uppercase;margin-bottom:22px;
 }
-.doc-header-left h2 {
-  font-size: 25px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  line-height: 1.35;
+.eyebrow::before{content:"";width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.hero h1{
+  font-size:clamp(2.7rem,6.4vw,4.7rem);font-weight:900;line-height:1.14;letter-spacing:.06em;margin-bottom:22px;
 }
-.doc-header-right {
-  text-align: right;
-  font-size: 13px;
-  color: rgba(255,255,255,.55);
-  line-height: 2;
-}
-.doc-header-right strong { color: #fff; font-size: 14px; }
+.hero h1 .l2{display:block;font-size:.62em;letter-spacing:.16em;margin-top:.34em;color:var(--rice);
+  -webkit-text-fill-color:currentColor;background:none;filter:none;font-weight:700}
+.hero-lede{font-size:clamp(1.05rem,1.7vw,1.18rem);color:var(--muted);max-width:34ch;margin-bottom:26px;line-height:2.05}
+.hero-lede b{color:var(--gold-2);font-weight:500}
 
-/* doc body */
-.doc-body { padding: 30px 40px 36px; }
+/* 營業狀態 */
+.status{
+  display:inline-flex;align-items:center;gap:9px;margin-bottom:26px;
+  padding:7px 15px 7px 12px;border-radius:999px;
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);
+  font-family:var(--mono);font-size:14.5px;letter-spacing:.06em;color:var(--rice);
+}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--muted-2);flex:0 0 auto}
+.status.open .dot{background:var(--jade);box-shadow:0 0 0 0 rgba(135,162,92,.7);animation:pulse 2.4s infinite}
+.status.open{border-color:rgba(135,162,92,.35);background:rgba(135,162,92,.10)}
+.status.soon .dot{background:var(--glaze)}
+.status.soon{border-color:rgba(196,97,31,.35);background:rgba(196,97,31,.10)}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(135,162,92,0)}100%{box-shadow:0 0 0 0 rgba(135,162,92,0)}}
+.status .sep{color:var(--muted-2)}
 
-/* section */
-.dsec { margin-bottom: 26px; }
-.dsec-title {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--navy);
-  border-left: 3px solid var(--gold);
-  padding-left: 9px;
-  margin-bottom: 14px;
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:14px 26px;border-radius:999px;text-decoration:none;
+  font-size:17px;font-weight:500;letter-spacing:.10em;
+  transition:transform .2s var(--ease),box-shadow .2s,background .25s,border-color .25s;
 }
+.btn svg{width:15px;height:15px;fill:currentColor;flex:0 0 auto}
+.btn-red{
+  background:linear-gradient(180deg,#BD1D22,var(--lacquer-d));
+  color:#FFF3DC;box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 8px 26px rgba(168,24,28,.38);
+}
+.btn-red:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 12px 34px rgba(168,24,28,.55)}
+.btn-ghost{border:1px solid rgba(214,164,78,.40);color:var(--gold-2);background:rgba(214,164,78,.05)}
+.btn-ghost:hover{background:rgba(214,164,78,.13);border-color:var(--gold);transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(180deg,var(--gold-2),var(--gold) 55%,var(--gold-d));color:#241706;font-weight:700;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 8px 24px rgba(214,164,78,.28)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 12px 32px rgba(214,164,78,.42)}
 
-/* info grid */
-.info-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+/* 掛爐（hero 圖）— 從吊桿垂下的燒鵝 */
+.lugu{position:relative;padding-top:30px}
+.lugu-rail{
+  position:absolute;top:0;left:-6%;right:-6%;height:3px;border-radius:2px;
+  background:linear-gradient(90deg,transparent,#54463480 6%,#B79A6B 50%,#54463480 94%,transparent);
+  box-shadow:0 1px 4px rgba(0,0,0,.6);
 }
-.info-row { display: flex; flex-direction: column; gap: 4px; }
-.info-row .ilabel {
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-  color: var(--gray3);
+.lugu-hook{
+  position:absolute;top:0;left:50%;width:2px;height:30px;background:linear-gradient(180deg,#C3A87C,#6E5B41);
+  transform:translateX(-50%);
 }
-.info-row input[type="text"],
-.info-row input[type="tel"] {
-  height: 42px;
-  border: 1.5px solid var(--gray2);
-  border-radius: 4px;
-  padding: 0 12px;
-  font-size: 15px;
-  font-family: inherit;
-  background: var(--gray1);
-  outline: none;
-  color: var(--text);
+.lugu-hook::after{
+  content:"";position:absolute;top:-5px;left:50%;transform:translateX(-50%);
+  width:13px;height:13px;border:2px solid #C3A87C;border-radius:50%;border-bottom-color:transparent;
 }
-.info-row input:focus { border-color: var(--navy); background: #fff; }
-.req { color: var(--red); }
-
-/* service table */
-.svc-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14.5px;
+.lugu-frame{
+  position:relative;border-radius:8px 8px 4px 4px;overflow:hidden;
+  box-shadow:0 34px 80px -22px rgba(0,0,0,.85),0 0 0 1px rgba(214,164,78,.16);
+  transform-origin:top center;
 }
-.svc-table th {
-  background: var(--navy);
-  color: #fff;
-  padding: 10px 14px;
-  text-align: left;
-  font-size: 12.5px;
-  font-weight: 600;
-  letter-spacing: 0.4px;
+.lugu-frame img{width:100%;height:clamp(400px,52vw,600px);object-fit:cover;object-position:52% 42%}
+.lugu-frame::after{ /* 熱燈光暈 */
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(70% 40% at 50% -6%,rgba(255,196,120,.28),transparent 62%),
+             linear-gradient(180deg,transparent 55%,rgba(20,16,13,.72));
 }
-.svc-table td {
-  padding: 10px 14px;
-  border-bottom: 1px solid var(--gray2);
-  vertical-align: top;
-  line-height: 1.65;
+.lugu-tag{
+  position:absolute;left:16px;bottom:14px;z-index:2;
+  font-family:var(--mono);font-size:13px;letter-spacing:.22em;color:var(--gold-2);
+  text-transform:uppercase;text-shadow:0 1px 6px #000;
 }
-.svc-table tr:nth-child(even) td { background: var(--gray1); }
-.price-val {
-  font-weight: 700;
-  color: var(--navy);
-  font-size: 16px;
-  white-space: nowrap;
+.xian{
+  position:absolute;right:14px;top:44px;z-index:2;
+  width:38px;height:38px;display:grid;place-items:center;border-radius:5px;
+  background:var(--lacquer);box-shadow:0 4px 14px rgba(0,0,0,.5),inset 0 0 0 1px rgba(242,211,145,.4);
+  font-family:var(--serif);font-weight:900;font-size:22px;color:var(--gold-2);
 }
-.badge {
-  display: inline-block;
-  background: var(--gold-lt);
-  color: #7a6318;
-  border: 1px solid var(--gold);
-  border-radius: 3px;
-  font-size: 10.5px;
-  font-weight: 700;
-  padding: 0 5px;
-  margin-left: 4px;
+@media(max-width:900px){
+  .hero{padding:112px 0 48px}
+  .hero-in{grid-template-columns:1fr;gap:38px}
+  .lugu-frame img{height:min(58vh,420px)}
 }
 
-/* warranty box */
-.warranty-box {
-  background: var(--gold-lt);
-  border: 1.5px solid var(--gold);
-  border-radius: 5px;
-  padding: 14px 16px;
-  margin-top: 12px;
-  display: flex;
-  gap: 12px;
+/* ---------- 現切跑馬燈 ---------- */
+.strip{
+  position:relative;z-index:2;border-block:1px solid rgba(214,164,78,.16);
+  background:linear-gradient(180deg,rgba(196,97,31,.09),rgba(20,16,13,0));
+  overflow:hidden;padding:15px 0;
 }
-.warranty-box .wico { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
-.warranty-box .wtitle { font-weight: 700; color: #6b520e; font-size: 15px; margin-bottom: 5px; }
-.warranty-box p { font-size: 14px; color: #7a6318; line-height: 1.65; }
-.warranty-box.hidden { display: none; }
+.marq{display:flex;width:max-content;animation:slide 42s linear infinite}
+.strip:hover .marq{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.marq span{
+  display:inline-flex;align-items:center;gap:16px;padding-inline:16px;white-space:nowrap;
+  font-family:var(--serif);font-weight:600;font-size:17.5px;letter-spacing:.20em;color:rgba(245,240,230,.72);
+}
+.marq span::after{content:"◆";color:var(--glaze);font-size:9.5px;letter-spacing:0}
+.marq b{font-family:var(--num);font-weight:500;color:var(--gold-2);letter-spacing:.04em}
 
-.no-warranty-note {
-  background: #f5f5f5;
-  border: 1px solid var(--gray2);
-  border-radius: 5px;
-  padding: 12px 16px;
-  margin-top: 12px;
-  font-size: 14.5px;
-  color: #555;
-  line-height: 1.65;
+/* ---------- 區塊 & 吊掛招牌（視覺簽名）---------- */
+.sec{position:relative;z-index:2;padding:clamp(72px,9vw,124px) 0}
+.sec-head{position:relative;margin-bottom:clamp(40px,5vw,64px);padding-top:34px;text-align:center}
+.rail{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(560px,86%);height:1px;
+  background:linear-gradient(90deg,transparent,rgba(183,154,107,.15) 8%,#B79A6B 50%,rgba(183,154,107,.15) 92%,transparent);
 }
-.no-warranty-note.hidden { display: none; }
-
-/* clause list */
-.clause-list { list-style: none; }
-.clause-list li {
-  display: flex;
-  gap: 11px;
-  padding: 8px 0;
-  font-size: 14.5px;
-  line-height: 1.75;
-  border-bottom: 1px dashed var(--gray2);
+.plaque{
+  position:relative;display:inline-block;transform-origin:top center;
+  padding:13px 34px;border-radius:3px;
+  background:linear-gradient(180deg,#B21A1F,var(--lacquer) 45%,var(--lacquer-d));
+  box-shadow:0 14px 34px -12px rgba(0,0,0,.8),inset 0 0 0 1px rgba(242,211,145,.30),inset 0 0 0 4px rgba(0,0,0,.10);
 }
-.clause-list li:last-child { border-bottom: none; }
-.cnum {
-  flex-shrink: 0;
-  width: 23px; height: 23px;
-  background: var(--navy);
-  color: #fff;
-  border-radius: 50%;
-  font-size: 11px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2px;
+.plaque::before{
+  content:"";position:absolute;inset:5px;border:1px solid rgba(242,211,145,.30);border-radius:1px;pointer-events:none;
+}
+.hook{position:absolute;top:-24px;width:2px;height:24px;background:linear-gradient(180deg,#8C7657,#C3A87C)}
+.hook-l{left:22px}.hook-r{right:22px}
+.hook::before{
+  content:"";position:absolute;top:-4px;left:50%;transform:translateX(-50%);
+  width:9px;height:9px;border:1.6px solid #C3A87C;border-radius:50%;border-bottom-color:transparent;
+}
+.plaque h2{font-size:clamp(1.48rem,3.1vw,2rem);font-weight:900;letter-spacing:.20em;color:var(--gold-2);
+  text-shadow:0 1px 0 rgba(0,0,0,.5),0 0 18px rgba(242,211,145,.25)}
+.sec-lede{margin:24px auto 0;max-width:46ch;color:var(--muted);font-size:17.5px;line-height:2.1}
+.sec-kicker{
+  display:block;margin-top:16px;font-family:var(--mono);font-size:12.5px;letter-spacing:.32em;
+  color:#A67D35;text-transform:uppercase;              /* 5.05:1 on charcoal — 原 --gold-d 只有 4.43，未達 AA */
 }
 
-/* risk box */
-.risk-box {
-  background: #fff5f5;
-  border: 1.5px solid #e57373;
-  border-radius: 5px;
-  padding: 15px 17px;
+/* ---------- 招牌三味 ---------- */
+.dishes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.dish{
+  position:relative;border-radius:var(--r);overflow:hidden;background:var(--charcoal-2);
+  border:1px solid rgba(214,164,78,.14);
+  transition:transform .45s var(--ease),border-color .35s,box-shadow .45s;
+  container-type:inline-size;
 }
-.risk-title {
-  font-weight: 700;
-  color: var(--red);
-  font-size: 15px;
-  margin-bottom: 11px;
+.dish:hover{transform:translateY(-7px);border-color:rgba(214,164,78,.42);box-shadow:0 26px 54px -20px rgba(0,0,0,.85)}
+.dish-img{position:relative;aspect-ratio:5/4;overflow:hidden}
+.dish-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.dish:hover .dish-img img{transform:scale(1.07)}
+.dish-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(20,16,13,.92))}
+.dish-rank{
+  position:absolute;top:12px;left:12px;z-index:2;padding:4px 11px;border-radius:999px;
+  background:rgba(20,16,13,.7);backdrop-filter:blur(6px);border:1px solid rgba(214,164,78,.35);
+  font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--gold-2);
 }
-.risk-list { list-style: none; }
-.risk-list li {
-  font-size: 14px;
-  padding: 5px 0 5px 18px;
-  position: relative;
-  color: #5a1a1a;
-  line-height: 1.7;
+.dish-body{position:relative;padding:20px 22px 24px;margin-top:-56px;z-index:2}
+.dish-body h3{font-size:1.43rem;font-weight:700;letter-spacing:.08em;margin-bottom:8px}
+.dish-sub{font-family:var(--mono);font-size:13px;letter-spacing:.16em;color:var(--gold);margin-bottom:12px}
+.dish-desc{font-size:16px;color:var(--muted);line-height:1.95;min-height:3.9em}
+.dish-foot{display:flex;align-items:baseline;justify-content:space-between;margin-top:18px;padding-top:16px;border-top:1px solid rgba(214,164,78,.16)}
+.dish-price{font-family:var(--num);font-weight:500;font-size:2.16rem;color:var(--gold-2);letter-spacing:.02em;line-height:1}
+.dish-price small{font-size:.5em;color:var(--muted-2);margin-right:3px;font-family:var(--mono)}
+.dish-add{
+  padding:9px 16px;border-radius:999px;border:1px solid rgba(214,164,78,.35);
+  font-size:14.5px;letter-spacing:.10em;color:var(--gold-2);
+  transition:background .25s,transform .2s var(--ease),border-color .25s;
 }
-.risk-list li::before {
-  content: '▸';
-  position: absolute;
-  left: 0; top: 6px;
-  color: var(--red);
-  font-size: 10px;
+.dish-add:hover{background:var(--gold);color:#241706;border-color:var(--gold);transform:translateY(-1px)}
+@container (max-width:280px){.dish-body h3{font-size:1.24rem}}
+@media(max-width:860px){.dishes{grid-template-columns:1fr;max-width:440px;margin-inline:auto}}
+
+/* ---------- 菜單（牛皮紙世界）---------- */
+.menu-sec{
+  position:relative;z-index:2;
+  background:var(--kraft);color:var(--ink);
+  background-image:
+    radial-gradient(circle at 18% 12%,rgba(196,175,135,.42),transparent 42%),
+    radial-gradient(circle at 86% 78%,rgba(196,175,135,.36),transparent 46%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='4'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23p)' opacity='.10'/%3E%3C/svg%3E");
+  padding:clamp(72px,9vw,120px) 0 clamp(60px,7vw,96px);
+}
+.menu-sec::before,.menu-sec::after{
+  content:"";position:absolute;left:0;right:0;height:14px;
+  background:repeating-linear-gradient(90deg,var(--charcoal) 0 11px,transparent 11px 22px);
+  opacity:.14;
+}
+.menu-sec::before{top:0}.menu-sec::after{bottom:0}
+.menu-sec .rail{background:linear-gradient(90deg,transparent,rgba(124,17,20,.15) 8%,var(--lacquer) 50%,rgba(124,17,20,.15) 92%,transparent)}
+.menu-sec .plaque{background:linear-gradient(180deg,#B21A1F,var(--lacquer) 45%,var(--lacquer-d));box-shadow:0 12px 26px -12px rgba(80,40,10,.6),inset 0 0 0 1px rgba(242,211,145,.30)}
+.menu-sec .hook{background:linear-gradient(180deg,#8C7657,#6B5A44)}
+.menu-sec .hook::before{border-color:#8C7657;border-bottom-color:transparent}
+.menu-sec .sec-lede{color:var(--ink-2)}
+.menu-sec .sec-kicker{color:rgba(124,17,20,.77)}   /* 原 .65 只有 3.83:1，未達 AA */
+
+.tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:38px}
+.tab{
+  padding:9px 20px;border-radius:999px;border:1px solid var(--kraft-line);
+  font-size:16px;letter-spacing:.10em;color:var(--ink-2);background:rgba(255,255,255,.28);
+  transition:all .25s var(--ease);
+}
+.tab:hover{border-color:var(--lacquer);color:var(--lacquer)}
+.tab[aria-selected="true"]{background:var(--lacquer);border-color:var(--lacquer);color:#FFF0D8;font-weight:500;box-shadow:0 5px 16px -6px rgba(124,17,20,.6)}
+
+.menu-grid{display:grid;grid-template-columns:1fr 340px;gap:clamp(28px,4vw,56px);align-items:start}
+.menu-list{border-top:1px solid var(--kraft-line)}
+.m-row{
+  display:grid;grid-template-columns:1fr auto auto;align-items:baseline;gap:12px;
+  padding:17px 0;border-bottom:1px solid rgba(196,175,135,.55);
+}
+.m-row[hidden]{display:none}
+.m-main{min-width:0}
+.m-name{font-family:var(--serif);font-size:1.16rem;font-weight:700;letter-spacing:.06em;color:var(--ink);line-height:1.5}
+.m-tag{
+  display:inline-block;margin-left:9px;padding:2px 8px;border-radius:4px;vertical-align:2px;
+  background:var(--lacquer);color:#FFF0D8;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;font-weight:600;
+}
+.m-note{font-size:14.5px;color:var(--ink-2);line-height:1.8;margin-top:3px;letter-spacing:.03em}
+.m-price{font-family:var(--num);font-weight:500;font-size:1.53rem;color:var(--lacquer);letter-spacing:.02em;white-space:nowrap}
+.m-price small{font-size:.52em;color:var(--ink-2);margin-right:2px;font-family:var(--mono);font-weight:400}
+.m-add{
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;
+  border:1px solid var(--kraft-line);color:var(--ink-2);background:rgba(255,255,255,.35);
+  font-size:19.5px;line-height:1;transition:all .22s var(--ease);
+}
+.m-add:hover{background:var(--lacquer);border-color:var(--lacquer);color:#FFF0D8;transform:scale(1.1)}
+.m-add.done{background:var(--jade);border-color:var(--jade);color:#fff}
+.m-vars{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}
+.m-var{
+  display:inline-flex;align-items:center;gap:8px;padding:6px 13px;border-radius:7px;
+  border:1px solid var(--kraft-line);background:rgba(255,255,255,.35);
+  font-size:14px;letter-spacing:.06em;color:var(--ink-2);transition:all .22s var(--ease);
+}
+.m-var b{font-family:var(--num);font-weight:500;font-size:17px;color:var(--lacquer)}
+.m-var:hover{border-color:var(--lacquer);background:#fff;transform:translateY(-1px)}
+.m-var.done{background:var(--jade);border-color:var(--jade);color:#fff}
+.m-var.done b{color:#fff}
+.m-foot{
+  margin-top:22px;padding:14px 16px;border-radius:8px;border:1px dashed var(--kraft-line);
+  background:rgba(255,255,255,.30);font-size:14.5px;color:var(--ink-2);line-height:1.9;
+}
+.m-foot b{color:var(--lacquer);font-weight:600}
+
+/* 菜單側欄 */
+.menu-aside{position:sticky;top:96px;display:grid;gap:18px}
+.aside-card{
+  border-radius:var(--r);overflow:hidden;background:rgba(255,255,255,.42);
+  border:1px solid var(--kraft-line);box-shadow:0 12px 30px -18px rgba(80,50,20,.5);
+}
+.aside-card img{width:100%;aspect-ratio:4/5;object-fit:cover;cursor:zoom-in;transition:transform .8s var(--ease)}
+.aside-card img:hover{transform:scale(1.04)}
+.aside-cap{padding:12px 15px;font-family:var(--mono);font-size:13px;letter-spacing:.16em;color:var(--ink-2);
+  display:flex;justify-content:space-between;align-items:center;gap:8px}
+.aside-cap b{color:var(--lacquer);font-weight:600}
+.aside-note{
+  padding:18px;border-radius:var(--r);border:1px solid var(--kraft-line);background:rgba(255,255,255,.30);
+}
+.aside-note h4{font-family:var(--serif);font-size:1.08rem;letter-spacing:.1em;color:var(--ink);margin-bottom:10px}
+.aside-note p{font-size:14.5px;color:var(--ink-2);line-height:2}
+.aside-note .tael{font-family:var(--mono);color:var(--lacquer);font-weight:600}
+@media(max-width:900px){
+  .menu-grid{grid-template-columns:1fr}
+  .menu-aside{position:static;grid-template-columns:1fr 1fr;display:grid;gap:14px}
+  .aside-card img{aspect-ratio:3/4}
+}
+@media(max-width:560px){
+  .menu-aside{grid-template-columns:1fr}
+  .m-row{grid-template-columns:1fr auto;row-gap:8px}
+  .qty{grid-column:2;grid-row:1}
+  .m-price{grid-column:2;grid-row:2;justify-self:end}
+  .m-vars{gap:9px}
 }
 
-/* agree section */
-.agree-wrap {
-  background: #fffbf0;
-  border: 1.5px solid var(--gold);
-  border-radius: 5px;
-  padding: 15px 17px;
+/* ---------- 食材 ---------- */
+.ing{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.ing-card{
+  border-radius:var(--r);overflow:hidden;background:var(--charcoal-2);
+  border:1px solid rgba(214,164,78,.14);transition:transform .45s var(--ease),border-color .35s;
 }
-.agree-item {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  margin-bottom: 10px;
-  font-size: 14.5px;
-  line-height: 1.75;
-  cursor: default;
+.ing-card:hover{transform:translateY(-6px);border-color:rgba(214,164,78,.40)}
+.ing-card img{width:100%;aspect-ratio:7/6;object-fit:cover;transition:transform 1s var(--ease)}
+.ing-card:hover img{transform:scale(1.06)}
+.ing-body{padding:20px}
+.ing-body h3{font-size:1.25rem;letter-spacing:.10em;margin-bottom:7px}
+.ing-trait{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;color:var(--glaze);margin-bottom:11px}
+.ing-body p{font-size:15px;color:var(--muted);line-height:1.95}
+.ing-badge{
+  display:inline-block;margin-top:12px;padding:3px 10px;border-radius:4px;
+  border:1px solid rgba(214,164,78,.35);font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--gold);
 }
-.agree-item:last-child { margin-bottom: 0; }
-.agree-item input[type="checkbox"] {
-  display: none;
-}
-.agree-item .chk-icon {
-  flex-shrink: 0;
-  width: 20px; height: 20px;
-  margin-top: 2px;
-  background: #22a84a;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 900;
-  line-height: 1;
-  box-shadow: 0 1px 4px rgba(34,168,74,.35);
-}
-.agree-item strong { color: var(--red); }
+@media(max-width:1000px){.ing{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.ing{grid-template-columns:1fr}}
 
-/* auto-check note */
-.auto-check-note {
-  font-size: 12.5px;
-  color: var(--gray3);
-  margin-bottom: 11px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+/* ---------- 工序（真正的順序，所以編號成立）---------- */
+.craft{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:34px}
+.step{
+  position:relative;padding:152px 24px 30px;border-radius:var(--r);
+  background:linear-gradient(180deg,var(--charcoal-2),var(--charcoal));
+  border:1px solid rgba(214,164,78,.14);overflow:hidden;
 }
-
-/* sig area — 雙簽名格 */
-.sig-area {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
+.step::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:radial-gradient(88% 34% at 50% 0%,rgba(224,120,42,.14),transparent 62%)}
+.step > *{position:relative;z-index:2}
+/* 圖片獨立成清晰的頂部帶狀區（不再 blur、不再壓到 28% 透明），文字落在純色底上。
+   選擇器要用 .step .step-img，權重才蓋得過上面的 .step > * */
+.step .step-img{position:absolute;top:0;left:0;right:0;height:138px;overflow:hidden;z-index:1}
+.step-img img{width:100%;height:100%;object-fit:cover;
+  filter:saturate(1.10) contrast(1.05)}
+.step-img::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(20,16,13,.14) 0%,rgba(20,16,13,.04) 40%,rgba(20,16,13,.70) 84%,var(--charcoal) 100%)}
+.step-n{
+  display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;margin-bottom:16px;
+  border:1px solid rgba(214,164,78,.40);font-family:var(--serif);font-weight:700;font-size:17.5px;color:var(--gold-2);
 }
-/* 雙簽名欄（並排） */
-.sig-double {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 14px;
+.step h3{font-size:1.32rem;letter-spacing:.12em;margin-bottom:9px}
+.step .step-sub{font-family:var(--mono);font-size:12.5px;letter-spacing:.18em;color:var(--glaze);margin-bottom:13px}
+.step p{font-size:15px;color:var(--muted);line-height:2}
+.poster-banner{margin:0 0 34px;border-radius:var(--r);overflow:hidden;cursor:zoom-in;
+  border:1px solid rgba(214,164,78,.16);background:var(--charcoal-2)}
+.poster-banner img{width:100%;display:block;transition:transform 1.1s var(--ease)}
+.poster-banner:hover img{transform:scale(1.025)}
+.craft-quote{
+  display:grid;grid-template-columns:.9fr 1.1fr;gap:0;border-radius:var(--r);overflow:hidden;
+  border:1px solid rgba(214,164,78,.16);background:var(--charcoal-2);
 }
-.sig-block { display: flex; flex-direction: column; gap: 7px; }
-.sig-block .slabel {
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--gray3);
-}
-.sig-canvas-wrap {
-  border: 2px dashed #bbb;
-  border-radius: 5px;
-  background: #fafafa;
-  height: 130px;
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
-  transition: border-color .15s, background .15s;
-}
-.sig-canvas-wrap canvas { display: block; width: 100%; height: 100%; }
-.sig-hint {
-  position: absolute;
-  bottom: 8px; left: 0; right: 0;
-  text-align: center;
-  font-size: 12px;
-  color: #c0c0c0;
-  pointer-events: none;
-  user-select: none;
-}
-.sig-clear {
-  font-size: 12px;
-  color: var(--gray3);
-  border: 1px solid var(--gray2);
-  background: #fff;
-  border-radius: 3px;
-  padding: 4px 10px;
-  cursor: pointer;
-  align-self: flex-start;
-  transition: all .15s;
-}
-.sig-clear:hover { border-color: var(--red); color: var(--red); }
-
-/* 客戶用大按鈕（合約右側，手機操作） */
-.client-save-btn {
-  display: block;
-  width: 100%;
-  margin-top: 18px;
-  padding: 16px 0;
-  background: var(--navy);
-  color: #fff;
-  border: none;
-  border-radius: 7px;
-  font-size: 16px;
-  font-family: inherit;
-  font-weight: 700;
-  cursor: pointer;
-  text-align: center;
-  letter-spacing: 0.5px;
-  transition: opacity .15s;
-}
-.client-save-btn:hover { opacity: .85; }
-
-.mobile-pdf-hint {
-  display: block;
-  margin-top: 10px;
-  padding: 11px 14px;
-  background: #f0f7ff;
-  border: 1px solid #b0d0f0;
-  border-radius: 6px;
-  font-size: 13px;
-  color: #3a5a80;
-  line-height: 1.85;
+.craft-quote img{width:100%;height:100%;min-height:280px;object-fit:cover}
+.cq-body{padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;justify-content:center}
+.cq-body blockquote{margin:0;font-family:var(--serif);font-size:clamp(1.26rem,2.3vw,1.65rem);font-weight:700;
+  line-height:1.85;letter-spacing:.08em;color:var(--rice)}
+.cq-body blockquote span{color:var(--gold-2)}
+.cq-body cite{display:block;margin-top:20px;font-family:var(--mono);font-size:13px;letter-spacing:.20em;
+  color:var(--muted-2);font-style:normal}
+@media(max-width:900px){
+  .craft{grid-template-columns:1fr}
+  .craft-quote{grid-template-columns:1fr}
+  .craft-quote img{min-height:220px}
 }
 
-.date-field { margin-top: 8px; }
-.date-field .dlabel {
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-  color: var(--gray3);
-  margin-bottom: 5px;
-  display: block;
+/* ---------- 團訂 ---------- */
+.cater{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,60px);align-items:center}
+.cater-img{border-radius:var(--r);overflow:hidden;border:1px solid rgba(214,164,78,.16);position:relative}
+.cater-img img{width:100%;aspect-ratio:4/3;object-fit:cover}
+/* 原本是 linear-gradient(200deg,…,.6)：斜向、又濃，把拼盤照片下半部壓成一片暗糊，
+   看起來像照片被斜切。這張卡片上沒有文字要壓，遮罩改成很淡的垂直底部暈影就好。*/
+.cater-img::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,transparent 68%,rgba(20,16,13,.26))}
+.cater-list{display:grid;gap:2px}
+.cater-item{
+  display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;
+  padding:19px 0;border-bottom:1px solid rgba(214,164,78,.14);
 }
-.date-field input[type="date"] {
-  height: 40px;
-  border: 1.5px solid var(--gray2);
-  border-radius: 4px;
-  padding: 0 12px;
-  font-size: 15px;
-  font-family: inherit;
-  background: var(--gray1);
-  outline: none;
-  color: var(--text);
-  width: 100%;
-}
-.date-field input:focus { border-color: var(--navy); }
+.cater-item:first-child{border-top:1px solid rgba(214,164,78,.14)}
+.cater-ico{width:38px;height:38px;border-radius:9px;display:grid;place-items:center;flex:0 0 auto;
+  background:rgba(196,97,31,.12);border:1px solid rgba(196,97,31,.30)}
+.cater-ico svg{width:17px;height:17px;stroke:var(--glaze);fill:none;stroke-width:1.6}
+.cater-item h3{font-size:1.13rem;letter-spacing:.1em;margin-bottom:5px}
+.cater-item p{font-size:15px;color:var(--muted);line-height:1.9}
+.cater-cta{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+@media(max-width:900px){.cater{grid-template-columns:1fr}}
 
-.line-preview {
-  background: var(--gray1);
-  border: 1.5px solid var(--gray2);
-  border-radius: 4px;
-  padding: 10px 12px;
-  min-height: 48px;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 4px;
+/* ---------- 店裡（相簿）---------- */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px}
+.gal figure{margin:0;position:relative;overflow:hidden;border-radius:var(--r);border:1px solid rgba(214,164,78,.14);cursor:zoom-in}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.gal figure:hover img{transform:scale(1.07)}
+.gal figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:26px 16px 13px;
+  background:linear-gradient(180deg,transparent,rgba(20,16,13,.9));
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.18em;color:var(--gold-2);
+  opacity:0;transform:translateY(6px);transition:all .35s var(--ease);
 }
-.sig-footnote {
-  font-size: 12px;
-  color: #999;
-  line-height: 1.75;
-  margin-top: 6px;
+.gal figure:hover figcaption{opacity:1;transform:none}
+.g-tall{grid-row:span 2}
+.g-wide{grid-column:span 2}
+@media(max-width:900px){.gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}.g-wide{grid-column:span 2}}
+
+/* ---------- 門市 ---------- */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);align-items:start}
+.info-block + .info-block{margin-top:26px;padding-top:26px;border-top:1px solid rgba(214,164,78,.14)}
+.info-label{font-family:var(--mono);font-size:12.5px;letter-spacing:.28em;color:#A67D35;text-transform:uppercase;margin-bottom:10px}
+.info-main{font-family:var(--serif);font-size:1.4rem;font-weight:700;letter-spacing:.06em;color:var(--rice);line-height:1.6}
+.info-main a{text-decoration:none;color:var(--gold-2);transition:color .2s}
+.info-main a:hover{color:var(--gold-2);text-decoration:underline;text-underline-offset:5px}
+.tel-big{font-family:var(--num);font-weight:500;font-size:clamp(2.15rem,5.1vw,2.85rem);letter-spacing:.03em;line-height:1.15;
+  color:var(--gold-2);text-decoration:none;display:inline-block;padding:6px 2px;margin:-6px -2px;
+  transition:transform .2s var(--ease)}
+.tel-big:hover{transform:translateY(-2px)}
+.hours{margin-top:6px;border:1px solid rgba(214,164,78,.16);border-radius:10px;overflow:hidden}
+.hrow{display:grid;grid-template-columns:88px 1fr;gap:10px;padding:11px 16px;font-size:15px;
+  border-bottom:1px solid rgba(214,164,78,.10)}
+.hrow:last-child{border-bottom:0}
+.hrow dt{color:var(--muted);letter-spacing:.10em}
+.hrow dd{margin:0;font-family:var(--mono);font-size:14.5px;color:var(--rice);letter-spacing:.04em}
+.hrow.today{background:rgba(214,164,78,.10)}
+.hrow.today dt{color:var(--gold-2);font-weight:500}
+.hrow.today dd{color:var(--gold-2)}
+.hrow.rest dd{color:var(--muted-2)}
+.disclaim{margin-top:12px;font-size:13.5px;color:var(--muted-2);line-height:1.8}
+.map-card{border-radius:var(--r);overflow:hidden;border:1px solid rgba(214,164,78,.16);background:var(--charcoal-2)}
+.map-holder{
+  position:relative;aspect-ratio:1/1;
+  background:
+    linear-gradient(rgba(214,164,78,.055) 1px,transparent 1px) 0 0/34px 34px,
+    linear-gradient(90deg,rgba(214,164,78,.055) 1px,transparent 1px) 0 0/34px 34px,
+    var(--charcoal-3);
+  display:grid;place-items:center;
+}
+.map-holder iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.25) contrast(1.05)}
+.map-fallback{text-align:center;padding:24px;z-index:0}
+.map-fallback .pin{width:38px;height:38px;margin:0 auto 14px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);
+  background:var(--lacquer);box-shadow:0 6px 18px rgba(168,24,28,.5)}
+.map-fallback p{font-size:15px;color:var(--muted);letter-spacing:.08em}
+.map-foot{display:flex;gap:10px;padding:14px;border-top:1px solid rgba(214,164,78,.14);flex-wrap:wrap}
+.map-foot .btn{flex:1;padding:12px 14px;font-size:15px;min-width:130px}
+
+/* ---------- 外送距離（1.5km 內 5 份／1.5km 外 10 份）---------- */
+.dist{padding:18px 16px 16px;border-top:1px solid rgba(214,164,78,.14)}
+.dist-t{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:13px}
+.dist-t h3{font-family:var(--serif);font-size:1.06rem;letter-spacing:.12em;color:var(--gold-2)}
+.dist-t .sub{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--muted-2);white-space:nowrap}
+
+.dist-act{display:flex;gap:8px;flex-wrap:wrap}
+.dist-in{flex:1 1 150px;min-width:0;padding:11px 12px;border-radius:9px;font:inherit;font-size:14.5px;
+  color:var(--rice);background:rgba(0,0,0,.30);border:1px solid rgba(214,164,78,.22)}
+.dist-in::placeholder{color:rgba(245,240,230,.32)}
+.dist-in:focus{outline:none;border-color:var(--gold);background:rgba(0,0,0,.42)}
+.dist-btn{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;padding:11px 14px;border-radius:9px;
+  font-size:14px;font-weight:600;letter-spacing:.04em;transition:transform .2s var(--ease),background .2s}
+.dist-btn svg{width:14px;height:14px;fill:currentColor}
+.dist-btn[disabled]{opacity:.55;cursor:default;transform:none}
+.dist-geo{border:1px solid rgba(214,164,78,.32);color:var(--gold-2);background:rgba(214,164,78,.06)}
+.dist-geo:hover:not([disabled]){background:rgba(214,164,78,.15);transform:translateY(-2px)}
+.dist-go{background:linear-gradient(180deg,var(--gold-2),var(--gold) 55%,var(--gold-d));color:#241706}
+.dist-go:hover:not([disabled]){transform:translateY(-2px)}
+
+.dist-out{display:none;margin-top:18px}
+.dist-out.on{display:block}
+.dist-km{display:flex;align-items:baseline;gap:7px}
+.dist-km b{font-family:var(--num);font-size:2.6rem;font-weight:600;line-height:1;letter-spacing:.02em;color:var(--gold-2)}
+.dist-km span{font-size:14px;color:var(--muted)}
+.dist-from{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--muted-2);margin-top:5px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* 量尺：一眼看出自己落在 1.5 公里的哪一邊 */
+.ruler{--edge:50%;position:relative;height:6px;border-radius:99px;margin:34px 4px 34px 6px;
+  background:linear-gradient(90deg,rgba(135,162,92,.55) 0 var(--edge),rgba(196,97,31,.42) var(--edge) 100%)}
+.ruler i{position:absolute}
+.ruler-tick{left:var(--edge);top:-7px;bottom:-7px;width:1px;background:var(--gold);opacity:.6}
+.ruler-tick::after{content:"1.5 km";position:absolute;left:50%;top:-18px;transform:translateX(-50%);
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;color:var(--gold);white-space:nowrap}
+.ruler-shop{left:0;top:50%;width:11px;height:11px;margin:-6px 0 0 -4px;border-radius:50% 50% 50% 0;
+  transform:rotate(-45deg);background:var(--lacquer);border:1px solid var(--gold-2)}
+.ruler-shop::after{content:"本店";position:absolute;left:50%;top:12px;transform:rotate(45deg) translateX(-38%);
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;color:var(--muted-2);white-space:nowrap}
+.ruler-you{left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;
+  background:var(--gold-2);border:2px solid var(--charcoal-2);box-shadow:0 0 0 2px var(--gold);
+  transition:left .7s var(--ease)}
+.ruler-you::after{content:attr(data-l);position:absolute;left:50%;top:15px;transform:translateX(-50%);
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--rice);white-space:nowrap}
+
+.dist-st{border-radius:10px;padding:13px 14px;font-size:14.5px;line-height:1.8;border:1px solid}
+.dist-st b{font-weight:700}
+.dist-st.ok{border-color:rgba(135,162,92,.45);background:rgba(135,162,92,.10);color:#D2E0B4}
+.dist-st.no{border-color:rgba(196,97,31,.45);background:rgba(196,97,31,.10);color:#F2C9A4}
+.dist-call{margin-top:10px;display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px;border-radius:9px;font-size:15px;font-weight:600;letter-spacing:.03em;text-decoration:none;
+  color:#fff;background:linear-gradient(180deg,#C22226,var(--lacquer) 58%,var(--lacquer-d));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22);transition:transform .2s var(--ease)}
+.dist-call:hover{transform:translateY(-2px)}
+.dist-call svg{width:15px;height:15px;fill:currentColor}
+.dist-rule{margin-top:14px;padding-top:13px;border-top:1px dashed rgba(214,164,78,.18);
+  font-size:12.5px;line-height:2;color:var(--muted-2)}
+.dist-rule em{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+  color:var(--gold);font-style:normal;margin-bottom:5px}
+.dist-rule b{color:var(--rice);font-weight:600}
+
+/* 點餐單裡的外送狀態條 */
+.sf-deliv{margin:-2px 0 16px;border-radius:9px;padding:11px 13px;font-size:13.5px;line-height:1.85;
+  border:1px solid var(--kraft-line);background:rgba(255,255,255,.35);color:var(--ink-2)}
+.sf-deliv b{color:var(--ink);font-weight:700}
+.sf-deliv a{color:var(--lacquer);font-weight:600;text-underline-offset:3px}
+.sf-deliv.ok{border-color:rgba(93,124,54,.45);background:rgba(135,162,92,.16)}
+.sf-deliv.warn{border-color:rgba(196,97,31,.5);background:rgba(196,97,31,.10)}
+.sf-deliv.err{border-color:var(--lacquer);background:rgba(168,24,28,.10);
+  animation:shake .34s var(--ease)}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+@media (prefers-reduced-motion:reduce){.sf-deliv.err{animation:none}.ruler-you{transition:none}}
+.qr-row{display:flex;gap:18px;align-items:center;margin-top:6px}
+.qr-box{
+  width:112px;height:112px;flex:0 0 auto;padding:7px;border-radius:10px;background:#fff;
+  box-shadow:0 8px 24px -10px rgba(0,0,0,.7);
+}
+.qr-box img{width:100%;height:100%;object-fit:contain}
+.qr-txt p{font-size:15px;color:var(--muted);line-height:1.95}
+.qr-txt strong{display:block;font-family:var(--serif);font-size:1.1rem;color:var(--rice);letter-spacing:.08em;margin-bottom:6px;font-weight:700}
+@media(max-width:900px){.visit{grid-template-columns:1fr}}
+
+/* ---------- 頁尾 ---------- */
+.foot{position:relative;z-index:2;border-top:1px solid rgba(214,164,78,.16);
+  background:linear-gradient(180deg,var(--charcoal),#0D0A08);padding:52px 0 32px}
+.foot-in{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:center}
+.foot-brand{display:flex;align-items:center;gap:13px}
+.foot-meta{font-size:14px;color:var(--muted-2);line-height:2;letter-spacing:.06em}
+.foot-meta a{color:var(--muted);text-decoration:none}
+.foot-meta a:hover{color:var(--gold-2)}
+.foot-bar{margin-top:30px;padding-top:22px;border-top:1px solid rgba(214,164,78,.10);
+  display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;color:var(--muted-2)}
+
+/* ---------- 點餐單（功能簽名）---------- */
+.slip-fab{
+  position:fixed;right:22px;bottom:22px;z-index:115;
+  display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;
+  background:linear-gradient(180deg,var(--gold-2),var(--gold) 55%,var(--gold-d));color:#241706;
+  font-weight:700;font-size:16.5px;letter-spacing:.08em;
+  box-shadow:0 12px 34px -8px rgba(214,164,78,.5),inset 0 1px 0 rgba(255,255,255,.5);
+  transition:transform .25s var(--ease),opacity .3s;
+}
+.slip-fab:hover{transform:translateY(-3px)}
+/* 點餐單開著時，浮動鈕正好被面板壓在下面 → 收起來，免得看不見卻還能 Tab 到 */
+.slip-fab[aria-expanded="true"]{opacity:0;visibility:hidden;pointer-events:none;transform:scale(.92)}
+.slip-fab .n{
+  display:grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;
+  background:var(--lacquer);color:#FFF0D8;font-family:var(--num);font-size:14px;font-weight:500;
+}
+.slip{
+  position:fixed;z-index:130;right:22px;bottom:22px;width:min(374px,calc(100vw - 32px));
+  max-height:min(88vh,860px);display:flex;flex-direction:column;
+  background:var(--kraft);color:var(--ink);border-radius:6px;
+  box-shadow:0 40px 90px -20px rgba(0,0,0,.85);
+  transform:translateY(18px) scale(.97);opacity:0;visibility:hidden;
+  transition:transform .4s var(--ease),opacity .3s,visibility .3s;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='q'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23q)' opacity='.08'/%3E%3C/svg%3E");
+}
+.slip.open{transform:none;opacity:1;visibility:visible}
+.slip::before{
+  content:"";position:absolute;top:-7px;left:0;right:0;height:8px;
+  background:radial-gradient(circle at 5px 8px,transparent 5px,var(--kraft) 5px) 0 0/10px 10px;
+}
+.slip-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px 20px 12px;
+  border-bottom:1px dashed var(--kraft-line)}
+.slip-head h3{font-family:var(--serif);font-size:1.19rem;letter-spacing:.14em;color:var(--ink)}
+.slip-head .sub{font-family:var(--mono);font-size:11.5px;letter-spacing:.20em;color:var(--ink-2);margin-top:3px}
+.slip-x{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:var(--ink-2);font-size:20.5px;
+  transition:background .2s}
+.slip-x:hover{background:rgba(0,0,0,.07)}
+.slip-scroll{flex:1;overflow-y:auto;overscroll-behavior:contain}
+.slip-body{padding:14px 20px}
+.slip-empty{padding:34px 8px;text-align:center;font-size:15px;color:var(--ink-2);line-height:2}
+.slip-empty span{display:block;font-size:29.5px;margin-bottom:10px;opacity:.35}
+.s-item{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:11px 0;
+  border-bottom:1px dotted var(--kraft-line);font-family:var(--mono);font-size:14.5px}
+.s-item .nm{color:var(--ink);letter-spacing:.02em;font-family:var(--sans);font-size:16px;line-height:1.5}
+.s-qty{display:inline-flex;align-items:center;gap:3px}
+.s-qty button{width:23px;height:23px;border-radius:5px;border:1px solid var(--kraft-line);display:grid;place-items:center;
+  font-size:15px;line-height:1;color:var(--ink-2);background:rgba(255,255,255,.4);transition:all .18s}
+.s-qty button:hover{background:var(--lacquer);color:#fff;border-color:var(--lacquer)}
+.s-qty .q{min-width:20px;text-align:center;font-family:var(--num);font-size:16.5px;color:var(--ink)}
+.s-sum{font-family:var(--num);font-size:17px;color:var(--lacquer);min-width:46px;text-align:right}
+.slip-foot{padding:16px 20px 20px;border-top:1px dashed var(--kraft-line);background:rgba(255,255,255,.22)}
+.s-total{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px}
+.s-total .lb{font-family:var(--mono);font-size:13px;letter-spacing:.22em;color:var(--ink-2)}
+.s-total .vl{font-family:var(--num);font-weight:600;font-size:2.05rem;color:var(--lacquer);line-height:1}
+.s-total .vl small{font-size:.44em;margin-right:3px;font-family:var(--mono);font-weight:400;color:var(--ink-2)}
+.s-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.s-btn{padding:12px;border-radius:8px;font-size:15px;letter-spacing:.08em;font-weight:500;text-align:center;
+  text-decoration:none;display:flex;align-items:center;justify-content:center;gap:7px;transition:all .22s var(--ease)}
+.s-btn svg{width:14px;height:14px;fill:currentColor}
+.s-call{background:var(--lacquer);color:#FFF0D8}
+.s-call:hover{background:var(--lacquer-d);transform:translateY(-1px)}
+.s-copy{border:1px solid var(--kraft-line);color:var(--ink-2);background:rgba(255,255,255,.45)}
+.s-copy:hover{border-color:var(--ink-2);color:var(--ink)}
+.s-clear{width:100%;margin-top:9px;padding:8px;font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;
+  color:var(--ink-2);opacity:.7;transition:opacity .2s}
+.s-clear:hover{opacity:1;color:var(--lacquer)}
+.s-hint{margin-top:11px;font-size:12.5px;color:var(--ink-2);line-height:1.8;text-align:center;opacity:.8}
+
+/* ---------- 訂購資料表單（牛皮紙） ---------- */
+.slip-form{padding:4px 20px 18px;border-top:1px dashed var(--kraft-line)}
+.sf-t{font-family:var(--mono);font-size:12.5px;letter-spacing:.22em;color:var(--ink-2);
+  margin:14px 0 12px;display:flex;align-items:center;gap:9px}
+.sf-t::after{content:"";flex:1;height:1px;background:var(--kraft-line);opacity:.6}
+.sf{margin-bottom:11px}
+.sf-row{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.sf label{display:block;font-size:13px;font-weight:700;letter-spacing:.09em;color:var(--ink-2);margin-bottom:5px}
+.sf label i{color:var(--lacquer);font-style:normal;margin-left:3px}
+.sf input,.sf textarea{
+  width:100%;padding:9px 11px;font-family:var(--sans);font-size:16.5px;color:var(--ink);
+  background:rgba(255,255,255,.58);border:1px solid var(--kraft-line);border-radius:6px;
+  transition:border-color .18s,box-shadow .18s,background .18s;
+}
+.sf textarea{resize:vertical;min-height:56px;line-height:1.7}
+.sf input:focus,.sf textarea:focus{
+  outline:none;border-color:var(--lacquer);background:rgba(255,255,255,.85);
+  box-shadow:0 0 0 3px rgba(168,24,28,.12);
+}
+.sf input::placeholder,.sf textarea::placeholder{color:rgba(92,74,52,.45)}
+.sf-e{display:none;font-size:12.5px;color:var(--lacquer);margin-top:4px;letter-spacing:.02em}
+.sf.err input,.sf.err textarea{border-color:var(--lacquer);background:rgba(168,24,28,.07)}
+.sf.err .sf-e{display:block}
+.sf-hours{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink-2);
+  opacity:.75;margin:-4px 0 12px;line-height:1.7}
+
+/* 自取勾選 */
+.sf-pick{
+  position:relative;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;
+  padding:10px 12px;margin:2px 0 12px;border:1px dashed var(--kraft-line);border-radius:7px;
+  background:rgba(255,255,255,.30);transition:border-color .2s,background .2s;
+}
+.sf-pick:hover{border-color:var(--lacquer)}
+.sf-pick.on{border-style:solid;border-color:var(--lacquer);background:rgba(168,24,28,.06)}
+.sf-pick input{position:absolute;opacity:0;width:0;height:0}
+.sf-box{width:18px;height:18px;flex:none;border:2px solid var(--ink-2);border-radius:4px;
+  background:#fff;display:grid;place-items:center;transition:all .16s}
+.sf-box::after{content:"✓";color:#fff;font-size:14px;font-weight:700;transform:scale(0);transition:transform .16s}
+.sf-pick input:checked ~ .sf-box{background:var(--lacquer);border-color:var(--lacquer)}
+.sf-pick input:checked ~ .sf-box::after{transform:scale(1)}
+.sf-pick input:focus-visible ~ .sf-box{box-shadow:0 0 0 3px rgba(168,24,28,.3)}
+.sf-pt{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:.03em;line-height:1.4}
+.sf-pt small{display:block;font-weight:400;font-size:12.5px;color:var(--ink-2);margin-top:2px;letter-spacing:0}
+
+/* 送出訂單 */
+.s-send{
+  width:100%;display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px;margin-bottom:8px;border-radius:8px;cursor:pointer;
+  font-family:var(--serif);font-weight:700;font-size:17.5px;letter-spacing:.16em;
+  color:#FFF0D8;background:linear-gradient(180deg,#BD1D22,var(--lacquer-d));
+  box-shadow:0 8px 20px -6px rgba(124,17,20,.7);
+  transition:transform .18s var(--ease),box-shadow .25s,filter .2s;
+}
+.s-send svg{width:15px;height:15px;fill:currentColor}
+.s-send:hover{filter:brightness(1.1);box-shadow:0 11px 26px -6px rgba(124,17,20,.85);transform:translateY(-1px)}
+.s-send:active{transform:translateY(1px)}
+
+/* ---------- 加入社群彈窗 ---------- */
+.cmt{
+  position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px;
+  background:rgba(8,6,5,.88);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+}
+.cmt.open{display:flex;animation:cmtIn .25s ease both}
+@keyframes cmtIn{from{opacity:0}to{opacity:1}}
+.cmt-card{
+  width:100%;max-width:432px;max-height:92vh;overflow-y:auto;position:relative;text-align:center;
+  padding:32px 26px 24px;border-radius:14px;
+  background:linear-gradient(180deg,var(--charcoal-3),var(--charcoal));
+  border:1px solid rgba(214,164,78,.28);
+  box-shadow:0 40px 100px -20px rgba(0,0,0,.9);
+  animation:cmtUp .34s var(--ease) both;
+}
+@keyframes cmtUp{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}
+.cmt-x{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;
+  display:grid;place-items:center;color:var(--muted-2);font-size:17.5px;transition:all .2s}
+.cmt-x:hover{background:rgba(255,255,255,.08);color:var(--gold-2)}
+.cmt-ok{
+  display:inline-block;margin-bottom:14px;padding:6px 15px;border-radius:999px;
+  font-family:var(--mono);font-size:13px;letter-spacing:.12em;
+  background:rgba(135,162,92,.14);border:1px solid rgba(135,162,92,.5);color:var(--jade);
+}
+.cmt-ok.warn{background:rgba(168,24,28,.14);border-color:rgba(189,29,34,.6);color:#F0A79A}
+.cmt-card h3{font-family:var(--serif);font-size:1.53rem;letter-spacing:.12em;color:var(--gold-2);margin-bottom:9px}
+.cmt-lead{font-size:15px;color:var(--muted);line-height:1.95;margin-bottom:20px}
+.cmt-lead b{color:var(--gold-2);font-weight:500}
+.cmt-qr{width:208px;height:208px;margin:0 auto 9px;padding:10px;background:#fff;border-radius:12px;
+  box-shadow:0 0 0 1px rgba(214,164,78,.35),0 16px 36px -10px rgba(0,0,0,.7)}
+.cmt-qr img{width:100%;height:100%;object-fit:contain;display:block}
+.cmt-cap{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--muted-2);margin-bottom:18px}
+.cmt-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px;padding:14px 6px;
+  border-top:1px solid rgba(214,164,78,.14);border-bottom:1px solid rgba(214,164,78,.14)}
+.cmt-steps i{display:grid;place-items:center;width:26px;height:26px;margin:0 auto 7px;border-radius:50%;
+  border:1px solid rgba(214,164,78,.45);font-family:var(--serif);font-style:normal;font-size:14px;
+  font-weight:700;color:var(--gold-2)}
+.cmt-steps span{font-size:13px;color:var(--rice);line-height:1.6;opacity:.85}
+.cmt-btn{
+  display:flex;align-items:center;justify-content:center;width:100%;padding:13px;margin-bottom:8px;
+  border-radius:8px;cursor:pointer;text-decoration:none;
+  font-family:var(--serif);font-weight:700;font-size:17px;letter-spacing:.1em;
+  transition:all .2s var(--ease);
+}
+.cmt-go{background:#06C755;color:#fff;box-shadow:0 8px 22px -8px rgba(6,199,85,.8)}
+.cmt-go:hover{filter:brightness(1.09);transform:translateY(-1px)}
+.cmt-gold{background:linear-gradient(180deg,var(--gold-2),var(--gold) 55%,var(--gold-d));color:#241706;
+  box-shadow:0 8px 22px -8px rgba(214,164,78,.7)}
+.cmt-gold:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.cmt-ghost{border:1px solid rgba(214,164,78,.3);color:var(--gold-2);background:transparent}
+.cmt-ghost:hover{background:rgba(214,164,78,.1);border-color:var(--gold)}
+.cmt-raw{margin-top:12px;text-align:left}
+.cmt-raw summary{cursor:pointer;list-style:none;padding:6px 0;
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;color:var(--muted-2)}
+.cmt-raw summary::-webkit-details-marker{display:none}
+.cmt-raw summary::before{content:"＋ ";color:var(--gold)}
+.cmt-raw[open] summary::before{content:"－ "}
+.cmt-raw summary:hover{color:var(--gold-2)}
+.cmt-raw textarea{width:100%;height:186px;margin-top:8px;padding:12px;border-radius:7px;
+  background:rgba(0,0,0,.45);border:1px solid rgba(214,164,78,.22);color:var(--rice);
+  font-family:var(--mono);font-size:13.5px;line-height:1.9;resize:vertical}
+.cmt-raw textarea:focus{outline:none;border-color:var(--gold)}
+.cmt-hint{margin-top:13px;padding-top:12px;border-top:1px dashed rgba(214,164,78,.16);
+  font-size:12.5px;color:var(--muted-2);line-height:1.8}
+.cmt-hint a{color:var(--gold-2)}
+@media(max-width:420px){
+  .cmt-card{padding:28px 18px 20px}
+  .cmt-qr{width:180px;height:180px}
 }
 
-.provider-line {
-  display: flex;
-  gap: 32px;
-  font-size: 14px;
-  color: #777;
-  margin-top: 18px;
-  padding-top: 15px;
-  border-top: 1px solid var(--gray2);
+/* 行動版底部工具列 */
+.mbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:118;display:none;
+  grid-template-columns:1fr 1fr 1.2fr;gap:1px;
+  background:rgba(214,164,78,.18);
+  padding-bottom:env(safe-area-inset-bottom);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
 }
-.provider-line .pline {
-  display: flex;
-  align-items: flex-end;
-  gap: 6px;
-  white-space: nowrap;
+.mbar a,.mbar button{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  padding:11px 6px;background:rgba(15,12,10,.94);text-decoration:none;
+  font-size:13px;letter-spacing:.10em;color:var(--muted);position:relative;
 }
-.provider-line .pline-val {
-  flex: 1;
-  border-bottom: 1px solid #ccc;
-  height: 18px;
-  min-width: 110px;
+.mbar svg{width:17px;height:17px;fill:currentColor}
+.mbar .mb-order{background:linear-gradient(180deg,#BD1D22,var(--lacquer-d));color:#FFF3DC;font-weight:500}
+.mbar .n{
+  position:absolute;top:6px;right:calc(50% - 30px);min-width:17px;height:17px;padding:0 5px;border-radius:999px;
+  background:var(--gold-2);color:#241706;font-family:var(--num);font-size:13px;line-height:17px;text-align:center;
 }
-
-/* doc footer */
-.doc-footer {
-  background: var(--navy);
-  color: rgba(255,255,255,.5);
-  font-size: 12.5px;
-  padding: 14px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 3px solid var(--gold);
-}
-.doc-footer strong { color: #fff; }
-
-/* ── SIGNATURE MODAL ── */
-.sig-modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.65);
-  z-index: 9999;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-}
-.sig-modal-overlay.open { display: flex; }
-
-.sig-modal {
-  background: #fff;
-  border-radius: 14px;
-  width: 100%;
-  max-width: 560px;
-  box-shadow: 0 8px 40px rgba(0,0,0,.35);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+@media(max-width:760px){
+  .mbar{display:grid}
+  body{padding-bottom:64px}
+  .slip-fab{display:none}
+  .slip{left:0;right:0;bottom:0;width:auto;max-width:none;border-radius:16px 16px 0 0;max-height:82vh;
+    transform:translateY(100%)}
+  .slip.open{transform:none}
+  .slip::before{display:none}
 }
 
-.sig-modal-header {
-  background: var(--navy);
-  color: #fff;
-  padding: 16px 20px 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
+/* Toast */
+.toast{
+  position:fixed;left:50%;bottom:96px;z-index:140;transform:translate(-50%,14px);
+  padding:12px 22px;border-radius:999px;background:rgba(20,16,13,.95);
+  border:1px solid rgba(214,164,78,.35);color:var(--gold-2);
+  font-size:15px;letter-spacing:.08em;opacity:0;visibility:hidden;
+  transition:all .3s var(--ease);box-shadow:0 14px 40px -10px rgba(0,0,0,.8);
 }
-.sig-modal-header h3 {
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.4px;
-}
-.sig-modal-header p {
-  font-size: 12px;
-  color: rgba(255,255,255,.5);
-  margin-top: 3px;
-}
-.sig-modal-close {
-  background: rgba(255,255,255,.15);
-  border: none;
-  color: #fff;
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  font-size: 18px;
-  line-height: 1;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  transition: background .15s;
-}
-.sig-modal-close:hover { background: rgba(255,255,255,.28); }
+.toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
 
-.sig-modal-canvas-wrap {
-  background: #fafafa;
-  border: 2.5px dashed #c0c0c0;
-  border-radius: 8px;
-  margin: 18px 18px 0;
-  height: 240px;
-  position: relative;
-  overflow: hidden;
-  touch-action: none;
-  cursor: crosshair;
-  flex-shrink: 0;
+/* Lightbox */
+dialog.lb{
+  padding:0;border:0;background:transparent;max-width:min(94vw,1000px);max-height:92vh;
+  overflow:visible;
 }
-@media (max-height: 600px) {
-  .sig-modal-canvas-wrap { height: 160px; }
-}
-.sig-modal-canvas-wrap canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-.sig-modal-hint {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-size: 15px;
-  color: #ccc;
-  pointer-events: none;
-  user-select: none;
-  line-height: 1.6;
-}
-.sig-modal-hint .hint-icon { font-size: 32px; display: block; margin-bottom: 6px; }
+dialog.lb::backdrop{background:rgba(10,8,6,.90);backdrop-filter:blur(8px)}
+dialog.lb img{max-width:100%;max-height:88vh;object-fit:contain;border-radius:8px;
+  box-shadow:0 40px 100px -20px rgba(0,0,0,.9)}
+.lb-x{position:absolute;top:-46px;right:0;width:38px;height:38px;border-radius:50%;
+  background:rgba(255,255,255,.10);color:var(--rice);display:grid;place-items:center;font-size:23px}
+.lb-x:hover{background:rgba(255,255,255,.2)}
+dialog.lb figcaption{margin-top:12px;text-align:center;font-family:var(--mono);font-size:13px;
+  letter-spacing:.18em;color:var(--gold)}
 
-.sig-modal-actions {
-  display: flex;
-  gap: 10px;
-  padding: 14px 18px 18px;
-  flex-shrink: 0;
-}
-.sig-modal-clear {
-  background: #fff;
-  color: var(--gray3);
-  border: 1.5px solid var(--gray2);
-  border-radius: 7px;
-  padding: 0 18px;
-  height: 48px;
-  font-size: 14px;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all .15s;
-  white-space: nowrap;
-}
-.sig-modal-clear:hover { border-color: var(--red); color: var(--red); }
-.sig-modal-confirm {
-  flex: 1;
-  background: var(--navy);
-  color: #fff;
-  border: none;
-  border-radius: 7px;
-  height: 48px;
-  font-size: 16px;
-  font-family: inherit;
-  font-weight: 700;
-  cursor: pointer;
-  letter-spacing: 0.5px;
-  transition: opacity .15s;
-}
-.sig-modal-confirm:hover { opacity: .86; }
-
-/* make the contract sig boxes clickable to open modal */
-.sig-canvas-wrap {
-  cursor: pointer !important;
-}
-.sig-canvas-wrap:hover {
-  border-color: var(--navy);
-  background: #f0f2f7;
-}
-.sig-open-hint {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  pointer-events: none;
-}
-.sig-open-hint .soh-icon { font-size: 28px; }
-.sig-open-hint .soh-text {
-  font-size: 13px;
-  color: #aaa;
-  font-weight: 500;
-}
-.sig-canvas-wrap.has-sig .sig-open-hint { display: none; }
-/* hide old hint when modal system is active */
-.sig-canvas-wrap .sig-hint { display: none !important; }
-
-/* ── MOBILE RESPONSIVE ── */
-@media (max-width: 640px) {
-  .panel {
-    position: fixed;
-    inset: 0 auto 0 0;
-    transform: translateX(-100%);
-    transition: transform 0.28s cubic-bezier(.4,0,.2,1) !important;
-    width: min(var(--panel-w), 85vw) !important;
-    min-width: 0 !important;
-    z-index: 200;
-    overflow-y: auto;
-    overflow-x: hidden;
+/* ---------- 進場動畫：scroll-driven，含 fallback ---------- */
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 20%}
+    .plaque{animation:sway linear both;animation-timeline:view();animation-range:entry 5% entry 95%}
   }
-  .panel.mobile-open {
-    transform: translateX(0);
-    box-shadow: 4px 0 32px rgba(0,0,0,.45);
+}
+@supports not (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+    .js .reveal.in{opacity:1;transform:none}
   }
-  /* 桌面收合按鈕在手機隱藏 */
-  .panel-collapse-btn { display: none !important; }
-
-  .contract-area {
-    width: 100vw;
-    padding: 12px 10px 100px;
-  }
-  .doc-body { padding: 16px 16px 22px; }
-  .doc-header { padding: 16px 16px 14px; flex-wrap: wrap; gap: 10px; }
-  .doc-header-left h2 { font-size: 19px; }
-  .doc-header-right { text-align: left; }
-  .info-grid { grid-template-columns: 1fr; }
-  .sig-double { grid-template-columns: 1fr; gap: 14px; }
-  .sig-area { grid-template-columns: 1fr; }
-  .provider-line { flex-direction: column; gap: 10px; }
-  .doc-footer { padding: 12px 16px; font-size: 11.5px; flex-direction: column; gap: 4px; text-align: center; }
-
-  /* 手機遮罩 */
-  .mobile-panel-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.52);
-    z-index: 199;
-    touch-action: none;
-  }
-  .mobile-panel-overlay.visible { display: block; }
-
-  /* 手機浮動設定按鈕 */
-  .mobile-panel-btn {
-    position: fixed;
-    bottom: 22px;
-    left: 16px;
-    width: 42px;
-    height: 42px;
-    background: var(--navy);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    font-size: 18px;
-    cursor: pointer;
-    z-index: 198;
-    box-shadow: 0 3px 14px rgba(0,0,0,.32);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity .15s, transform .15s;
-  }
-  .mobile-panel-btn:active { transform: scale(.9); }
+}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:no-preference){
+  .lugu-frame{animation:hang 9s ease-in-out infinite}
+}
+@keyframes hang{0%,100%{transform:rotate(-.3deg)}50%{transform:rotate(.3deg)}}
+@keyframes sway{
+  0%{transform:rotate(1.7deg) translateY(-5px)}
+  40%{transform:rotate(-1deg)}
+  70%{transform:rotate(.4deg)}
+  100%{transform:rotate(0)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;scroll-behavior:auto !important}
 }
 
-/* 桌面隱藏手機元件 */
-@media (min-width: 641px) {
-  .mobile-panel-overlay,
-  .mobile-panel-btn { display: none !important; }
+
+
+/* ============================================================
+   數量步進器  —  菜單／招牌卡共用
+   沒點過：只顯示一顆 ＋
+   點過了：變成「−  數量  ＋」，誤點可直接按 − 取消
+   ============================================================ */
+.qty{
+  display:inline-flex;align-items:center;justify-content:flex-end;align-self:center;
+  flex:0 0 auto;gap:2px;min-width:104px;padding:2px;
+  border:1px solid transparent;border-radius:999px;
+  transition:background .22s var(--ease),border-color .22s var(--ease);
+}
+.qty .q-m,.qty .q-n{display:none}
+.qty .q-p,.qty .q-m{
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;
+  border:1px solid var(--kraft-line);color:var(--ink-2);background:rgba(255,255,255,.35);
+  font-size:19.5px;line-height:1;transition:all .22s var(--ease);
+}
+.qty .q-p:hover,.qty .q-m:hover{background:var(--lacquer);border-color:var(--lacquer);color:#FFF0D8}
+.qty .q-n{
+  min-width:30px;text-align:center;font-family:var(--num);font-weight:600;font-size:19.5px;
+  color:var(--lacquer);line-height:1;letter-spacing:.02em;
+}
+/* 已加入 */
+.qty.on{background:rgba(255,255,255,.65);border-color:var(--lacquer);
+  box-shadow:0 2px 12px -5px rgba(168,24,28,.45)}
+.qty.on .q-m{display:grid}
+.qty.on .q-n{display:grid;place-items:center}
+.qty.on .q-p,.qty.on .q-m{width:30px;height:30px;border-color:transparent;background:transparent;color:var(--lacquer)}
+.qty.on .q-p:hover,.qty.on .q-m:hover{background:var(--lacquer);color:#FFF0D8}
+.q-p.bump{animation:qbump .34s var(--ease)}
+@keyframes qbump{0%{transform:scale(1)}45%{transform:scale(1.28)}100%{transform:scale(1)}}
+
+/* 暗色版（招牌主食卡） */
+.qty--dark{min-width:0}
+.qty--dark .q-p,.qty--dark .q-m{border-color:rgba(214,164,78,.35);color:var(--gold-2);background:transparent}
+.qty--dark .q-p:hover,.qty--dark .q-m:hover{background:var(--gold);border-color:var(--gold);color:#241706}
+.qty--dark .q-n{color:var(--gold-2)}
+.qty--dark.on{background:rgba(214,164,78,.10);border-color:var(--gold);box-shadow:none}
+.qty--dark.on .q-p,.qty--dark.on .q-m{color:var(--gold-2)}
+.qty--dark.on .q-p:hover,.qty--dark.on .q-m:hover{background:var(--gold);color:#241706}
+
+/* 整隻・部位：每個規格各自的數量 */
+.m-varwrap{display:inline-flex;align-items:center;gap:0}
+.m-varq{display:none;align-items:center;gap:2px;margin-left:7px}
+.m-varwrap.on .m-varq{display:inline-flex}
+.m-varwrap.on .m-var{border-color:var(--lacquer);background:#fff}
+.m-varwrap.on .m-var b{color:var(--lacquer)}
+.m-varq .q-m,.m-varq .q-p{
+  width:30px;height:30px;border-radius:7px;display:grid;place-items:center;flex:0 0 auto;
+  border:1px solid var(--lacquer);background:#fff;color:var(--lacquer);
+  font-size:17.5px;line-height:1;transition:all .2s var(--ease);
+}
+.m-varq .q-m:hover,.m-varq .q-p:hover{background:var(--lacquer);color:#fff}
+.m-varq .q-n{min-width:24px;text-align:center;font-family:var(--num);font-weight:600;font-size:18.5px;color:var(--lacquer)}
+
+/* 點餐單：每一列可單獨刪除，並顯示單價 */
+.s-item{grid-template-columns:1fr auto auto auto}
+.s-item .nm em{
+  display:block;font-style:normal;font-family:var(--mono);font-size:12.5px;
+  letter-spacing:.06em;color:var(--ink-2);margin-top:3px;opacity:.85;
+}
+.s-del{
+  width:26px;height:26px;border-radius:6px;display:grid;place-items:center;flex:0 0 auto;
+  border:1px solid transparent;background:transparent;color:var(--ink-2);opacity:.45;
+  font-size:14px;line-height:1;transition:all .18s var(--ease);
+}
+.s-del:hover{opacity:1;color:#fff;background:var(--lacquer);border-color:var(--lacquer)}
+.s-send.off{opacity:.45;filter:grayscale(.45)}
+.s-clear.armed{color:#fff;background:var(--lacquer);border-color:var(--lacquer);font-weight:600}
+body.lock{overflow:hidden}
+.cmt-sum{
+  margin:0 0 14px;font-family:var(--mono);font-size:14px;letter-spacing:.08em;
+  color:var(--gold);text-align:center;
 }
 
-/* ── PRINT ── */
-/* @page 高度由 JS 在 beforeprint 動態注入，見 id="dynamic-page-style" */
-@media print {
-  @page { size: 210mm auto; margin: 8mm; }
+/* ---------- 手機觸控目標（≥44px 熱區）---------- */
+@media (pointer:coarse){
+  .qty{min-width:124px}
+  .qty .q-p,.qty .q-m{width:44px;height:44px;font-size:23px}
+  .qty.on .q-p,.qty.on .q-m{width:38px;height:38px}
+  .qty .q-n{min-width:34px;font-size:22px}
+  .qty--dark{min-width:0}
+  .m-var{padding:11px 16px;font-size:15px}
+  .m-var b{font-size:18.5px}
+  .m-varq .q-m,.m-varq .q-p{width:38px;height:38px;font-size:19.5px}
+  .m-varq .q-n{min-width:30px;font-size:20.5px}
+  .tab{padding:12px 22px;font-size:16.5px}
+  .s-qty button{width:34px;height:34px;font-size:18.5px}
+  .s-qty .q{min-width:28px;font-size:18.5px}
+  .s-del{width:34px;height:34px;font-size:16.5px}
+  .slip-x{width:40px;height:40px}
+  .nav-call{padding:11px 18px}
+  .lb-x{width:44px;height:44px}
+}
 
-  /* 全局強制保留背景色與顏色 */
-  *, *::before, *::after {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  html, body { background: #fff; font-size: 15px; }
-  .panel { display: none !important; }
-  .contract-area { padding: 0; background: #fff; overflow: visible; }
-  .app { display: block; height: auto; overflow: visible; }
-  .contract-doc {
-    box-shadow: none;
-    max-width: 100%;
-    /* 移除任何 JS 套用的 transform，避免印出空白 */
-    transform: none !important;
-    transform-origin: unset !important;
-    width: 100% !important;
-    /* 強制不切頁 */
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-  }
-  .sig-clear { display: none !important; }
-  .client-save-btn { display: none !important; }
-  .sig-modal-overlay { display: none !important; }
-  .sig-open-hint { display: none !important; }
-  .mobile-panel-btn { display: none !important; }
-  .mobile-panel-overlay { display: none !important; }
-  .panel-collapse-btn { display: none !important; }
-  .mobile-pdf-hint { display: none !important; }
-  .info-row input { background: transparent !important; border-color: #ccc !important; }
-  .date-field input { background: transparent !important; border-color: #ccc !important; }
-  .auto-check-note { display: none; }
-
-  /* 雙簽名格列印時確保畫布可見 */
-  .sig-double { break-inside: avoid; }
-  .sig-canvas-wrap {
-    border: 1.5px solid #ccc !important;
-    background: #fff !important;
-    height: 110px !important;
-  }
-  /* canvas 在列印時強制顯示內容 */
-  .sig-canvas-wrap canvas {
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-  /* 客戶版 PDF：簽名提示文字顯示 */
-  body.client-pdf-mode .sig-hint {
-    display: block !important;
-    font-size: 13px;
-    color: #bbb;
-    bottom: 50%;
-    transform: translateY(50%);
-  }
-  /* 客戶版按鈕也隱藏 */
-  .btn-client { display: none !important; }
-  .btn-print-mine { display: none !important; }
-  .btn-reset { display: none !important; }
+/* ---------- 列印：乾淨的菜單 ---------- */
+@media print{
+  .nav,.mbar,.slip,.slip-fab,.cmt,.hero,.strip,.gal,.map-card,.grain,.progress,.toast,
+  .poster-banner,.craft-quote{display:none !important}
+  body{background:#fff;color:#000;padding:0}
+  .sec,.menu-sec{padding:14px 0;background:#fff !important;color:#000}
+  .plaque{background:none !important;box-shadow:none !important}
+  .plaque h2{color:#000 !important;text-shadow:none}
+  .gold{-webkit-text-fill-color:#000;color:#000;background:none;filter:none}
+  .m-price,.m-name{color:#000}
+  .qty,.m-varq,.tabs,.aside-card{display:none !important}
+  .menu-grid{grid-template-columns:1fr}
 }
 </style>
-<style id="dynamic-page-style"></style>
-<script src="https://cdn.jsdelivr.net/npm/html2canvas-pro@1.5.11/dist/html2canvas-pro.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-<div class="app">
+<a class="skip" href="#menu">跳至菜單</a>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"></div>
 
-<!-- ═══════════ SETTINGS PANEL ═══════════ -->
-<aside class="panel" id="settingsPanel">
-  <div class="panel-header">
-    <div class="panel-header-main">
-      <h1>⚙️ 合約設定</h1>
-      <p>在此調整日期、單價、保固等設定，右側合約即時更新，確認後列印存 PDF 傳給商家。</p>
+<!-- ══ 導覽 ══ -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="順記燒臘館 首頁">
+    <span class="seal" aria-hidden="true">順</span>
+    <span class="brand-txt">
+      <span class="brand-cn">順記燒臘館</span>
+      <span class="brand-en">Shunji Roast House</span>
+    </span>
+  </a>
+  <nav class="nav-links" aria-label="主選單">
+    <a href="#signature">招牌主食</a>
+    <a href="#menu">菜單</a>
+    <a href="#ingredients">食材</a>
+    <a href="#craft">工序</a>
+    <a href="#catering">團訂</a>
+    <a href="#visit">門市</a>
+  </nav>
+  <a class="nav-call" href="tel:+88632640001" aria-label="撥打訂購專線 03-264-0001">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .7-.2 1l-2.3 2.1z"/></svg>
+    <span class="nc-num">03-264-0001</span>
+  </a>
+</header>
+
+<!-- ══ HERO ══ -->
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <span class="eyebrow">桃園・中壢　南園二路</span>
+      <h1><span class="gold">龍眼木炭</span><span class="l2">掛爐現烤</span></h1>
+      <p class="hero-lede">香港老師傅工法，<b>每日現做、不隔夜販售</b>。燒鵝、燒鴨、蜜汁叉燒、脆皮燒肉、玫瑰油雞——現點現切，一份便當就吃到整條街的火候。</p>
+
+      <div class="status" id="status" role="status">
+        <span class="dot" aria-hidden="true"></span>
+        <span id="statusTxt">確認營業狀態中…</span>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-red" href="tel:+88632640001">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .7-.2 1l-2.3 2.1z"/></svg>
+          撥號訂餐
+        </a>
+        <a class="btn btn-ghost" href="#menu">看菜單與價目</a>
+      </div>
     </div>
-    <button class="panel-collapse-btn" id="panelCollapseBtn" onclick="togglePanel()" title="收合設定">◀</button>
+
+    <figure class="lugu" style="margin:0">
+      <div class="lugu-rail" aria-hidden="true"><span class="lugu-hook"></span></div>
+      <div class="lugu-frame">
+        <span class="xian" title="現做現賣" aria-hidden="true">現</span>
+        <img src="assets/hero_goose.webp" alt="順記燒臘館櫥窗內剛出爐的碳燒脆皮燒鴨" fetchpriority="high" width="860" height="1153">
+        <span class="lugu-tag">碳燒脆皮大鵝・白羅曼鵝</span>
+      </div>
+    </figure>
   </div>
+</section>
 
-  <div class="panel-body">
-
-    <div class="sgroup">
-      <div class="sgroup-title">📅 合約日期</div>
-      <div class="srow">
-        <label>合約日期</label>
-        <input type="date" id="s_date">
-      </div>
-    </div>
-
-    <div class="sgroup">
-      <div class="sgroup-title">💰 收費設定</div>
-      <div class="srow">
-        <label>本次委託則數</label>
-        <input type="number" id="s_qty" value="20" min="1">
-      </div>
-      <div class="srow">
-        <label>基本單價（元 / 則）</label>
-        <input type="number" id="s_price" value="85" min="1">
-      </div>
-      <div class="srow">
-        <label>加附照片費（元 / 則，0 = 不顯示）</label>
-        <input type="number" id="s_photo" value="15" min="0">
-      </div>
-      <div class="srow">
-        <label>指定內文費（元 / 則，0 = 不顯示）</label>
-        <input type="number" id="s_text_fee" value="10" min="0">
-      </div>
-    </div>
-
-    <div class="sgroup">
-      <div class="sgroup-title">🛡 保固設定</div>
-      <div class="toggle-row">
-        <label>此合約含保固？</label>
-        <label class="toggle">
-          <input type="checkbox" id="s_warranty" onchange="toggleWarranty()">
-          <span class="toggle-track"></span>
-        </label>
-      </div>
-      <div class="warranty-sub hidden" id="warranty_sub">
-        <div class="srow">
-          <label>保固方案單價（元 / 則）</label>
-          <input type="number" id="s_wprice" value="300" min="1">
-        </div>
-        <div class="srow">
-          <label>保固天數</label>
-          <input type="number" id="s_wdays" value="15" min="1">
-        </div>
-        <div class="srow">
-          <label>屏蔽補發則數</label>
-          <input type="number" id="s_wqty" value="1" min="1">
-        </div>
-      </div>
-    </div>
-
-    <div class="sgroup">
-      <div class="sgroup-title">📝 備註 / 特殊條款</div>
-      <div class="srow">
-        <label>合約尾部備註（可留空）</label>
-        <textarea id="s_note" placeholder="例：本次議定特殊方案，單價 100 元 / 則。"></textarea>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="panel-footer">
-    <button class="btn-client" onclick="generateClientPDF()">📤 產生客戶版 PDF（空白簽名）</button>
-    <button class="btn-print-mine" onclick="validateAndPrint()">🖨️ 列印完整版（含我方簽名）</button>
-    <button class="btn-reset" onclick="if(confirm('確定重置所有設定為預設值？'))resetSettings()">↩ 重置預設值</button>
-  </div>
-</aside>
-
-<!-- ═══════════ CONTRACT ═══════════ -->
-<div class="contract-area">
-<div class="contract-doc" id="contractDoc">
-
-  <div class="doc-header">
-    <div class="doc-header-left">
-      <div class="eyebrow">Service Contract · 服務合約</div>
-      <h2>Google 評論代發服務<br>委託合約書</h2>
-    </div>
-    <div class="doc-header-right">
-      <strong>合約編號</strong><br>
-      <span id="d_no">──</span><br><br>
-      <strong>簽署日期</strong><br>
-      <span id="d_date">──</span>
-    </div>
-  </div>
-
-  <div class="doc-body">
-
-    <!-- 01 甲方資訊 -->
-    <div class="dsec">
-      <div class="dsec-title">01 · 委託方資訊（甲方）</div>
-      <div class="info-grid">
-        <div class="info-row">
-          <span class="ilabel">LINE 名稱 <span class="req">*</span></span>
-          <input type="text" id="f_line" placeholder="請輸入 LINE 顯示名稱" oninput="updateLinePreview()">
-        </div>
-        <div class="info-row">
-          <span class="ilabel">聯絡電話 <span class="req">*</span></span>
-          <input type="tel" id="f_phone" placeholder="0912-345-678">
-        </div>
-        <div class="info-row">
-          <span class="ilabel">Google 商家名稱 <span class="req">*</span></span>
-          <input type="text" id="f_biz" placeholder="需與 Google 地圖上完全一致">
-        </div>
-        <div class="info-row">
-          <span class="ilabel">商家地址（選填）</span>
-          <input type="text" id="f_addr" placeholder="商家地址">
-        </div>
-      </div>
-    </div>
-
-    <!-- 02 服務內容 -->
-    <div class="dsec">
-      <div class="dsec-title">02 · 服務內容與收費</div>
-      <table class="svc-table" id="d_svc_table"></table>
-      <div class="warranty-box hidden" id="d_warranty_box">
-        <div class="wico">🛡️</div>
-        <div>
-          <div class="wtitle" id="d_w_title"></div>
-          <p id="d_w_body"></p>
-        </div>
-      </div>
-      <div class="no-warranty-note" id="d_nowarranty_note">
-        ⚠️ 本合約<strong>不含保固</strong>。評論發布後若遭 Google 演算法屏蔽或移除，乙方不提供補發服務。如需補發保固，請另行洽詢保固方案報價。
-      </div>
-    </div>
-
-    <!-- 03 合約條款 -->
-    <div class="dsec">
-      <div class="dsec-title">03 · 合約條款</div>
-      <ul class="clause-list">
-        <li><span class="cnum">1</span><span>乙方（服務方）採「分批操作」方式完成評論發布，以降低 Google 演算法異常偵測機率，實際完成時程依批次安排而定。</span></li>
-        <li><span class="cnum">2</span><span>每則評論完成後，乙方將提供「實際發布完成之回報紀錄截圖」；評論送出後確認當下已成功顯示，即視為完成交付。</span></li>
-        <li><span class="cnum">3</span><span>結算金額以乙方回傳之「已實際發布且當下未遭屏蔽之評論數量」為準；甲方應於收到回報後 24 小時內提出異議，逾期視為確認同意。</span></li>
-        <li><span class="cnum">4</span><span>甲方須提供正確之 Google 商家名稱或商家連結，若因資訊錯誤致評論發布至錯誤商家，損失由甲方自行承擔，乙方不退款。</span></li>
-        <li><span class="cnum">5</span><span>本合約相關溝通紀錄（LINE 訊息截圖等）均可作為爭議處理之輔助依據。</span></li>
-        <li><span class="cnum">6</span><span>付款方式另行於 LINE 議定，原則上採全額預付方式進行，確認收款後方開始排程作業。</span></li>
-      </ul>
-    </div>
-
-    <!-- 04 風險告知 -->
-    <div class="dsec">
-      <div class="dsec-title">04 · 風險告知與免責聲明</div>
-      <div class="risk-box">
-        <div class="risk-title">⚠️ 重要風險告知事項</div>
-        <ul class="risk-list">
-          <li>Google 官方持續更新評論審核機制與 AI 演算法，評論存在遭「延遲顯示、隱藏、自動移除」之風險，此屬不可控之第三方因素，乙方無法介入或保證。</li>
-          <li>五星評論代發服務本質上模擬用戶行為，甲方理解此類服務存在「<strong>演算法屏蔽掉評風險</strong>」，包含但不限於 Google 演算法判定異常所致之屏蔽或移除。</li>
-          <li>若甲方商家遭競爭對手或消費者大量檢舉，可能導致評論遭 Google 系統主動審查或移除，此情形同屬「<strong>遭客戶或第三方檢舉之屏蔽風險</strong>」，乙方不負賠償責任。</li>
-          <li>Google 平台已建立「<strong>商業檢舉機制</strong>」，第三方（含競爭同業）可主動舉報商家評論，惡意檢舉可直接造成評論上架失敗或遭屏蔽刪除；此屬外部人為干預因素，非乙方可控範疇，<strong>不予退費</strong>。</li>
-          <li>乙方為降低演算法異常偵測風險，將依操作安全原則「<strong>控制每日上架則數</strong>」，不執行單日大量集中發布；甲方應理解此為保護評論存活率之必要措施，不構成服務延誤之違約。</li>
-          <li id="d_clause_warranty_risk"></li>
-          <li><strong>乙方服務範圍僅限評論內容撰寫與發布操作本身</strong>；評論發布後因 Google 系統任何原因（演算法、帳號審核、政策異動、惡意檢舉等）所致之屏蔽、隱藏、刪除，均屬不可抗力之第三方因素，乙方不承擔任何形式之責任與退費義務。</li>
-          <li>甲方簽署本合約，即表示已完整閱讀並理解上述所有風險，自願承擔相關責任，不得事後以不知情為由要求退款或損害賠償。</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 05 同意聲明 -->
-    <div class="dsec">
-      <div class="dsec-title">05 · 甲方同意聲明</div>
-      <div class="agree-wrap">
-        <div class="auto-check-note">✅ 下列聲明已由系統確認，甲方簽名即代表全數同意</div>
-
-        <label class="agree-item">
-          <input type="checkbox" checked disabled>
-          <span class="chk-icon">✓</span>
-          <span>本人已詳細閱讀並完全理解本合約所有條款，包含服務內容、收費方式及結算依據。</span>
-        </label>
-
-        <label class="agree-item">
-          <input type="checkbox" checked disabled>
-          <span class="chk-icon">✓</span>
-          <span>本人充分知悉 Google 評論代發服務存在「<strong>演算法屏蔽風險</strong>」，評論發布後可能遭 Google 系統延遲、隱藏或移除；此屬不可控之第三方因素，乙方不負任何賠償責任。</span>
-        </label>
-
-        <label class="agree-item">
-          <input type="checkbox" checked disabled>
-          <span class="chk-icon">✓</span>
-          <span>本人充分知悉服務存在「<strong>遭客戶或第三方檢舉致屏蔽之風險</strong>」，包含競爭對手惡意檢舉、消費者舉報等情形，均可能導致評論屏蔽或移除；乙方對此不承擔賠償責任。</span>
-        </label>
-
-        <label class="agree-item">
-          <input type="checkbox" checked disabled>
-          <span class="chk-icon">✓</span>
-          <span>本人知悉 Google 已新增「<strong>商業檢舉機制</strong>」，任何第三方（含競爭同業）可主動向 Google 舉報評論，此類惡意檢舉可能直接導致評論無法上架或遭屏蔽刪除；乙方對此不可控因素不予退費，亦不承擔任何責任。</span>
-        </label>
-
-        <label class="agree-item">
-          <input type="checkbox" checked disabled>
-          <span class="chk-icon">✓</span>
-          <span>本人理解為降低 Google 系統偵測風險，乙方將依實際操作情況控制「<strong>每日評論上架則數</strong>」，甲方不得要求單日內大量集中上評；進度安排以乙方排程為準。</span>
-        </label>
-
-        <label class="agree-item">
-          <input type="checkbox" checked disabled>
-          <span class="chk-icon">✓</span>
-          <span>本人明確理解：<strong>乙方之服務範圍僅限於評論內容之撰寫與發布操作</strong>；評論發布後若遭 Google 系統因任何原因（演算法屏蔽、帳號審查、檢舉過濾、政策更新等不可控因素）導致屏蔽、隱藏或刪除，概不在乙方服務責任範圍內，<strong>乙方不予退費</strong>。</span>
-        </label>
-
-        <label class="agree-item">
-          <input type="checkbox" checked disabled>
-          <span class="chk-icon">✓</span>
-          <span id="d_agree_warranty_txt"></span>
-        </label>
-
-        <label class="agree-item">
-          <input type="checkbox" checked disabled>
-          <span class="chk-icon">✓</span>
-          <span>本人同意以「<strong>實際回傳之已發布數量</strong>」作為最終付款依據，下單即表示已完整理解並自願承擔上述一切相關風險，不得要求無條件退款，亦不得以任何理由對乙方提出索賠。</span>
-        </label>
-
-      </div>
-    </div>
-
-    <!-- 06 備註（選填） -->
-    <div class="dsec" id="d_note_sec" style="display:none;">
-      <div class="dsec-title">06 · 備註</div>
-      <div id="d_note_body" style="background:#f9f9f9; border:1px solid var(--gray2); border-radius:5px; padding:13px 16px; font-size:14.5px; line-height:1.8; color:#444;"></div>
-    </div>
-
-    <!-- 07 簽署 -->
-    <div class="dsec">
-      <div class="dsec-title" id="d_sig_label">06 · 委託方簽署</div>
-
-      <!-- 上排：LINE確認 + 日期 -->
-      <div class="sig-area" style="margin-bottom:16px;">
-        <div class="sig-block">
-          <span class="slabel">委託方 LINE 名稱確認</span>
-          <div class="line-preview" id="d_line_preview">──</div>
-        </div>
-        <div class="sig-block">
-          <div class="date-field" style="margin-top:0;">
-            <span class="dlabel">甲方簽署日期 <span class="req">*</span></span>
-            <input type="date" id="f_sig_date">
-          </div>
-          <div class="sig-footnote" style="margin-top:8px;">
-            ※ 簽名即代表甲方確認已閱讀並同意本合約所有條款，具法律效力。<br>
-            ※ 完成兩處簽名後，請截圖或儲存 PDF 回傳給服務方留存。
-          </div>
-        </div>
-      </div>
-
-      <!-- 下排：雙簽名格並排 -->
-      <div class="sig-double">
-        <div class="sig-block">
-          <span class="slabel">甲方簽名（第一次）<span class="req">*</span></span>
-          <div class="sig-canvas-wrap" id="canvasWrap1" onclick="openSigModal(1)">
-            <canvas id="sigCanvas1"></canvas>
-            <div class="sig-hint">請在此以手指簽名</div>
-            <div class="sig-open-hint">
-              <span class="soh-icon">✍️</span>
-              <span class="soh-text">點此開啟簽名板</span>
-            </div>
-          </div>
-          <button class="sig-clear" onclick="clearSigPad(1)">✕ 清除重簽</button>
-        </div>
-        <div class="sig-block">
-          <span class="slabel">甲方簽名（確認簽）<span class="req">*</span></span>
-          <div class="sig-canvas-wrap" id="canvasWrap2" onclick="openSigModal(2)">
-            <canvas id="sigCanvas2"></canvas>
-            <div class="sig-hint">請再次以手指簽名確認</div>
-            <div class="sig-open-hint">
-              <span class="soh-icon">✍️</span>
-              <span class="soh-text">點此開啟簽名板</span>
-            </div>
-          </div>
-          <button class="sig-clear" onclick="clearSigPad(2)">✕ 清除重簽</button>
-        </div>
-      </div>
-
-      <!-- 客戶專用：完成簽名後產生 PDF 並分享（可直接傳 LINE） -->
-      <button class="client-save-btn" id="btnSaveImage" onclick="saveAndShare()">
-        📄 完成簽名，產生 PDF 並分享到 LINE
-      </button>
-      <div class="mobile-pdf-hint">
-        📄 <strong>產生 PDF 並分享：</strong><br>
-        &nbsp;・按下按鈕後會產生合約 PDF，接著手機會跳出「分享」選單<br>
-        &nbsp;・在分享選單中點選 <strong>LINE</strong> 圖示即可直接傳送給對方<br>
-        &nbsp;・也可以在分享選單選「儲存至檔案 / 下載」把 PDF 存到手機裡
-      </div>
-      <div class="mobile-pdf-hint" id="shareFallbackHint" style="display:none;">
-        📄 <strong>此瀏覽器不支援直接分享：</strong><br>
-        &nbsp;・PDF 已自動下載，請到手機的「檔案」App 或下載記錄中找到它<br>
-        &nbsp;・打開 PDF 後，點分享圖示，選擇 LINE 傳送即可
-      </div>
-
-      <div class="provider-line">
-        <div class="pline">乙方（服務方）確認：<div class="pline-val"></div></div>
-        <div class="pline">乙方簽署日期：<div class="pline-val"></div></div>
-      </div>
-    </div>
-
-  </div><!-- /doc-body -->
-
-  <div class="doc-footer">
-    <strong>Google 評論代發服務委託合約書</strong>
-    <span>合約編號：<span id="d_no2">──</span></span>
-  </div>
-
-</div><!-- /contract-doc -->
-</div><!-- /contract-area -->
-</div><!-- /app -->
-
-<!-- 手機遮罩 -->
-<div class="mobile-panel-overlay" id="mobilePanelOverlay" onclick="closeMobilePanel()"></div>
-<!-- 手機浮動設定按鈕 -->
-<button class="mobile-panel-btn" id="mobilePanelBtn" onclick="toggleMobilePanel()" title="合約設定">⚙️</button>
-
-<!-- ═══════════ SIGNATURE MODAL ═══════════ -->
-<div class="sig-modal-overlay" id="sigModal" onclick="handleModalOverlayClick(event)">
-  <div class="sig-modal">
-    <div class="sig-modal-header">
-      <div>
-        <h3 id="sigModalTitle">✍️ 手寫簽名</h3>
-        <p>請用手指在下方空白區域簽名</p>
-      </div>
-      <button class="sig-modal-close" onclick="closeSigModal()">✕</button>
-    </div>
-    <div class="sig-modal-canvas-wrap" id="sigModalWrap">
-      <canvas id="sigModalCanvas"></canvas>
-      <div class="sig-modal-hint" id="sigModalHint">
-        <span class="hint-icon">✍️</span>
-        用手指在此處簽名
-      </div>
-    </div>
-    <div class="sig-modal-actions">
-      <button class="sig-modal-clear" onclick="clearModalCanvas()">✕ 清除重簽</button>
-      <button class="sig-modal-confirm" onclick="confirmSigModal()">✅ 完成簽名</button>
-    </div>
+<!-- ══ 現切條 ══ -->
+<div class="strip" aria-hidden="true">
+  <div class="marq" id="marq">
+    <span>脆皮燒鵝</span><span>脆皮燒鴨</span><span>蜜汁叉燒 <b>40/兩</b></span><span>碳燒脆皮燒肉 <b>40/兩</b></span><span>玫瑰油雞</span><span>香港臘味 <b>40/兩</b></span><span>聚餐拼盤</span><span>年節三牲</span>
   </div>
 </div>
 
+<!-- ══ 招牌三味 ══ -->
+<section class="sec" id="signature">
+  <div class="wrap">
+    <header class="sec-head">
+      <span class="rail" aria-hidden="true"></span>
+      <div class="plaque"><i class="hook hook-l"></i><i class="hook hook-r"></i><h2>招牌主食</h2></div>
+      <p class="sec-lede">三個價位、三種吃法。不知道點什麼，從這三樣開始就對了。<br>按 ＋ 加入，按 − 減少，份數直接顯示在按鈕上。</p>
+      <span class="sec-kicker">Signature Rice Bowls</span>
+    </header>
+
+    <div class="dishes">
+      <article class="dish reveal">
+        <div class="dish-img">
+          <span class="dish-rank">最多人點</span>
+          <img src="assets/dish_sanbao.webp" alt="順記三寶飯：燒鴨、玫瑰油雞、蜜汁叉燒鋪在白飯上" loading="lazy" decoding="async">
+        </div>
+        <div class="dish-body">
+          <h3>順記三寶飯</h3>
+          <p class="dish-sub">鴨 ・ 雞 ・ 叉燒</p>
+          <p class="dish-desc">櫻桃鴨、玫瑰油雞、台灣黑豬叉燒同盤。經典港式三味，一次吃到三種火候。</p>
+          <div class="dish-foot">
+            <span class="dish-price"><small>NT$</small>140</span>
+            <button class="dish-add" data-name="順記三寶飯" data-price="140">加入點餐單</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="dish reveal">
+        <div class="dish-img">
+          <span class="dish-rank">主廚推薦</span>
+          <img src="assets/dish_duckleg.webp" alt="碳燒原隻燒鴨腿飯：整隻櫻桃鴨腿切件鋪在白飯上，配時令青菜" loading="lazy" decoding="async">
+        </div>
+        <div class="dish-body">
+          <h3>碳燒原隻燒鴨腿飯</h3>
+          <p class="dish-sub">整隻鴨腿・不切碎</p>
+          <p class="dish-desc">嚴選櫻桃鴨腿，龍眼木炭慢烤到皮脆油潤。整隻上桌，份量實在。</p>
+          <div class="dish-foot">
+            <span class="dish-price"><small>NT$</small>160</span>
+            <button class="dish-add" data-name="碳燒原隻燒鴨腿飯" data-price="160">加入點餐單</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="dish reveal">
+        <div class="dish-img">
+          <span class="dish-rank">自由配</span>
+          <img src="assets/dish_plate.webp" alt="順記雙拼飯：兩種燒味鋪在白飯上，撒上蔥花" loading="lazy" decoding="async">
+        </div>
+        <div class="dish-body">
+          <h3>順記雙拼飯</h3>
+          <p class="dish-sub">六選二</p>
+          <p class="dish-desc">鴨、雞、叉燒、燒肉、臘味、香腸，任選兩樣。想吃什麼自己配。</p>
+          <div class="dish-foot">
+            <span class="dish-price"><small>NT$</small>130</span>
+            <button class="dish-add" data-name="順記雙拼飯" data-price="130">加入點餐單</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 菜單（牛皮紙）══ -->
+<section class="menu-sec" id="menu">
+  <div class="wrap">
+    <header class="sec-head">
+      <span class="rail" aria-hidden="true"></span>
+      <div class="plaque"><i class="hook hook-l"></i><i class="hook hook-r"></i><h2>菜　單</h2></div>
+      <p class="sec-lede">按 ＋ 加進點餐單，數量會直接顯示在旁邊；點錯按 − 就能減少或取消。<br>價格如有調整，以店內公告為準。</p>
+      <span class="sec-kicker">Menu ・ 2026</span>
+    </header>
+
+    <div class="tabs" role="tablist" aria-label="菜單分類">
+      <button class="tab" role="tab" aria-selected="true" data-filter="all">全部</button>
+      <button class="tab" role="tab" aria-selected="false" data-filter="rice">招牌飯類</button>
+      <button class="tab" role="tab" aria-selected="false" data-filter="bbq">燒味飯</button>
+      <button class="tab" role="tab" aria-selected="false" data-filter="whole">整隻・部位</button>
+      <button class="tab" role="tab" aria-selected="false" data-filter="weigh">秤重單點</button>
+    </div>
+
+    <div class="menu-grid">
+      <div>
+        <ul class="menu-list" id="menuList">
+          <!-- 招牌飯類 -->
+          <li class="m-row" data-cat="rice">
+            <div class="m-main">
+              <h3 class="m-name">碳燒原隻燒鵝腿飯<span class="m-tag">最高規</span></h3>
+              <p class="m-note">整隻鵝腿現烤現切，皮脆肉嫩、油香四溢。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>220</span>
+            <button class="m-add" data-name="碳燒原隻燒鵝腿飯" data-price="220" aria-label="加入 碳燒原隻燒鵝腿飯">＋</button>
+          </li>
+          <li class="m-row" data-cat="rice">
+            <div class="m-main">
+              <h3 class="m-name">碳燒原隻燒鴨腿飯<span class="m-tag">主廚推薦</span></h3>
+              <p class="m-note">嚴選櫻桃鴨腿，皮脆油潤、肉質細嫩，原隻呈現。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>160</span>
+            <button class="m-add" data-name="碳燒原隻燒鴨腿飯" data-price="160" aria-label="加入 碳燒原隻燒鴨腿飯">＋</button>
+          </li>
+          <li class="m-row" data-cat="rice">
+            <div class="m-main">
+              <h3 class="m-name">順記四寶飯</h3>
+              <p class="m-note">鴨、雞、叉燒、香腸。豪華組合首選，份量十足。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>150</span>
+            <button class="m-add" data-name="順記四寶飯" data-price="150" aria-label="加入 順記四寶飯">＋</button>
+          </li>
+          <li class="m-row" data-cat="rice">
+            <div class="m-main">
+              <h3 class="m-name">順記特製雙拼飯</h3>
+              <p class="m-note">一鴨一雞，雙寶同盤，一份就夠。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>150</span>
+            <button class="m-add" data-name="順記特製雙拼飯" data-price="150" aria-label="加入 順記特製雙拼飯">＋</button>
+          </li>
+          <li class="m-row" data-cat="rice">
+            <div class="m-main">
+              <h3 class="m-name">原隻雞腿飯</h3>
+              <p class="m-note">油亮雞腿，肉質滑順、份量十足。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>150</span>
+            <button class="m-add" data-name="原隻雞腿飯" data-price="150" aria-label="加入 原隻雞腿飯">＋</button>
+          </li>
+          <li class="m-row" data-cat="rice">
+            <div class="m-main">
+              <h3 class="m-name">順記三寶飯<span class="m-tag">最多人點</span></h3>
+              <p class="m-note">鴨、雞、叉燒。經典港式三味同享，肉香交融。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>140</span>
+            <button class="m-add" data-name="順記三寶飯" data-price="140" aria-label="加入 順記三寶飯">＋</button>
+          </li>
+          <li class="m-row" data-cat="rice">
+            <div class="m-main">
+              <h3 class="m-name">碳燒蜜汁雞腿飯</h3>
+              <p class="m-note">整隻雞腿入味燒製，蜜香與雞油香氣交融。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>130</span>
+            <button class="m-add" data-name="碳燒蜜汁雞腿飯" data-price="130" aria-label="加入 碳燒蜜汁雞腿飯">＋</button>
+          </li>
+          <li class="m-row" data-cat="rice">
+            <div class="m-main">
+              <h3 class="m-name">順記雙拼飯</h3>
+              <p class="m-note">鴨、雞、叉燒、燒肉、臘味、香腸，任選兩樣。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>130</span>
+            <button class="m-add" data-name="順記雙拼飯" data-price="130" aria-label="加入 順記雙拼飯">＋</button>
+          </li>
+
+          <!-- 燒味飯 -->
+          <li class="m-row" data-cat="bbq">
+            <div class="m-main">
+              <h3 class="m-name">碳燒脆皮燒鵝飯</h3>
+              <p class="m-note">白羅曼鵝，皮脆肉嫩、油脂豐富。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>160</span>
+            <button class="m-add" data-name="碳燒脆皮燒鵝飯" data-price="160" aria-label="加入 碳燒脆皮燒鵝飯">＋</button>
+          </li>
+          <li class="m-row" data-cat="bbq">
+            <div class="m-main">
+              <h3 class="m-name">碳燒脆皮燒鴨飯</h3>
+              <p class="m-note">櫻桃鴨切件，皮脆多汁。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>130</span>
+            <button class="m-add" data-name="碳燒脆皮燒鴨飯" data-price="130" aria-label="加入 碳燒脆皮燒鴨飯">＋</button>
+          </li>
+          <li class="m-row" data-cat="bbq">
+            <div class="m-main">
+              <h3 class="m-name">碳燒脆皮燒肉飯</h3>
+              <p class="m-note">雅勝 A 級豬肉，皮薄酥脆、層次分明。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>120</span>
+            <button class="m-add" data-name="碳燒脆皮燒肉飯" data-price="120" aria-label="加入 碳燒脆皮燒肉飯">＋</button>
+          </li>
+          <li class="m-row" data-cat="bbq">
+            <div class="m-main">
+              <h3 class="m-name">碳燒蜜汁叉燒飯</h3>
+              <p class="m-note">台灣黑豬，蜜汁燒製、香甜入味。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>120</span>
+            <button class="m-add" data-name="碳燒蜜汁叉燒飯" data-price="120" aria-label="加入 碳燒蜜汁叉燒飯">＋</button>
+          </li>
+          <li class="m-row" data-cat="bbq">
+            <div class="m-main">
+              <h3 class="m-name">玫瑰油雞飯</h3>
+              <p class="m-note">玫瑰露浸滷，肉質滑順、皮色油亮。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>120</span>
+            <button class="m-add" data-name="玫瑰油雞飯" data-price="120" aria-label="加入 玫瑰油雞飯">＋</button>
+          </li>
+          <li class="m-row" data-cat="bbq">
+            <div class="m-main">
+              <h3 class="m-name">香港臘味飯</h3>
+              <p class="m-note">港式臘味，鹹香回甘。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>120</span>
+            <button class="m-add" data-name="香港臘味飯" data-price="120" aria-label="加入 香港臘味飯">＋</button>
+          </li>
+          <li class="m-row" data-cat="bbq">
+            <div class="m-main">
+              <h3 class="m-name">蜜汁香腸飯</h3>
+              <p class="m-note">蜜汁香腸，最實惠的一份。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>110</span>
+            <button class="m-add" data-name="蜜汁香腸飯" data-price="110" aria-label="加入 蜜汁香腸飯">＋</button>
+          </li>
+
+          <!-- 整隻・部位 -->
+          <li class="m-row m-row--multi" data-cat="whole">
+            <div class="m-main">
+              <h3 class="m-name">碳燒脆皮大鵝<span class="m-tag">需預訂</span></h3>
+              <p class="m-note">白羅曼鵝整隻掛爐。年節、聚餐、送禮首選。</p>
+              <div class="m-vars">
+                <button class="m-var" data-name="碳燒脆皮大鵝（整隻）" data-price="1980"><span>整隻</span><b>1980</b></button>
+                <button class="m-var" data-name="碳燒脆皮大鵝（半隻）" data-price="1000"><span>半隻</span><b>1000</b></button>
+                <button class="m-var" data-name="碳燒脆皮大鵝（1/4隻）" data-price="550"><span>1/4 隻</span><b>550</b></button>
+              </div>
+            </div>
+          </li>
+          <li class="m-row m-row--multi" data-cat="whole">
+            <div class="m-main">
+              <h3 class="m-name">碳燒脆皮大鴨</h3>
+              <p class="m-note">櫻桃鴨整隻掛爐，皮脆多汁。</p>
+              <div class="m-vars">
+                <button class="m-var" data-name="碳燒脆皮大鴨（整隻）" data-price="1200"><span>整隻</span><b>1200</b></button>
+                <button class="m-var" data-name="碳燒脆皮大鴨（半隻）" data-price="650"><span>半隻</span><b>650</b></button>
+                <button class="m-var" data-name="碳燒脆皮大鴨（1/4隻）" data-price="350"><span>1/4 隻</span><b>350</b></button>
+              </div>
+            </div>
+          </li>
+          <li class="m-row m-row--multi" data-cat="whole">
+            <div class="m-main">
+              <h3 class="m-name">玫瑰醬油雞</h3>
+              <p class="m-note">玫瑰露浸滷，整隻或分切皆可。</p>
+              <div class="m-vars">
+                <button class="m-var" data-name="玫瑰醬油雞（整隻）" data-price="750"><span>整隻</span><b>750</b></button>
+                <button class="m-var" data-name="玫瑰醬油雞（半隻）" data-price="380"><span>半隻</span><b>380</b></button>
+                <button class="m-var" data-name="玫瑰醬油雞（1/4隻）" data-price="290"><span>1/4 隻</span><b>290</b></button>
+              </div>
+            </div>
+          </li>
+          <li class="m-row" data-cat="whole">
+            <div class="m-main">
+              <h3 class="m-name">碳燒原隻燒鵝腿</h3>
+              <p class="m-note">單點鵝腿，不含飯。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>190</span>
+            <button class="m-add" data-name="碳燒原隻燒鵝腿" data-price="190" aria-label="加入 碳燒原隻燒鵝腿">＋</button>
+          </li>
+          <li class="m-row" data-cat="whole">
+            <div class="m-main">
+              <h3 class="m-name">碳燒原隻燒鴨腿</h3>
+              <p class="m-note">單點鴨腿，不含飯。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>140</span>
+            <button class="m-add" data-name="碳燒原隻燒鴨腿" data-price="140" aria-label="加入 碳燒原隻燒鴨腿">＋</button>
+          </li>
+          <li class="m-row" data-cat="whole">
+            <div class="m-main">
+              <h3 class="m-name">原隻油雞腿</h3>
+              <p class="m-note">單點油雞腿，不含飯。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>120</span>
+            <button class="m-add" data-name="原隻油雞腿" data-price="120" aria-label="加入 原隻油雞腿">＋</button>
+          </li>
+
+          <!-- 秤重單點 -->
+          <li class="m-row" data-cat="weigh">
+            <div class="m-main">
+              <h3 class="m-name">碳燒脆皮燒肉</h3>
+              <p class="m-note">秤重計價，可指定肥瘦。1 兩 ≈ 37.5 公克。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>40<small style="margin-left:3px;margin-right:0">/兩</small></span>
+            <button class="m-add" data-name="碳燒脆皮燒肉" data-price="40" data-unit="兩" aria-label="加入 碳燒脆皮燒肉">＋</button>
+          </li>
+          <li class="m-row" data-cat="weigh">
+            <div class="m-main">
+              <h3 class="m-name">碳燒蜜汁叉燒</h3>
+              <p class="m-note">秤重計價。半肥瘦最香。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>40<small style="margin-left:3px;margin-right:0">/兩</small></span>
+            <button class="m-add" data-name="碳燒蜜汁叉燒" data-price="40" data-unit="兩" aria-label="加入 碳燒蜜汁叉燒">＋</button>
+          </li>
+          <li class="m-row" data-cat="weigh">
+            <div class="m-main">
+              <h3 class="m-name">香港臘味</h3>
+              <p class="m-note">秤重計價。臘腸、臘肉。</p>
+            </div>
+            <span class="m-price"><small>NT$</small>40<small style="margin-left:3px;margin-right:0">/兩</small></span>
+            <button class="m-add" data-name="香港臘味" data-price="40" data-unit="兩" aria-label="加入 香港臘味">＋</button>
+          </li>
+        </ul>
+
+        <p class="m-foot">
+          <b>※</b> 拼盤品項依當日供應調整，實際內容以現場為主。<br>
+          <b>※</b> 整隻燒鵝、燒鴨與年節三牲建議提前來電預訂：<a href="tel:+88632640001" style="color:var(--lacquer);font-weight:600">03-264-0001</a>
+        </p>
+      </div>
+
+      <aside class="menu-aside">
+        <figure class="aside-card" style="margin:0">
+          <img src="assets/menu_poster.webp" alt="順記燒臘館完整菜單海報" loading="lazy" decoding="async"
+               data-lb data-cap="順記燒臘館・完整菜單">
+          <figcaption class="aside-cap"><span>店內菜單原圖</span><b>點擊放大</b></figcaption>
+        </figure>
+        <figure class="aside-card" style="margin:0">
+          <img src="assets/menu_card.webp" alt="順記燒臘館實體菜單卡，紅底金字列出所有品項與價格" loading="lazy" decoding="async"
+               data-lb data-cap="店內菜單卡・完整價目">
+          <figcaption class="aside-cap"><span>店內菜單卡</span><b>點擊放大</b></figcaption>
+        </figure>
+        <div class="aside-note">
+          <h4>關於「兩」</h4>
+          <p>燒肉、叉燒、臘味以<span class="tael">兩</span>計價。<span class="tael">1 兩 ≈ 37.5 公克</span>，一個人吃大約 <span class="tael">3–4 兩</span>；三、四人配飯，抓 <span class="tael">1 斤（16 兩）</span>差不多。</p>
+        </div>
+        <div class="aside-note">
+          <h4>要點多少份？</h4>
+          <p>公司訂便當可直接來電，<span class="tael">大量訂購享優惠</span>。10 份以上建議提前一天告知，午市（11:00 開始）尖峰時段現場人多，先電話預訂比較快。</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 食材 ══ -->
+<section class="sec" id="ingredients">
+  <div class="wrap">
+    <header class="sec-head">
+      <span class="rail" aria-hidden="true"></span>
+      <div class="plaque"><i class="hook hook-l"></i><i class="hook hook-r"></i><h2>食材講究</h2></div>
+      <p class="sec-lede">燒臘沒有捷徑。皮脆不脆、肉嫩不嫩，從選哪一隻鴨、哪一塊豬就決定了。</p>
+      <span class="sec-kicker">Sourcing</span>
+    </header>
+
+    <div class="ing">
+      <article class="ing-card reveal">
+        <img src="assets/ing_duck.webp" alt="櫻桃鴨切件，皮脆油亮" loading="lazy" decoding="async">
+        <div class="ing-body">
+          <h3>櫻桃鴨</h3>
+          <p class="ing-trait">肉質鮮嫩・皮脆多汁</p>
+          <p>嚴選優質櫻桃鴨，肉質細嫩、皮下脂肪適中。烤製後色澤油亮，香氣十足。</p>
+        </div>
+      </article>
+      <article class="ing-card reveal">
+        <img src="assets/ing_goose.webp" alt="白羅曼鵝切件，油脂豐潤" loading="lazy" decoding="async">
+        <div class="ing-body">
+          <h3>白羅曼鵝</h3>
+          <p class="ing-trait">油脂豐富・口感滑順</p>
+          <p>進口優良品種，肉質細緻、油脂分布均勻，入口滑嫩，香甜不膩。</p>
+        </div>
+      </article>
+      <article class="ing-card reveal">
+        <img src="assets/ing_pork.webp" alt="台灣黑豬蜜汁叉燒切片" loading="lazy" decoding="async">
+        <div class="ing-body">
+          <h3>台灣黑豬</h3>
+          <p class="ing-trait">肉質彈嫩・香甜入味</p>
+          <p>嚴選台灣在地黑豬做叉燒，肉質結實、油花均勻，香甜多汁，越嚼越香。</p>
+          <span class="ing-badge">台灣嚴選</span>
+        </div>
+      </article>
+      <article class="ing-card reveal">
+        <img src="assets/ing_siuyuk.webp" alt="脆皮燒肉，皮薄酥脆、層次分明" loading="lazy" decoding="async">
+        <div class="ing-body">
+          <h3>脆皮燒肉</h3>
+          <p class="ing-trait">皮脆肉嫩・層次分明</p>
+          <p>選用上市上櫃雅勝 A 級豬肉，皮薄酥脆、肉質鮮嫩多汁，肥瘦比例完美。</p>
+          <span class="ing-badge">雅勝 A 級</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 工序（真實的三步順序）══ -->
+<section class="sec" id="craft" style="background:linear-gradient(180deg,transparent,rgba(196,97,31,.05),transparent)">
+  <div class="wrap">
+    <header class="sec-head">
+      <span class="rail" aria-hidden="true"></span>
+      <div class="plaque"><i class="hook hook-l"></i><i class="hook hook-r"></i><h2>三道工序</h2></div>
+      <p class="sec-lede">醃、烤、切。三步都得手工，少一步就不是那個味道。</p>
+      <span class="sec-kicker">Marinate ・ Roast ・ Carve</span>
+    </header>
+
+    <div class="craft">
+      <article class="step reveal">
+        <div class="step-img" aria-hidden="true"><img src="assets/craft_marinate.webp" alt="" loading="lazy" decoding="async"></div>
+        <span class="step-n">一</span>
+        <h3>醃</h3>
+        <p class="step-sub">秘製醃料</p>
+        <p>多種香料調配的秘方醃料，手工塗抹、靜置入味。風味的底子在這一步就定了。</p>
+      </article>
+      <article class="step reveal">
+        <div class="step-img" aria-hidden="true"><img src="assets/craft_fire.webp" alt="" loading="lazy" decoding="async"></div>
+        <span class="step-n">二</span>
+        <h3>烤</h3>
+        <p class="step-sub">龍眼木炭</p>
+        <p>龍眼木炭火掛爐燒烤，火候全靠師傅盯。炭香醇厚，這是電爐做不出來的。</p>
+      </article>
+      <article class="step reveal">
+        <div class="step-img" aria-hidden="true"><img src="assets/craft_rack.webp" alt="" loading="lazy" decoding="async"></div>
+        <span class="step-n">三</span>
+        <h3>切</h3>
+        <p class="step-sub">現點現切</p>
+        <p>每日新鮮製作，不隔夜販售。點了才下刀，皮還脆的時候就送到你手上。</p>
+      </article>
+    </div>
+
+    <figure class="poster-banner reveal">
+      <img src="assets/poster_ing.webp" alt="順記燒臘館食材講究海報：櫻桃鴨、白羅曼鵝、台灣黑豬肉、脆皮燒肉" loading="lazy" decoding="async"
+           data-lb data-cap="食材講究・造就美味">
+    </figure>
+
+    <div class="craft-quote reveal">
+      <img src="assets/craft_carve.webp" alt="順記師傅在燒味櫃前分切剛出爐的脆皮燒肉" loading="lazy" decoding="async">
+      <div class="cq-body">
+        <blockquote>傳承香港老師傅技藝，<br><span>手工醃製、精準火候</span>，<br>成就每一道經典美味。</blockquote>
+        <cite>順記燒臘 ・ 用心 ・ 安心 ・ 美味</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 團訂 ══ -->
+<section class="sec" id="catering">
+  <div class="wrap">
+    <header class="sec-head">
+      <span class="rail" aria-hidden="true"></span>
+      <div class="plaque"><i class="hook hook-l"></i><i class="hook hook-r"></i><h2>外送・團訂</h2></div>
+      <p class="sec-lede">公司訂便當、會議餐、聚餐拼盤、年節三牲——一通電話搞定。</p>
+      <span class="sec-kicker">Catering &amp; Delivery</span>
+    </header>
+
+    <div class="cater">
+      <figure class="cater-img reveal" style="margin:0">
+        <img src="assets/dish_platter.webp" alt="順記港式燒味拼盤：燒鴨、油雞、叉燒、臘腸、燒肉與青菜" loading="lazy" decoding="async">
+      </figure>
+
+      <div>
+        <ul class="cater-list">
+          <li class="cater-item reveal">
+            <span class="cater-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21V7l6-4v6l6-4v6l6-4v14z"/></svg></span>
+            <div>
+              <h3>公司行號・便當外送</h3>
+              <p>大量訂購享優惠。數量與時段先電話確認，午市尖峰請提前預約。</p>
+            </div>
+          </li>
+          <li class="cater-item reveal">
+            <span class="cater-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19h16M6 19V9a6 6 0 0 1 12 0v10M9 5h6"/></svg></span>
+            <div>
+              <h3>團膳・會議餐</h3>
+              <p>依人數與預算配菜，可混搭飯類與燒味拼盤。</p>
+            </div>
+          </li>
+          <li class="cater-item reveal">
+            <span class="cater-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M8 12h8M12 8v8"/></svg></span>
+            <div>
+              <h3>聚餐拼盤</h3>
+              <p>燒鵝、燒鴨、叉燒、燒肉、油雞、臘味自由搭，一盤到位。</p>
+            </div>
+          </li>
+          <li class="cater-item reveal">
+            <span class="cater-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></span>
+            <div>
+              <h3>年節三牲</h3>
+              <p>三節祭祀用三牲，整隻燒鵝、燒鴨、白斬雞。請提前來電預訂。</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="cater-cta">
+          <a class="btn btn-gold" href="tel:+88632640001">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .7-.2 1l-2.3 2.1z"/></svg>
+            來電洽詢 03-264-0001
+          </a>
+          <a class="btn btn-ghost" href="#visit">看門市與地圖</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 店裡 ══ -->
+<section class="sec" id="shop">
+  <div class="wrap">
+    <header class="sec-head">
+      <span class="rail" aria-hidden="true"></span>
+      <div class="plaque"><i class="hook hook-l"></i><i class="hook hook-r"></i><h2>店　裡</h2></div>
+      <p class="sec-lede">燒味櫃就在門口。鴨、鵝、雞掛成一排，看得到才敢吃。</p>
+      <span class="sec-kicker">Inside the Shop</span>
+    </header>
+
+    <div class="gal reveal">
+      <figure class="g-tall"><img src="assets/shop_counter.webp" alt="燒臘櫃前，師傅正在分切脆皮燒肉，鴨鵝掛成一排" loading="lazy" decoding="async" data-lb data-cap="燒味櫃・師傅現點現切"><figcaption>燒味櫃・現點現切</figcaption></figure>
+      <figure class="g-wide"><img src="assets/shop_street.webp" alt="順記燒臘館店面外觀，紅底金字招牌" loading="lazy" decoding="async" data-lb data-cap="南園二路12號・紅底金字"><figcaption>南園二路12號</figcaption></figure>
+      <figure><img src="assets/duck_glass.webp" alt="櫥窗內掛著剛出爐的脆皮燒鴨" loading="lazy" decoding="async" data-lb data-cap="掛爐燒鴨・皮脆油亮"><figcaption>掛爐燒鴨</figcaption></figure>
+      <figure><img src="assets/shop_interior.webp" alt="店內用餐與候餐區" loading="lazy" decoding="async" data-lb data-cap="店內・候餐區"><figcaption>店內候餐區</figcaption></figure>
+      <figure><img src="assets/dish_bento.webp" alt="順記燒臘便當實拍：燒味、配菜與白飯" loading="lazy" decoding="async" data-lb data-cap="便當實拍"><figcaption>便當實拍</figcaption></figure>
+      <figure><img src="assets/shop_window.webp" alt="店面櫥窗與品項看板" loading="lazy" decoding="async" data-lb data-cap="櫥窗・品項看板"><figcaption>櫥窗看板</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 門市 ══ -->
+<section class="sec" id="visit" style="background:linear-gradient(180deg,transparent,rgba(168,24,28,.06))">
+  <div class="wrap">
+    <header class="sec-head">
+      <span class="rail" aria-hidden="true"></span>
+      <div class="plaque"><i class="hook hook-l"></i><i class="hook hook-r"></i><h2>門　市</h2></div>
+      <p class="sec-lede">中壢南園二路，靠近元化路口。門口紅底金字招牌，很好認。</p>
+      <span class="sec-kicker">Visit Us</span>
+    </header>
+
+    <div class="visit">
+      <div class="reveal">
+        <div class="info-block">
+          <p class="info-label">訂購・外送專線</p>
+          <a class="tel-big" href="tel:+88632640001">03-264-0001</a>
+        </div>
+
+        <div class="info-block">
+          <p class="info-label">地址</p>
+          <p class="info-main">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=%E9%A0%86%E8%A8%98%E7%87%92%E8%87%98%E9%A4%A8&amp;query_place_id=ChIJvXlQ50QjaDQRBy1_aML9eFs" target="_blank" rel="noopener">桃園市中壢區南園二路 12 號</a>
+          </p>
+        </div>
+
+        <div class="info-block">
+          <p class="info-label">營業時間</p>
+          <dl class="hours" id="hours">
+            <div class="hrow" data-day="1"><dt>週一</dt><dd>11:00–13:30　16:00–19:00</dd></div>
+            <div class="hrow" data-day="2"><dt>週二</dt><dd>11:00–13:30　16:00–19:00</dd></div>
+            <div class="hrow" data-day="3"><dt>週三</dt><dd>11:00–13:30　16:00–19:00</dd></div>
+            <div class="hrow" data-day="4"><dt>週四</dt><dd>11:00–13:30　16:00–19:00</dd></div>
+            <div class="hrow" data-day="5"><dt>週五</dt><dd>11:00–13:30　16:00–19:00</dd></div>
+            <div class="hrow rest" data-day="6"><dt>週六</dt><dd>公休</dd></div>
+            <div class="hrow rest" data-day="0"><dt>週日</dt><dd>公休</dd></div>
+          </dl>
+          <p class="disclaim">營業時間依 Google 地圖登載資料，實際供應時段與售完狀況以現場為準。整隻燒鵝／燒鴨、年節三牲請提前預訂。</p>
+        </div>
+
+        <div class="info-block">
+          <p class="info-label">LINE 訂購社群</p>
+          <div class="qr-row">
+            <div class="qr-box"><img src="assets/qr_line.webp" alt="順記燒臘館 LINE 訂購社群 QR Code" loading="lazy" decoding="async"></div>
+            <div class="qr-txt">
+              <strong>掃碼加入社群</strong>
+              <p>用手機掃描加入訂購社群。在網站點好餐、按下「送出訂單」會自動複製，進社群直接貼上就完成。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-card reveal">
+        <div class="map-holder">
+          <div class="map-fallback" aria-hidden="true">
+            <div class="pin"></div>
+            <p>桃園市中壢區南園二路 12 號</p>
+          </div>
+          <iframe
+            title="順記燒臘館位置地圖"
+            src="https://maps.google.com/maps?q=24.9717817,121.2356849&amp;hl=zh-TW&amp;z=17&amp;output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <!-- ══ 外送距離 ══ -->
+        <div class="dist" id="dist">
+          <div class="dist-t">
+            <h3>你家離順記多遠？</h3>
+            <span class="sub">DELIVERY RANGE</span>
+          </div>
+
+          <div class="dist-act">
+            <button class="dist-btn dist-geo" type="button" id="distGeo">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+              目前位置
+            </button>
+            <input class="dist-in" id="distAddr" type="text" autocomplete="street-address"
+                   placeholder="或輸入地址，例：中壢區元化路 100 號">
+            <button class="dist-btn dist-go" type="button" id="distGo">算距離</button>
+          </div>
+
+          <div class="dist-out" id="distOut">
+            <p class="dist-km"><b id="distKm">—</b><span>公里</span></p>
+            <p class="dist-from" id="distFrom"></p>
+
+            <div class="ruler" id="ruler">
+              <i class="ruler-shop" aria-hidden="true"></i>
+              <i class="ruler-tick" aria-hidden="true"></i>
+              <i class="ruler-you" id="rulerYou" data-l="你" aria-hidden="true"></i>
+            </div>
+
+            <p class="dist-st" id="distSt" role="status" aria-live="polite"></p>
+
+            <a class="dist-call" href="tel:+88632640001"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .7-.2 1l-2.3 2.1z"/></svg>大量訂購・來電 03-264-0001</a>
+          </div>
+
+          <p class="dist-rule">
+            <em>外送門檻</em>
+            1.5 公里內　滿 <b>5 份</b>起送<br>
+            1.5 公里外　滿 <b>10 份</b>起送<br>
+            未達門檻可改自取；份數多、時段特殊，直接來電最快。
+          </p>
+        </div>
+
+        <div class="map-foot">
+          <a class="btn btn-red" href="https://www.google.com/maps/dir/?api=1&amp;destination=24.9717817,121.2356849&amp;destination_place_id=ChIJvXlQ50QjaDQRBy1_aML9eFs" target="_blank" rel="noopener">開啟導航</a>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%A0%86%E8%A8%98%E7%87%92%E8%87%98%E9%A4%A8&amp;query_place_id=ChIJvXlQ50QjaDQRBy1_aML9eFs" target="_blank" rel="noopener">Google 評價</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ══ 頁尾 ══ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-in">
+      <div class="foot-brand">
+        <span class="seal" aria-hidden="true">順</span>
+        <span class="brand-txt">
+          <span class="brand-cn">順記燒臘館</span>
+          <span class="brand-en">Shunji Roast House</span>
+        </span>
+      </div>
+      <div class="foot-meta">
+        桃園市中壢區南園二路 12 號<br>
+        訂購專線 <a href="tel:+88632640001">03-264-0001</a>　｜　週一至週五 11:00–13:30、16:00–19:00<br>
+        便當外送 ・ 公司行號 ・ 團膳 ・ 聚餐拼盤 ・ 年節三牲
+      </div>
+    </div>
+    <div class="foot-bar">
+      <span>© 2026 順記燒臘館 SHUNJI ROAST HOUSE</span>
+      <span>正宗港式燒臘 ・ 龍眼木炭現烤 ・ 每日新鮮</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ 點餐單 ══ -->
+<button class="slip-fab" id="fab" aria-controls="slip" aria-expanded="false">
+  點餐單 <span class="n" id="fabN">0</span>
+</button>
+
+<aside class="slip" id="slip" aria-label="點餐單" role="region">
+  <div class="slip-head">
+    <div>
+      <h3>點餐單</h3>
+      <p class="sub">SHUNJI ・ ORDER SLIP</p>
+    </div>
+    <button class="slip-x" id="slipX" aria-label="關閉點餐單">✕</button>
+  </div>
+  <div class="slip-scroll">
+    <div class="slip-body" id="slipBody">
+      <p class="slip-empty"><span>⊕</span>還沒有品項。<br>在菜單上按 ＋ 把想吃的加進來。</p>
+    </div>
+
+    <!-- ── 訂購資料 ── -->
+    <div class="slip-form" id="slipForm">
+      <p class="sf-t">訂購資料</p>
+
+      <div class="sf" id="f-org">
+        <label for="i-org">訂購公司／單位<i>*</i></label>
+        <input id="i-org" type="text" placeholder="例：宏達科技 三樓行政部" autocomplete="organization">
+        <p class="sf-e">請填寫訂購公司或單位</p>
+      </div>
+
+      <div class="sf-row">
+        <div class="sf" id="f-name">
+          <label for="i-name">聯絡人<i>*</i></label>
+          <input id="i-name" type="text" placeholder="王先生" autocomplete="name">
+          <p class="sf-e">請填寫聯絡人</p>
+        </div>
+        <div class="sf" id="f-tel">
+          <label for="i-tel">客戶電話<i>*</i></label>
+          <input id="i-tel" type="tel" inputmode="tel" placeholder="0912-345-678" autocomplete="tel">
+          <p class="sf-e">請填寫正確的電話</p>
+        </div>
+      </div>
+
+      <label class="sf-pick" id="f-pick">
+        <input type="checkbox" id="i-pick">
+        <span class="sf-box" aria-hidden="true"></span>
+        <span class="sf-pt">我要自取（不用外送）<small>勾選後免填地址，改填自取時間</small></span>
+      </label>
+
+      <div class="sf-deliv" id="f-deliv"></div>
+
+      <div class="sf" id="f-addr">
+        <label for="i-addr">外送地址<i>*</i></label>
+        <input id="i-addr" type="text" placeholder="桃園市中壢區○○路 100 號 3F" autocomplete="street-address">
+        <p class="sf-e">請填寫外送地址</p>
+      </div>
+
+      <div class="sf-row">
+        <div class="sf" id="f-date">
+          <label for="i-date"><span class="lb-when">外送日期</span><i>*</i></label>
+          <input id="i-date" type="date">
+          <p class="sf-e">請選擇日期</p>
+        </div>
+        <div class="sf" id="f-time">
+          <label for="i-time"><span class="lb-when">送達時間</span><i>*</i></label>
+          <input id="i-time" type="time" step="300">
+          <p class="sf-e">請選擇時間</p>
+        </div>
+      </div>
+      <p class="sf-hours">供應時段　週一～週五 11:00–13:30・16:00–19:00（週六、日公休）</p>
+
+      <div class="sf" id="f-memo">
+        <label for="i-memo">備註</label>
+        <textarea id="i-memo" placeholder="例：兩份不要蔥、餐具 5 副、到樓下打電話"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="slip-foot">
+    <div class="s-total">
+      <span class="lb">合計</span>
+      <span class="vl"><small>NT$</small><span id="slipTotal">0</span></span>
+    </div>
+
+    <button class="s-send" id="slipSend">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+      送出訂單
+    </button>
+
+    <div class="s-acts">
+      <a class="s-btn s-call" href="tel:+88632640001">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .7-.2 1l-2.3 2.1z"/></svg>
+        撥號訂餐
+      </a>
+      <button class="s-btn s-copy" id="slipCopy">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+        只複製訂單
+      </button>
+    </div>
+    <button class="s-clear" id="slipClear">清空點餐單</button>
+    <p class="s-hint">送出後會自動複製整張訂單，貼到社群即可。<br>金額為試算，實際以店家結帳為準。</p>
+  </div>
+</aside>
+
+<!-- ══ 送出後：加入社群 ══ -->
+<div class="cmt" id="cmt" role="dialog" aria-modal="true" aria-labelledby="cmtT">
+  <div class="cmt-card">
+    <button class="cmt-x" id="cmtX" aria-label="關閉">✕</button>
+
+    <p class="cmt-ok" id="cmtOk">已複製訂單</p>
+    <p class="cmt-sum" id="cmtSum"></p>
+    <h3 id="cmtT">加入順記社群</h3>
+    <p class="cmt-lead" id="cmtLead">用 LINE 掃描下方 QR 加入社群<br>進去後<b>長按輸入框 → 貼上 → 送出</b>就完成訂購</p>
+
+    <div class="cmt-qr" id="cmtQr">
+      <img src="assets/qr_line.webp" alt="順記燒臘館 LINE 社群 QR Code" width="380" height="380">
+    </div>
+    <p class="cmt-cap" id="cmtCap">順記燒臘館・訂購社群</p>
+
+    <div class="cmt-steps" id="cmtSteps">
+      <div><i>1</i><span>掃碼<br>加入社群</span></div>
+      <div><i>2</i><span>長按<br>貼上訂單</span></div>
+      <div><i>3</i><span>送出<br>完成訂購</span></div>
+    </div>
+
+    <a class="cmt-btn cmt-go" id="cmtJoin" href="#" target="_blank" rel="noopener">點此加入社群</a>
+    <button class="cmt-btn cmt-gold" id="cmtPosted" type="button">我已加入社群・直接前往貼上</button>
+    <button class="cmt-btn cmt-ghost" id="cmtRecopy" type="button">再複製一次訂單</button>
+
+    <details class="cmt-raw">
+      <summary>展開訂單內容（可手動全選複製）</summary>
+      <textarea id="cmtRaw" readonly spellcheck="false"></textarea>
+    </details>
+
+    <p class="cmt-hint">訂單成立以社群回覆為準・急件請直撥 <a href="tel:+88632640001">03-264-0001</a></p>
+  </div>
+</div>
+
+<!-- ══ 行動版工具列 ══ -->
+<nav class="mbar" aria-label="快速操作">
+  <a href="tel:+88632640001">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .7-.2 1l-2.3 2.1z"/></svg>
+    撥號
+  </a>
+  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=24.9717817,121.2356849" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+    導航
+  </a>
+  <button class="mb-order" id="mbOrder" aria-controls="slip" aria-expanded="false">
+    <span class="n" id="mbN" hidden>0</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM6.2 6h14.3l-2.3 8.4H8.1L6.2 6zM4 2H1v2h2l3 11h13v-2H7.4l-.3-1h11.6L22 4H5.6L5 2z"/></svg>
+    點餐單
+  </button>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<p class="sr" id="cartLive" aria-live="polite"></p>
+
+<dialog class="lb" id="lb">
+  <button class="lb-x" id="lbX" aria-label="關閉">✕</button>
+  <figure style="margin:0">
+    <img id="lbImg" alt="" hidden>
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+</dialog>
+
 <script>
-/* ── INIT ── */
-(function init() {
-  const now = new Date();
-  const pad = n => String(n).padStart(2,'0');
-  const no = `GR-${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}-${Math.floor(Math.random()*9000+1000)}`;
-  document.getElementById('d_no').textContent = no;
-  document.getElementById('d_no2').textContent = no;
+(function(){
+  'use strict';
+  document.documentElement.classList.add('js');
 
-  const today = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
-  document.getElementById('s_date').value = today;
-  document.getElementById('f_sig_date').value = today;
+  /* ---------- 營業狀態（依 Google 登載時段即時判斷）---------- */
+  var HOURS = { 1:[[660,810],[960,1140]], 2:[[660,810],[960,1140]], 3:[[660,810],[960,1140]],
+                4:[[660,810],[960,1140]], 5:[[660,810],[960,1140]], 6:[], 0:[] };
+  var DAYNAME = ['週日','週一','週二','週三','週四','週五','週六'];
 
-  updateAll();
-
-  document.querySelectorAll('.panel-body input, .panel-body textarea').forEach(el => {
-    el.addEventListener('input', updateAll);
-    el.addEventListener('change', updateAll);
-  });
-
-  // 預設收合設定面板（桌面版），手機版本來就預設隱藏，不受影響
-  if (window.innerWidth > 640) {
-    const panel = document.getElementById('settingsPanel');
-    const btn   = document.getElementById('panelCollapseBtn');
-    panel.classList.add('collapsed');
-    btn.textContent = '▶';
-    btn.title = '展開設定';
-  }
-})();
-
-/* ── WARRANTY TOGGLE ── */
-function toggleWarranty() {
-  const on = document.getElementById('s_warranty').checked;
-  document.getElementById('warranty_sub').classList.toggle('hidden', !on);
-  updateAll();
-}
-
-/* ── LINE PREVIEW ── */
-function updateLinePreview() {
-  const v = document.getElementById('f_line').value.trim();
-  document.getElementById('d_line_preview').textContent = v || '──';
-}
-
-/* ── DATE FORMAT ── */
-function fmtDate(val) {
-  if (!val) return '──';
-  const [y, m, d] = val.split('-');
-  return `${y} 年 ${parseInt(m)} 月 ${parseInt(d)} 日`;
-}
-
-/* ── UPDATE ALL ── */
-function updateAll() {
-  const qty      = parseInt(document.getElementById('s_qty').value)      || 20;
-  const price    = parseInt(document.getElementById('s_price').value)    || 85;
-  const photoFee = parseInt(document.getElementById('s_photo').value)    || 0;
-  const textFee  = parseInt(document.getElementById('s_text_fee').value) || 0;
-  const unitPriceBasic = price + photoFee + textFee;
-  const grandTotal     = unitPriceBasic * qty;
-  const warranty = document.getElementById('s_warranty').checked;
-  const wPrice   = parseInt(document.getElementById('s_wprice').value)   || 300;
-  const wDays    = parseInt(document.getElementById('s_wdays').value)    || 15;
-  const wQty     = parseInt(document.getElementById('s_wqty').value)     || 1;
-  const dateVal  = document.getElementById('s_date').value;
-  const note     = document.getElementById('s_note').value.trim();
-
-  // date header
-  document.getElementById('d_date').textContent = fmtDate(dateVal);
-
-  // service table
-  let t = `<thead><tr>
-    <th style="width:34%">項目</th>
-    <th style="width:21%">單價</th>
-    <th>說明</th>
-  </tr></thead><tbody>`;
-
-  if (warranty) {
-    t += `
-    <tr>
-      <td>Google 五星評論代發<br><small style="color:#888">（基本方案，無保固）</small></td>
-      <td><span class="price-val">${price} 元／則</span></td>
-      <td>真實手動帳號操作，模擬真實用戶行為，分批上線。<span style="color:#b52b2b;font-weight:700;">本方案不含補發保固。</span></td>
-    </tr>
-    <tr>
-      <td>Google 五星評論代發<br><small style="color:#888">（含 ${wDays} 天保固方案）</small></td>
-      <td><span class="price-val">${wPrice} 元／則</span></td>
-      <td>含 ${wDays} 天補評保固，屏蔽後補上 ${wQty} 則，保障更完整。</td>
-    </tr>`;
-  } else {
-    t += `
-    <tr>
-      <td>Google 五星評論代發</td>
-      <td><span class="price-val">${price} 元／則</span></td>
-      <td>真實手動帳號操作，模擬真實用戶行為，分批上線降低風險。</td>
-    </tr>`;
-  }
-
-  if (photoFee > 0) {
-    t += `
-    <tr>
-      <td>加附照片 <span class="badge">加購</span></td>
-      <td><span class="price-val">+${photoFee} 元／則</span></td>
-      <td>每則評論附加一張照片，提升評論真實感與可信度。</td>
-    </tr>`;
-  }
-  if (textFee > 0) {
-    t += `
-    <tr>
-      <td>指定評論內文 <span class="badge">加購</span></td>
-      <td><span class="price-val">+${textFee} 元／則</span></td>
-      <td>可提供指定文字方向，由操作方撰寫自然語句內容。</td>
-    </tr>`;
-  }
-  t += `<tr style="background:#eef4ff;">
-    <td style="font-weight:700;color:var(--navy);border-top:2px solid #b0caee;">📋 本次委託小計</td>
-    <td style="font-weight:700;color:var(--navy);border-top:2px solid #b0caee;font-size:15px;">${qty}&nbsp;則</td>
-    <td style="font-weight:700;color:var(--navy);border-top:2px solid #b0caee;font-size:15px;">應付總金額：NT$&nbsp;${grandTotal.toLocaleString()}</td>
-  </tr>`;
-  t += '</tbody>';
-  document.getElementById('d_svc_table').innerHTML = t;
-
-  // warranty / no-warranty
-  const wb  = document.getElementById('d_warranty_box');
-  const nwn = document.getElementById('d_nowarranty_note');
-  if (warranty) {
-    wb.classList.remove('hidden');
-    nwn.classList.add('hidden');
-    document.getElementById('d_w_title').textContent = `🛡 ${wDays} 天補評保固說明（含保固方案適用）`;
-    document.getElementById('d_w_body').innerHTML =
-      `評論成功發布後，保固期間為 <strong>${wDays} 個自然日</strong>。於保固期內，若評論遭 Google 系統屏蔽或移除（以發布當下已成功顯示為前提），乙方將無償補上 <strong>${wQty} 則</strong>一次。<br><br>` +
-      `保固範圍僅限發布後 ${wDays} 天內之首次屏蔽補償；保固期滿後，或補評後再次遭屏蔽，均不在保固範圍內。`;
-  } else {
-    wb.classList.add('hidden');
-    nwn.classList.remove('hidden');
-  }
-
-  // risk clause 4
-  const rc4 = document.getElementById('d_clause_warranty_risk');
-  rc4.innerHTML = warranty
-    ? `保固補發僅限一次，且僅適用於發布後 ${wDays} 天內；保固期滿後遭屏蔽屬不可控範圍，乙方不承擔進一步補發義務，亦不退款。`
-    : `本合約<strong>不含補發保固</strong>，評論發布後若遭 Google 系統移除或屏蔽，乙方不提供任何補發服務，甲方應於下單前充分評估此風險。`;
-
-  // agree item 4
-  const agw = document.getElementById('d_agree_warranty_txt');
-  agw.innerHTML = warranty
-    ? `本人了解保固補發僅限 ${wDays} 天內一次；保固期滿後再遭屏蔽屬不可控因素，乙方不承擔額外補發或退款義務。`
-    : `本人確認此方案<strong>不含保固補發</strong>，評論遭屏蔽後不得要求補發，已充分理解並接受此條件。`;
-
-  // note section & sig label numbering
-  const noteSec = document.getElementById('d_note_sec');
-  if (note) {
-    noteSec.style.display = '';
-    document.getElementById('d_note_body').textContent = note;
-    document.getElementById('d_sig_label').textContent = '07 · 委託方簽署';
-  } else {
-    noteSec.style.display = 'none';
-    document.getElementById('d_sig_label').textContent = '06 · 委託方簽署';
-  }
-}
-
-/* ── RESET ── */
-function resetSettings() {
-  document.getElementById('s_qty').value      = 20;
-  document.getElementById('s_price').value    = 85;
-  document.getElementById('s_photo').value    = 15;
-  document.getElementById('s_text_fee').value = 10;
-  document.getElementById('s_warranty').checked = false;
-  document.getElementById('s_wprice').value   = 300;
-  document.getElementById('s_wdays').value    = 15;
-  document.getElementById('s_wqty').value     = 1;
-  document.getElementById('s_note').value     = '';
-  document.getElementById('warranty_sub').classList.add('hidden');
-  const now = new Date();
-  const pad = n => String(n).padStart(2,'0');
-  document.getElementById('s_date').value = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
-  updateAll();
-}
-
-/* ── SIGNATURE PADS（縮圖顯示用，不可直接繪製） ── */
-const pads = {};
-
-function initPad(n) {
-  const canvas = document.getElementById(`sigCanvas${n}`);
-  const wrap   = document.getElementById(`canvasWrap${n}`);
-  const ctx    = canvas.getContext('2d');
-  const pad    = { canvas, wrap, ctx, hasSig: false };
-  pads[n] = pad;
-
-  function resize() {
-    const dpr = window.devicePixelRatio || 1;
-    const w = wrap.offsetWidth, h = wrap.offsetHeight;
-    // preserve existing signature image before resize
-    let imgData = null;
-    if (pad.hasSig && canvas.width > 0 && canvas.height > 0) {
-      imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    }
-    canvas.width  = w * dpr; canvas.height = h * dpr;
-    canvas.style.width  = w + 'px'; canvas.style.height = h + 'px';
-    ctx.setTransform(1,0,0,1,0,0);
-    ctx.scale(dpr, dpr);
-    if (imgData) ctx.putImageData(imgData, 0, 0);
-  }
-  resize();
-  window.addEventListener('resize', resize);
-  pad._resize = resize;
-}
-
-initPad(1);
-initPad(2);
-
-function clearSigPad(n) {
-  const pad = pads[n];
-  const dpr = window.devicePixelRatio || 1;
-  pad.ctx.clearRect(0, 0, pad.wrap.offsetWidth * dpr, pad.wrap.offsetHeight * dpr);
-  pad.hasSig = false;
-  pad.wrap.classList.remove('has-sig');
-}
-
-/* ── SIGNATURE MODAL ── */
-let _modalTargetPad = null;
-const _modal = {
-  canvas: null,
-  ctx: null,
-  wrap: null,
-  hint: null,
-  drawing: false,
-  hasSig: false,
-  lastX: 0, lastY: 0
-};
-
-function _initModalCanvas() {
-  const canvas = document.getElementById('sigModalCanvas');
-  const wrap   = document.getElementById('sigModalWrap');
-  const hint   = document.getElementById('sigModalHint');
-  _modal.canvas = canvas;
-  _modal.wrap   = wrap;
-  _modal.hint   = hint;
-
-  function setupCtx() {
-    const dpr = window.devicePixelRatio || 1;
-    const w = wrap.offsetWidth, h = wrap.offsetHeight;
-    canvas.width  = w * dpr; canvas.height = h * dpr;
-    canvas.style.width  = w + 'px'; canvas.style.height = h + 'px';
-    const ctx = canvas.getContext('2d');
-    ctx.setTransform(1,0,0,1,0,0);
-    ctx.scale(dpr, dpr);
-    ctx.strokeStyle = '#152540';
-    ctx.lineWidth   = 3.2;
-    ctx.lineCap     = 'round';
-    ctx.lineJoin    = 'round';
-    _modal.ctx = ctx;
-  }
-  setupCtx();
-  _modal._setup = setupCtx;
-
-  function getPos(e) {
-    const r = canvas.getBoundingClientRect();
-    const src = e.touches ? e.touches[0] : e;
-    return { x: src.clientX - r.left, y: src.clientY - r.top };
-  }
-  function startDraw(e) {
-    _modal.drawing = true;
-    const p = getPos(e); _modal.lastX = p.x; _modal.lastY = p.y;
-    e.preventDefault();
-  }
-  function moveDraw(e) {
-    if (!_modal.drawing) return;
-    e.preventDefault();
-    const p = getPos(e);
-    _modal.ctx.beginPath();
-    _modal.ctx.moveTo(_modal.lastX, _modal.lastY);
-    _modal.ctx.lineTo(p.x, p.y);
-    _modal.ctx.stroke();
-    _modal.lastX = p.x; _modal.lastY = p.y;
-    _modal.hasSig = true;
-    hint.style.display = 'none';
-  }
-  function endDraw(e) { _modal.drawing = false; }
-
-  canvas.addEventListener('mousedown',  startDraw);
-  canvas.addEventListener('mousemove',  moveDraw);
-  canvas.addEventListener('mouseup',    endDraw);
-  canvas.addEventListener('mouseleave', endDraw);
-  canvas.addEventListener('touchstart', startDraw, { passive: false });
-  canvas.addEventListener('touchmove',  moveDraw,  { passive: false });
-  canvas.addEventListener('touchend',   endDraw);
-}
-
-function openSigModal(n) {
-  _modalTargetPad = n;
-  const titles = { 1: '✍️ 甲方簽名（第一次）', 2: '✍️ 甲方簽名（確認簽）' };
-  document.getElementById('sigModalTitle').textContent = titles[n] || '✍️ 手寫簽名';
-
-  const overlay = document.getElementById('sigModal');
-  overlay.classList.add('open');
-  // prevent body scroll on mobile
-  document.body.style.overflow = 'hidden';
-
-  // reset canvas
-  if (!_modal.canvas) { _initModalCanvas(); }
-  else { _modal._setup(); }
-  _modal.hasSig = false;
-  _modal.hint.style.display = '';
-}
-
-function closeSigModal() {
-  document.getElementById('sigModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function handleModalOverlayClick(e) {
-  // close when clicking backdrop (not the modal box itself)
-  if (e.target === document.getElementById('sigModal')) closeSigModal();
-}
-
-function clearModalCanvas() {
-  const dpr = window.devicePixelRatio || 1;
-  _modal.ctx.clearRect(0, 0, _modal.wrap.offsetWidth * dpr, _modal.wrap.offsetHeight * dpr);
-  _modal.hasSig = false;
-  _modal.hint.style.display = '';
-}
-
-function confirmSigModal() {
-  if (!_modal.hasSig) {
-    alert('尚未簽名，請先在上方空白區域簽名後再按完成。');
-    return;
-  }
-  const n = _modalTargetPad;
-  const pad = pads[n];
-
-  // transfer modal canvas content → contract canvas (scale to fit)
-  const dpr = window.devicePixelRatio || 1;
-  const tw = pad.wrap.offsetWidth, th = pad.wrap.offsetHeight;
-  pad.canvas.width  = tw * dpr; pad.canvas.height = th * dpr;
-  pad.canvas.style.width  = tw + 'px'; pad.canvas.style.height = th + 'px';
-  pad.ctx.setTransform(1,0,0,1,0,0);
-  pad.ctx.scale(dpr, dpr);
-
-  // draw the modal canvas content scaled into the target canvas
-  pad.ctx.clearRect(0, 0, tw, th);
-  pad.ctx.drawImage(_modal.canvas, 0, 0, tw, th);
-
-  pad.hasSig = true;
-  pad.wrap.classList.add('has-sig');
-
-  closeSigModal();
-}
-
-/* ── 動態計算合約真實高度並注入 @page size ── */
-function prepareSinglePagePrint() {
-  const doc = document.getElementById('contractDoc');
-  // 1px = 0.2645835mm；加 16mm 含上下 margin（各 8mm）
-  const heightPx  = doc.scrollHeight;
-  const heightMm  = Math.ceil(heightPx * 0.2645835) + 16;
-  document.getElementById('dynamic-page-style').textContent =
-    `@media print { @page { size: 210mm ${heightMm}mm; margin: 8mm; } }`;
-}
-
-function restoreSinglePagePrint() {
-  document.getElementById('dynamic-page-style').textContent = '';
-}
-
-window.addEventListener('beforeprint', prepareSinglePagePrint);
-window.addEventListener('afterprint',  restoreSinglePagePrint);
-
-/* ── 客戶存PDF（不驗證面板欄位，只驗簽名） ── */
-function clientSavePDF() {
-  if (!pads[1].hasSig) { alert('請先完成第一處簽名。'); return; }
-  if (!pads[2].hasSig) { alert('請再完成確認簽名（第二格）。'); return; }
-  window.print();
-}
-
-/* ── 產生客戶版 PDF（空白簽名） ── */
-function generateClientPDF() {
-  const biz = document.getElementById('f_biz').value.trim();
-  if (!biz) {
-    alert('請先在合約右側填寫「Google 商家名稱」後再產生 PDF。');
-    return;
-  }
-
-  // 清空簽名格，確保是空白的
-  clearSigPad(1);
-  clearSigPad(2);
-  document.getElementById('canvasWrap1').classList.remove('has-sig');
-  document.getElementById('canvasWrap2').classList.remove('has-sig');
-
-  // 更新提示文字為客戶版說明
-  const hints = [
-    { el: document.querySelector('#canvasWrap1 .sig-hint'), newText: '▼ 客戶請在此手寫簽名' },
-    { el: document.querySelector('#canvasWrap2 .sig-hint'), newText: '▼ 請再次簽名確認' },
-  ];
-  hints.forEach(h => {
-    h.origText = h.el.textContent;
-    h.el.textContent = h.newText;
-    h.el.style.display = 'block';
-  });
-
-  document.body.classList.add('client-pdf-mode');
-
-  function cleanup() {
-    document.body.classList.remove('client-pdf-mode');
-    hints.forEach(h => {
-      h.el.textContent = h.origText;
-      h.el.style.display = 'none';
-    });
-    window.removeEventListener('afterprint', cleanup);
-  }
-  window.addEventListener('afterprint', cleanup);
-
-  window.print();
-}
-
-/* ── 產生合約 PDF 並用手機原生分享選單分享（含 LINE） ── */
-async function saveAndShare() {
-  if (!pads[1].hasSig) { alert('請先完成第一處簽名。'); return; }
-  if (!pads[2].hasSig) { alert('請再完成確認簽名（第二格）。'); return; }
-
-  const btn = document.getElementById('btnSaveImage');
-  const origText = btn.textContent;
-  btn.textContent = '⏳ 產生 PDF 中…';
-  btn.disabled = true;
-
-  // 暫時隱藏不需要入鏡的元素
-  const hideEls = document.querySelectorAll(
-    '.client-save-btn, .sig-clear, .mobile-pdf-hint, .sig-open-hint, .mobile-panel-btn'
-  );
-  hideEls.forEach(el => { el._origVis = el.style.visibility; el.style.visibility = 'hidden'; });
-
-  try {
-    const doc = document.getElementById('contractDoc');
-    const canvas = await html2canvas(doc, {
-      scale: 2,
-      useCORS: true,
-      allowTaint: true,
-      backgroundColor: '#ffffff',
-      logging: false,
-    });
-
-    hideEls.forEach(el => { el.style.visibility = el._origVis || ''; });
-
-    const filename = 'Google評論合約_' + new Date().toISOString().slice(0, 10) + '.pdf';
-    const imgData  = canvas.toDataURL('image/jpeg', 0.93);
-
-    // 用 jsPDF 依合約實際比例產生單頁 PDF（不裁切、不分頁）
-    const { jsPDF } = window.jspdf;
-    const pdf = new jsPDF({
-      orientation: canvas.width > canvas.height ? 'landscape' : 'portrait',
-      unit: 'px',
-      format: [canvas.width, canvas.height],
-    });
-    pdf.addImage(imgData, 'JPEG', 0, 0, canvas.width, canvas.height);
-    const pdfBlob = pdf.output('blob');
-    const file = new File([pdfBlob], filename, { type: 'application/pdf' });
-
-    // 優先使用手機原生分享選單（分享清單裡會有 LINE）
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      try {
-        await navigator.share({
-          files: [file],
-          title: 'Google 評論代發服務委託合約書',
-          text: '合約 PDF',
-        });
-      } catch (shareErr) {
-        // 使用者自己取消分享，不用顯示錯誤
-        if (shareErr.name !== 'AbortError') {
-          fallbackDownloadPDF(pdfBlob, filename);
+  function fmt(m){ var h=Math.floor(m/60), mm=m%60; return (h<10?'0':'')+h+':'+(mm<10?'0':'')+mm; }
+  function nextOpen(day, mins){
+    for(var i=0;i<8;i++){
+      var d=(day+i)%7, slots=HOURS[d];
+      for(var j=0;j<slots.length;j++){
+        if(i>0 || slots[j][0]>mins){
+          return { d:d, start:slots[j][0], today:(i===0) };
         }
       }
-    } else {
-      fallbackDownloadPDF(pdfBlob, filename);
     }
-  } catch (err) {
-    hideEls.forEach(el => { el.style.visibility = el._origVis || ''; });
-    alert('PDF 產生失敗（' + err.message + '），請重新整理頁面後再試一次。');
+    return null;
+  }
+  function updateStatus(){
+    var el=document.getElementById('status'), tx=document.getElementById('statusTxt');
+    if(!el||!tx) return;
+    var now=new Date(), day=now.getDay(), mins=now.getHours()*60+now.getMinutes();
+    var slots=HOURS[day], open=null;
+    for(var i=0;i<slots.length;i++){ if(mins>=slots[i][0] && mins<slots[i][1]){ open=slots[i]; break; } }
+
+    el.classList.remove('open','soon');
+    if(open){
+      var left=open[1]-mins;
+      el.classList.add('open');
+      tx.innerHTML='現在營業中 <span class="sep">・</span> '+fmt(open[1])+' 收攤' + (left<=45 ? '（剩 '+left+' 分）' : '');
+    } else {
+      var nx=nextOpen(day,mins);
+      if(nx){
+        if(nx.today && (nx.start-mins)<=60) el.classList.add('soon');
+        var when = nx.today ? '今天 '+fmt(nx.start) : DAYNAME[nx.d]+' '+fmt(nx.start);
+        tx.innerHTML='目前休息 <span class="sep">・</span> '+when+' 開賣';
+      } else { tx.textContent='目前休息'; }
+    }
+    // 今日列高亮
+    var rows=document.querySelectorAll('#hours .hrow');
+    for(var k=0;k<rows.length;k++){
+      rows[k].classList.toggle('today', +rows[k].getAttribute('data-day')===day);
+    }
+  }
+  updateStatus(); setInterval(updateStatus, 60000);
+
+  /* ---------- 導覽列黏著 ---------- */
+  var nav=document.getElementById('nav');
+  var onScroll=function(){ nav.classList.toggle('stuck', window.scrollY>28); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* ---------- 跑馬燈：複製一份做無縫循環 ---------- */
+  var marq=document.getElementById('marq');
+  if(marq) marq.innerHTML += marq.innerHTML;
+
+  /* ---------- 進場動畫 fallback（不支援 animation-timeline 時）---------- */
+  if(!CSS.supports('animation-timeline:view()') && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(n){ io.observe(n); });
   }
 
-  btn.textContent = origText;
-  btn.disabled = false;
-}
+  /* ---------- 菜單分類 ---------- */
+  var tabs=document.querySelectorAll('.tab');
+  var rows=document.querySelectorAll('#menuList .m-row');
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.forEach(function(x){ x.setAttribute('aria-selected','false'); });
+      t.setAttribute('aria-selected','true');
+      var f=t.getAttribute('data-filter');
+      rows.forEach(function(r){
+        r.hidden = !(f==='all' || r.getAttribute('data-cat')===f);
+      });
+    });
+  });
 
-function fallbackDownloadPDF(blob, filename) {
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = filename;
-  document.body.appendChild(a); a.click(); document.body.removeChild(a);
-  document.getElementById('shareFallbackHint').style.display = 'block';
-}
+  /* ══════════════════════════════════════════════════
+     點餐單  —  全站數量同步
+     菜單、招牌卡、點餐單三處的份數永遠一致，
+     誤點可就地按 − 取消，不必翻開點餐單。
+     ══════════════════════════════════════════════════ */
 
-/* ── 桌面：收合 / 展開設定面板 ── */
-function togglePanel() {
-  const panel = document.getElementById('settingsPanel');
-  const btn   = document.getElementById('panelCollapseBtn');
-  const collapsed = panel.classList.toggle('collapsed');
-  btn.textContent = collapsed ? '▶' : '◀';
-  btn.title       = collapsed ? '展開設定' : '收合設定';
-}
+  /* localStorage 可能被隱私模式／LINE 內建瀏覽器擋掉 → 記憶體備援 */
+  var mem={};
+  var store={
+    get:function(k){ try{ return localStorage.getItem(k); }catch(e){ return mem[k]||null; } },
+    set:function(k,v){ try{ localStorage.setItem(k,v); }catch(e){ mem[k]=v; } }
+  };
 
-/* ── 手機：開 / 關設定面板 ── */
-function toggleMobilePanel() {
-  const panel   = document.getElementById('settingsPanel');
-  const overlay = document.getElementById('mobilePanelOverlay');
-  const isOpen  = panel.classList.toggle('mobile-open');
-  overlay.classList.toggle('visible', isOpen);
-  // 防止底層頁面滾動
-  document.body.style.overflow = isOpen ? 'hidden' : '';
-}
+  var MAXQ=99;                 // 單一品項上限
+  var CART_TTL=12*3600*1000;   // 點餐單保留 12 小時
+  var cart=[];                 // [{n:品名, p:單價, q:份數, u:單位}]
+  var CATALOG={};              // 品名 → {p,u}（一律以「頁面上的價格」為準）
+  var CTRL={};                 // 品名 → [畫面上所有的步進器]
 
-function closeMobilePanel() {
-  const panel   = document.getElementById('settingsPanel');
-  const overlay = document.getElementById('mobilePanelOverlay');
-  panel.classList.remove('mobile-open');
-  overlay.classList.remove('visible');
-  document.body.style.overflow = '';
-}
+  var slip=document.getElementById('slip');
+  var body=document.getElementById('slipBody');
+  var totalEl=document.getElementById('slipTotal');
+  var fab=document.getElementById('fab'), fabN=document.getElementById('fabN');
+  var mbOrder=document.getElementById('mbOrder'), mbN=document.getElementById('mbN');
+  var toastEl=document.getElementById('toast'), toastT;
+  var liveEl=document.getElementById('cartLive');
+  var sendBtn=document.getElementById('slipSend');
+  var clearBtn=document.getElementById('slipClear');
 
-/* ── 我方（設定面板）列印驗證 ── */
-function validateAndPrint() {
-  const required = [
-    [document.getElementById('f_line').value.trim(),  'LINE 名稱'],
-    [document.getElementById('f_phone').value.trim(), '聯絡電話'],
-    [document.getElementById('f_biz').value.trim(),   'Google 商家名稱'],
-  ];
-  for (const [v, label] of required) {
-    if (!v) { alert(`請先填寫甲方的「${label}」再列印。`); return; }
+  function esc(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')
+                    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
-  if (!pads[1].hasSig || !pads[2].hasSig) {
-    alert('請確認兩格簽名都已完成後再列印。'); return;
+  function toast(msg){
+    toastEl.textContent=msg; toastEl.classList.add('show');
+    clearTimeout(toastT); toastT=setTimeout(function(){ toastEl.classList.remove('show'); }, 2100);
   }
-  window.print();
-}
+  function find(n){ for(var i=0;i<cart.length;i++){ if(cart[i].n===n) return cart[i]; } return null; }
+  function count(){ return cart.reduce(function(s,i){ return s+i.q; },0); }
+  function total(){ return cart.reduce(function(s,i){ return s+i.q*i.p; },0); }
+  function money(v){ return v.toLocaleString('en-US'); }
+
+  /* ---- 保存／還原（重新整理、切去 LINE 再回來都不會不見）---- */
+  function save(){
+    try{ store.set('sj_cart', JSON.stringify({t:Date.now(), c:cart})); }catch(e){}
+  }
+  function loadCart(){
+    try{
+      var o=JSON.parse(store.get('sj_cart')||'null');
+      if(!o || !Array.isArray(o.c)) return;
+      if(Date.now()-(o.t||0) > CART_TTL) return;           // 太舊就不還原
+      o.c.forEach(function(i){
+        var c=CATALOG[i.n];
+        if(!c) return;                                      // 菜單已下架的品項直接丟掉
+        var q=parseInt(i.q,10)||0;
+        if(q<1) return;
+        cart.push({n:i.n, p:c.p, q:Math.min(q,MAXQ), u:c.u});  // 價格永遠重新取，不吃舊價
+      });
+    }catch(e){ cart=[]; }
+  }
+
+  /* ---- 增減 ---- */
+  function bump(name, d, srcBtn){
+    var c=CATALOG[name];
+    if(!c) return;
+    var it=find(name), was=it?it.q:0;
+    if(!it){
+      if(d<=0) return;
+      cart.push({n:name, p:c.p, q:Math.min(d,MAXQ), u:c.u});
+    }else{
+      it.q+=d;
+      if(it.q<=0) cart.splice(cart.indexOf(it),1);
+      else if(it.q>MAXQ){ it.q=MAXQ; toast('單項最多 '+MAXQ+'，大量訂購請直接來電'); }
+    }
+    save(); render();
+    if(srcBtn && d>0){ srcBtn.classList.remove('bump'); void srcBtn.offsetWidth; srcBtn.classList.add('bump'); }
+    if(was===0 && d>0) toast('已加入：'+name);          // 只在第一次加入時提示，連點不吵
+    if(was>0 && !find(name)) toast('已取消：'+name);
+  }
+  function removeItem(name){
+    if(!find(name)) return;
+    cart.splice(cart.indexOf(find(name)),1);
+    save(); render(); toast('已移除：'+name);
+  }
+
+  /* ---- 把每一顆「＋」升級成「−  份數  ＋」---- */
+  function makeStepper(name, dark){
+    var w=document.createElement('div');
+    w.className='qty'+(dark?' qty--dark':'');
+    w.setAttribute('data-for', name);
+    w.innerHTML =
+      '<button class="q-m" type="button" aria-label="減少 '+esc(name)+'">−</button>'+
+      '<span class="q-n" aria-hidden="true">0</span>'+
+      '<button class="q-p" type="button" aria-label="加入 '+esc(name)+'">＋</button>';
+    w.querySelector('.q-m').addEventListener('click', function(){ bump(name,-1); });
+    w.querySelector('.q-p').addEventListener('click', function(){ bump(name, 1, this); });
+    (CTRL[name]=CTRL[name]||[]).push(w);
+    return w;
+  }
+
+  /* 單價品項：菜單列 + 招牌主食卡 */
+  document.querySelectorAll('.m-add,.dish-add').forEach(function(b){
+    var name=b.getAttribute('data-name');
+    var price=parseInt(b.getAttribute('data-price'),10);
+    if(!name || !(price>0)) return;
+    CATALOG[name]={p:price, u:b.getAttribute('data-unit')||''};
+    b.parentNode.replaceChild(makeStepper(name, b.classList.contains('dish-add')), b);
+  });
+
+  /* 整隻・部位：整隻／半隻／1-4 隻各自獨立計數 */
+  document.querySelectorAll('.m-var').forEach(function(b){
+    var name=b.getAttribute('data-name');
+    var price=parseInt(b.getAttribute('data-price'),10);
+    if(!name || !(price>0)) return;
+    CATALOG[name]={p:price, u:''};
+
+    var wrap=document.createElement('span');
+    wrap.className='m-varwrap';
+    wrap.setAttribute('data-for', name);
+    b.parentNode.insertBefore(wrap, b);
+    wrap.appendChild(b);
+
+    var chip=document.createElement('span');
+    chip.className='m-varq';
+    chip.innerHTML =
+      '<button class="q-m" type="button" aria-label="減少 '+esc(name)+'">−</button>'+
+      '<span class="q-n" aria-hidden="true">0</span>'+
+      '<button class="q-p" type="button" aria-label="加入 '+esc(name)+'">＋</button>';
+    chip.querySelector('.q-m').addEventListener('click', function(e){ e.stopPropagation(); bump(name,-1); });
+    chip.querySelector('.q-p').addEventListener('click', function(e){ e.stopPropagation(); bump(name, 1, this); });
+    wrap.appendChild(chip);
+
+    b.addEventListener('click', function(){ bump(name, 1, b); });
+    (CTRL[name]=CTRL[name]||[]).push(wrap);
+  });
+
+  /* ---- 把份數同步到畫面上「每一個」控制項 ---- */
+  /* 三寶飯／鴨腿飯／雙拼飯在招牌卡和菜單各出現一次，兩邊必須顯示同一個數字 */
+  function syncControls(){
+    Object.keys(CTRL).forEach(function(name){
+      var it=find(name), q=it?it.q:0;
+      CTRL[name].forEach(function(el){
+        el.classList.toggle('on', q>0);
+        var n=el.querySelector('.q-n'); if(n) n.textContent=q;
+        var m=el.querySelector('.q-m');
+        if(m) m.setAttribute('aria-label', (q<=1?'取消 ':'減少 ')+name);
+      });
+    });
+  }
+
+  /* ---- 重畫 ---- */
+  function render(){
+    var n=count(), t=total();
+
+    fabN.textContent=n;
+    mbN.textContent=n; mbN.hidden = (n===0);
+    totalEl.textContent=money(t);
+    sendBtn.classList.toggle('off', n===0);
+    syncControls();
+    syncDeliv();                     // 份數一變，外送狀態就跟著變
+    if(liveEl) liveEl.textContent = n===0 ? '點餐單是空的' : ('點餐單共 '+n+' 件，合計 '+money(t)+' 元');
+
+    if(!cart.length){
+      body.innerHTML='<p class="slip-empty"><span>⊕</span>還沒有品項。<br>在菜單上按 ＋ 把想吃的加進來。</p>';
+      return;
+    }
+
+    /* 記住焦點，連按 ＋ 時不會跳掉 */
+    var act=document.activeElement, fkey=null;
+    if(act && act.getAttribute && body.contains(act)) fkey=act.getAttribute('data-k');
+
+    var html='';
+    cart.forEach(function(it){
+      var u=it.u||'份';
+      html+='<div class="s-item">'
+          +   '<span class="nm">'+esc(it.n)+'<em>NT$'+it.p+' / '+esc(u)+'</em></span>'
+          +   '<span class="s-qty">'
+          +     '<button type="button" data-k="'+esc(it.n)+'|-1" data-n="'+esc(it.n)+'" data-d="-1" aria-label="'+(it.q<=1?'取消 ':'減少 ')+esc(it.n)+'">−</button>'
+          +     '<span class="q">'+it.q+'</span>'
+          +     '<button type="button" data-k="'+esc(it.n)+'|1" data-n="'+esc(it.n)+'" data-d="1" aria-label="增加 '+esc(it.n)+'">+</button>'
+          +   '</span>'
+          +   '<span class="s-sum">'+money(it.q*it.p)+'</span>'
+          +   '<button class="s-del" type="button" data-k="'+esc(it.n)+'|x" data-del="'+esc(it.n)+'" aria-label="移除 '+esc(it.n)+'">✕</button>'
+          + '</div>';
+    });
+    body.innerHTML=html;
+
+    body.querySelectorAll('.s-qty button').forEach(function(b){
+      b.addEventListener('click', function(){ bump(b.getAttribute('data-n'), parseInt(b.getAttribute('data-d'),10)); });
+    });
+    body.querySelectorAll('.s-del').forEach(function(b){
+      b.addEventListener('click', function(){ removeItem(b.getAttribute('data-del')); });
+    });
+
+    if(fkey){
+      var btns=body.querySelectorAll('[data-k]');
+      for(var i=0;i<btns.length;i++){
+        if(btns[i].getAttribute('data-k')===fkey){ btns[i].focus({preventScroll:true}); break; }
+      }
+    }
+  }
+
+  /* ---- 開關點餐單（手機版鎖住背景捲動）---- */
+  function openSlip(v){
+    slip.classList.toggle('open', v);
+    fab.setAttribute('aria-expanded', v?'true':'false');
+    mbOrder.setAttribute('aria-expanded', v?'true':'false');
+    var small = window.matchMedia && window.matchMedia('(max-width:760px)').matches;
+    document.body.classList.toggle('lock', !!(v && small));
+    if(!v) resetClear();
+  }
+  fab.addEventListener('click', function(){ openSlip(!slip.classList.contains('open')); });
+  mbOrder.addEventListener('click', function(){ openSlip(!slip.classList.contains('open')); });
+  document.getElementById('slipX').addEventListener('click', function(){ openSlip(false); });
+
+  /* ---- 清空：要按兩次，避免一個誤觸整單消失 ---- */
+  var clearArmed=false, clearT;
+  function resetClear(){
+    clearArmed=false;
+    clearTimeout(clearT);
+    clearBtn.classList.remove('armed');
+    clearBtn.textContent='清空點餐單';
+  }
+  clearBtn.addEventListener('click', function(){
+    if(!cart.length){ toast('點餐單本來就是空的'); return; }
+    if(!clearArmed){
+      clearArmed=true;
+      clearBtn.classList.add('armed');
+      clearBtn.textContent='再按一次，確認清空';
+      clearTimeout(clearT);
+      clearT=setTimeout(resetClear, 4000);
+      return;
+    }
+    cart=[]; save(); render(); resetClear(); toast('已清空點餐單');
+  });
+
+  loadCart();
+
+  /* ══════════════════════════════════════════════════
+     訂購資料 → 送出 → 自動複製 → 加入社群
+     ══════════════════════════════════════════════════ */
+
+  /* ★★ 要改的只有這一行：貼上你的 LINE 社群邀請連結 ★★
+     （LINE 社群 → 右上選單 → 邀請 → 複製連結）           */
+  var COMMUNITY_URL = 'https://line.me/ti/g2/GAhXwcx8SMs8nLxe-e7G0QSFVxCCYJmAx8rlMA?utm_source=invitation&utm_medium=QR_code&utm_campaign=default';
+
+  var LEAD_MIN = 60;                    // 最少提前幾分鐘下單
+  var $=function(s){ return document.querySelector(s); };
+  var pad=function(n){ return (n<10?'0':'')+n; };
+  var val=function(id){ var e=$(id); return e ? e.value.trim() : ''; };
+
+  /* 訂單編號：每次送出都重新產生，同一次瀏覽送兩筆不會撞號 */
+  var d0=new Date();
+  function newOrderNo(){
+    var d=new Date();
+    return 'SJ'+pad(d.getMonth()+1)+pad(d.getDate())+'-'+Math.floor(1000+Math.random()*9000);
+  }
+  var ORDER_NO=newOrderNo();
+
+  /* 預設帶到「下一個可訂的營業時段」——今天公休就自動跳下一個營業日，
+     免得客人一打開就吃到紅字 */
+  var ymd=function(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); };
+  $('#i-date').min=ymd(d0);
+  $('#i-date').max=ymd(new Date(d0.getTime()+60*86400000));   // 最多可訂 60 天內
+
+  (function presetWhen(){
+    var earliest=new Date(d0.getTime()+LEAD_MIN*60000);
+    for(var i=0;i<10;i++){
+      var d=new Date(d0.getFullYear(), d0.getMonth(), d0.getDate()+i);
+      var slots=HOURS[d.getDay()]||[];
+      for(var j=0;j<slots.length;j++){
+        var open=new Date(d); open.setHours(0, slots[j][0], 0, 0);
+        var close=new Date(d); close.setHours(0, slots[j][1], 0, 0);
+        if(close < earliest) continue;                 // 這個時段已經來不及了
+        var t = open > earliest ? open : earliest;     // 取「開店時間」與「最早可訂」較晚者
+        t.setMinutes(Math.ceil(t.getMinutes()/5)*5);   // 進位到 5 分鐘
+        $('#i-date').value=ymd(t);
+        $('#i-time').value=pad(t.getHours())+':'+pad(t.getMinutes());
+        return;
+      }
+    }
+  })();
+
+  /* 訂購資料保存：常客第二次來不用重打公司、聯絡人、電話 */
+  var FKEYS=['#i-org','#i-name','#i-tel','#i-addr','#i-memo'];
+  function saveForm(){
+    try{
+      var o={pick:$('#i-pick').checked};
+      FKEYS.forEach(function(k){ o[k]=val(k); });
+      store.set('sj_form', JSON.stringify(o));
+    }catch(e){}
+  }
+  function loadForm(){
+    try{
+      var o=JSON.parse(store.get('sj_form')||'null');
+      if(!o) return;
+      FKEYS.forEach(function(k){ if(o[k] && $(k)) $(k).value=o[k]; });
+      if(o.pick){ $('#i-pick').checked=true; }
+    }catch(e){}
+  }
+
+  /* 自取切換 */
+  var pick=$('#i-pick');
+  function syncPick(){
+    var on=pick.checked;
+    $('#f-pick').classList.toggle('on', on);
+    $('#f-addr').style.display = on ? 'none' : '';
+    if(on) $('#f-addr').classList.remove('err');
+    var lb=document.querySelectorAll('.lb-when');
+    lb[0].textContent = on ? '自取日期' : '外送日期';
+    lb[1].textContent = on ? '自取時間' : '送達時間';
+  }
+  pick.addEventListener('change', function(){ syncPick(); saveForm(); syncDeliv(); });
+
+  loadForm();
+  syncPick();
+  FKEYS.forEach(function(k){
+    var e=$(k);
+    if(e) e.addEventListener('change', saveForm);
+  });
+
+  /* ══════════════════════════════════════════════════
+     外送距離門檻
+       1.5 公里內 — 滿 5 份起送
+       1.5 公里外 — 滿 10 份起送
+     份數只算「份」，秤重的「兩」不列入。
+     ══════════════════════════════════════════════════ */
+
+  /* ★ 要調規則改這裡就好 ★ */
+  var SHOP = { lat:24.9717817, lng:121.2356849 };   // 南園二路 12 號
+  var RULE = {
+    edgeKm:  1.5,    // 遠近分界（公里）
+    nearMin: 5,      // 分界內：滿幾份起送
+    farMin:  10,     // 分界外：滿幾份起送
+    weighUnit:'兩'   // 這個單位不算「份」（秤重類）
+  };
+
+  var distKm    = null;    // null = 還沒算距離
+  var distFrom  = '';
+  var distReady = false;
+  var distUnsure= false;   // 客人選了「不確定距離仍要送出」
+
+  function boxes(){        // 便當份數（排除秤重）
+    return cart.reduce(function(s,i){ return s + (i.u===RULE.weighUnit ? 0 : i.q); }, 0);
+  }
+  function fmtKm(k){ return k<10 ? k.toFixed(1) : String(Math.round(k)); }
+  function needAt(km){ return km<=RULE.edgeKm ? RULE.nearMin : RULE.farMin; }
+
+  function haversine(la1,lo1,la2,lo2){
+    var R=6371, r=Math.PI/180;
+    var dLa=(la2-la1)*r, dLo=(lo2-lo1)*r;
+    var a=Math.sin(dLa/2)*Math.sin(dLa/2)
+        + Math.cos(la1*r)*Math.cos(la2*r)*Math.sin(dLo/2)*Math.sin(dLo/2);
+    return 2*R*Math.asin(Math.min(1, Math.sqrt(a)));
+  }
+
+  function deliv(){
+    var q=boxes();
+    if(distKm===null) return { known:false, q:q };
+    var need=needAt(distKm);
+    return { known:true, km:distKm, q:q, need:need, ok:q>=need, short:Math.max(0,need-q) };
+  }
+
+  /* ---- 地圖旁的面板 ---- */
+  function drawDist(){
+    var out=$('#distOut'); if(!out) return;
+    var s=deliv();
+    if(!s.known){ out.classList.remove('on'); return; }
+    out.classList.add('on');
+
+    $('#distKm').textContent   = fmtKm(s.km);
+    $('#distFrom').textContent = distFrom;
+
+    /* 量尺長度隨距離伸縮，讓 1.5km 的刻度與「你」都落在尺上 */
+    var span   = Math.max(3, Math.ceil(s.km*1.35*2)/2);
+    var edge   = RULE.edgeKm/span*100;
+    var youPct = Math.max(1.5, Math.min(97, s.km/span*100));
+    $('#ruler').style.setProperty('--edge', edge.toFixed(1)+'%');
+    var you=$('#rulerYou');
+    you.style.left = youPct.toFixed(1)+'%';
+    you.setAttribute('data-l', fmtKm(s.km)+' km');
+
+    var zone = s.km<=RULE.edgeKm ? '1.5 公里內' : '1.5 公里外';
+    var st=$('#distSt');
+    if(s.ok){
+      st.className='dist-st ok';
+      st.innerHTML='<b>可以外送。</b>你在'+zone+'，需滿 '+s.need+' 份；'
+                  +'目前 <b>'+s.q+' 份</b>，已達門檻。';
+    }else{
+      st.className='dist-st no';
+      st.innerHTML='<b>還不能外送。</b>你在'+zone+'，需滿 '+s.need+' 份；'
+                  +'目前 '+s.q+' 份，<b>還差 '+s.short+' 份</b>。<br>可以改自取，或來電問問。';
+    }
+  }
+
+  /* ---- 點餐單裡的狀態條 ---- */
+  function drawSlipDeliv(){
+    var box=$('#f-deliv'); if(!box || !pick) return;
+    box.classList.remove('err');
+
+    if(pick.checked){
+      box.className='sf-deliv';
+      box.innerHTML='<p>自取沒有份數門檻，點好直接送出就好。</p>';
+      return;
+    }
+    var s=deliv();
+    if(!s.known){
+      box.className='sf-deliv';
+      box.innerHTML='<p><b>外送門檻</b>　1.5 公里內滿 '+RULE.nearMin+' 份、'
+                   +'1.5 公里外滿 '+RULE.farMin+' 份。<br>'
+                   +'<a href="#visit" data-close-slip>先算一下距離 →</a></p>';
+      return;
+    }
+    if(s.ok){
+      box.className='sf-deliv ok';
+      box.innerHTML='<p><b>可以外送</b>　距離 '+fmtKm(s.km)+' 公里・'
+                   +'需滿 '+s.need+' 份・目前 '+s.q+' 份</p>';
+    }else{
+      box.className='sf-deliv warn';
+      box.innerHTML='<p><b>還差 '+s.short+' 份才能外送</b>　距離 '+fmtKm(s.km)+' 公里・需滿 '+s.need+' 份<br>'
+                   +'<a href="#menu" data-close-slip>再加點 →</a>　'
+                   +'<a href="tel:+88632640001">來電 03-264-0001</a>　或勾選上面的「我要自取」</p>';
+    }
+  }
+
+  function syncDeliv(){ if(!distReady) return; drawDist(); drawSlipDeliv(); }
+
+  function setDist(km, from){
+    distKm=km; distFrom=from||''; distUnsure=false;
+    try{ store.set('sj_dist', JSON.stringify({km:km, f:distFrom, t:Date.now()})); }catch(e){}
+    syncDeliv();
+  }
+
+  /* ---- 目前位置 ---- */
+  $('#distGeo').addEventListener('click', function(){
+    var b=this;
+    if(!navigator.geolocation){ toast('這支瀏覽器不支援定位，請改用輸入地址'); return; }
+    var old=b.innerHTML; b.disabled=true; b.textContent='定位中…';
+    navigator.geolocation.getCurrentPosition(function(p){
+      b.disabled=false; b.innerHTML=old;
+      setDist(haversine(SHOP.lat, SHOP.lng, p.coords.latitude, p.coords.longitude), '直線距離・依你目前位置');
+      $('#dist').scrollIntoView({behavior:'smooth', block:'center'});
+    }, function(err){
+      b.disabled=false; b.innerHTML=old;
+      toast(err.code===1 ? '定位權限被拒，請改輸入地址' : '定位失敗，請改輸入地址');
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:120000});
+  });
+
+  /* ---- 輸入地址 ---- */
+  function geocode(q){
+    var url='https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&countrycodes=tw&q='
+           +encodeURIComponent(q);
+    return fetch(url).then(function(r){
+      if(!r.ok) throw new Error('http');
+      return r.json();
+    }).then(function(a){
+      if(!a || !a.length) throw new Error('none');
+      return { lat:parseFloat(a[0].lat), lng:parseFloat(a[0].lon) };
+    });
+  }
+  function lookupAddr(q, btn){
+    if(!q){ toast('先輸入地址'); return; }
+    var old = btn ? btn.textContent : '';
+    if(btn){ btn.disabled=true; btn.textContent='查詢中…'; }
+    geocode(q).then(function(c){
+      if(btn){ btn.disabled=false; btn.textContent=old; }
+      setDist(haversine(SHOP.lat, SHOP.lng, c.lat, c.lng), '直線距離・'+q);
+      if($('#i-addr') && !val('#i-addr')){ $('#i-addr').value=q; saveForm(); }  // 順手帶進點餐單
+    })['catch'](function(){
+      if(btn){ btn.disabled=false; btn.textContent=old; }
+      toast('查不到這個地址，換個寫法或改用「目前位置」');
+    });
+  }
+  $('#distGo').addEventListener('click', function(){
+    lookupAddr($('#distAddr').value.trim(), this);
+  });
+  $('#distAddr').addEventListener('keydown', function(e){
+    if(e.key==='Enter'){ e.preventDefault(); lookupAddr(this.value.trim(), $('#distGo')); }
+  });
+
+  /* 在點餐單填了外送地址、又還沒算過距離 → 自動幫他算 */
+  $('#i-addr').addEventListener('change', function(){
+    var q=this.value.trim();
+    if(q && distKm===null){
+      if(!$('#distAddr').value.trim()) $('#distAddr').value=q;
+      lookupAddr(q, $('#distGo'));
+    }
+  });
+
+  /* 點餐單裡的連結：跳過去之前先把抽屜關掉 */
+  document.addEventListener('click', function(e){
+    var a=e.target.closest && e.target.closest('[data-close-slip]');
+    if(a) openSlip(false);
+  });
+
+  /* ---- 還原上次算過的距離 ---- */
+  (function(){
+    try{
+      var o=JSON.parse(store.get('sj_dist')||'null');
+      if(!o || typeof o.km!=='number') return;
+      if(Date.now()-(o.t||0) > 7*86400000) return;    // 超過 7 天就重算
+      distKm=o.km; distFrom=o.f||'';
+    }catch(e){}
+  })();
+
+  distReady=true;
+  syncDeliv();
+
+  /* 驗證 */
+  function setErr(id, bad, msg){
+    var f=$(id);
+    f.classList.toggle('err', bad);
+    if(msg) f.querySelector('.sf-e').textContent=msg;
+    return !bad;
+  }
+  function validate(){
+    var ok=true;
+    if(!cart.length){
+      toast('點餐單還是空的，先加點東西');
+      openSlip(true);
+      return false;
+    }
+
+    /* ── 外送門檻 ── */
+    if(!pick.checked){
+      var D=deliv(), fd=$('#f-deliv');
+      var bad=function(msg){
+        toast(msg);
+        fd.classList.remove('err'); void fd.offsetWidth; fd.classList.add('err');
+        openSlip(true);
+        fd.scrollIntoView({behavior:'smooth', block:'center'});
+      };
+
+      if(D.q < RULE.nearMin){
+        /* 不管遠近都不夠 */
+        bad('外送最少 '+RULE.nearMin+' 份，還差 '+(RULE.nearMin-D.q)+' 份');
+        return false;
+      }
+      if(D.known && !D.ok){
+        bad('你在 1.5 公里外，需滿 '+D.need+' 份，還差 '+D.short+' 份');
+        return false;
+      }
+      if(!D.known && D.q < RULE.farMin){
+        /* 5～9 份、距離未知：可能可以送、也可能不行 —— 問清楚，但不擋死 */
+        var go = confirm(
+          '還沒確認外送距離。\n\n'
+          +'・1.5 公里內：滿 '+RULE.nearMin+' 份可外送（你目前 '+D.q+' 份，已達標）\n'
+          +'・1.5 公里外：要滿 '+RULE.farMin+' 份\n\n'
+          +'按「確定」照樣送出，店家會打電話跟你確認；\n'
+          +'按「取消」回去算一下距離。'
+        );
+        if(!go){
+          openSlip(false);
+          document.getElementById('visit').scrollIntoView({behavior:'smooth'});
+          return false;
+        }
+        distUnsure = true;
+      }
+    }
+
+    ok = setErr('#f-org',  !val('#i-org'))  && ok;
+    ok = setErr('#f-name', !val('#i-name')) && ok;
+    ok = setErr('#f-tel',  !/^\d{8,15}$/.test(val('#i-tel').replace(/\D/g,''))) && ok;
+    if(!pick.checked) ok = setErr('#f-addr', !val('#i-addr')) && ok;
+    ok = setErr('#f-date', !val('#i-date')) && ok;
+    ok = setErr('#f-time', !val('#i-time')) && ok;
+
+    if(val('#i-date') && val('#i-time')){
+      var when=new Date(val('#i-date')+'T'+val('#i-time'));
+      var mins=when.getHours()*60+when.getMinutes();
+      var slots=HOURS[when.getDay()]||[];
+      var inHours=slots.some(function(s){ return mins>=s[0] && mins<=s[1]; });
+
+      if(!slots.length){
+        ok = setErr('#f-date', true, '這天公休，請改其他日子') && ok;
+      } else if(!inHours){
+        ok = setErr('#f-time', true, '不在供應時段內（11:00–13:30／16:00–19:00）') && ok;
+      } else if(when.getTime() < Date.now()+LEAD_MIN*60000){
+        ok = setErr('#f-time', true, '請至少提前 '+LEAD_MIN+' 分鐘訂餐') && ok;
+      } else {
+        setErr('#f-time', false, '請選擇時間');
+        setErr('#f-date', false, '請選擇日期');
+      }
+    }
+
+    if(!ok){
+      var first=$('.sf.err');
+      if(first){
+        first.scrollIntoView({behavior:'smooth', block:'center'});
+        var inp=first.querySelector('input,textarea');
+        if(inp) inp.focus({preventScroll:true});
+      }
+      toast('還有欄位沒填好');
+    }
+    return ok;
+  }
+
+  /* 組出要貼到社群的訂單全文 */
+  function buildOrder(){
+    var isPick=pick.checked, L=[], dash='────────────────';
+    var when='—';
+    if(val('#i-date') && val('#i-time')){
+      var w=new Date(val('#i-date')+'T'+val('#i-time'));
+      when=(w.getMonth()+1)+'/'+w.getDate()+'（'+DAYNAME[w.getDay()].slice(1)+'） '+pad(w.getHours())+':'+pad(w.getMinutes());
+    }
+    L.push('順記燒臘館・線上訂單');
+    L.push(dash);
+    L.push('訂購單位｜'+(val('#i-org')||'—'));
+    L.push('聯 絡 人｜'+(val('#i-name')||'—'));
+    L.push('客戶電話｜'+(val('#i-tel')||'—'));
+    L.push('取餐方式｜'+(isPick ? '★ 自取（不用外送）' : '外送'));
+    if(!isPick){
+      L.push('外送地址｜'+(val('#i-addr')||'—'));
+      var D=deliv();
+      L.push('距離門市｜'+(D.known ? fmtKm(D.km)+' 公里（直線）' : '未確認・請與客戶確認'));
+      L.push('外送份數｜'+D.q+' 份'
+            +(D.known ? '（門檻 '+D.need+' 份）'
+                      : (distUnsure ? '（門檻依距離：'+RULE.nearMin+' 或 '+RULE.farMin+' 份）' : '')));
+    }
+    L.push((isPick?'自取時間':'送達時間')+'｜'+when);
+    L.push('備　　註｜'+(val('#i-memo')||'無'));
+    L.push(dash);
+    L.push('餐點明細');
+    cart.forEach(function(i){
+      L.push('・'+i.n+'　×'+i.q+' '+(i.u||'份')+'　NT$'+money(i.q*i.p));
+    });
+    L.push(dash);
+    L.push('合　　計｜'+cart.length+' 項　NT$'+money(total()));
+    L.push('訂單編號｜'+ORDER_NO);
+    return L.join('\n');
+  }
+
+  /* 複製（含舊瀏覽器／LINE 內建瀏覽器備援） */
+  function copyText(txt){
+    return new Promise(function(res){
+      var fallback=function(){
+        try{
+          var ta=document.createElement('textarea');
+          ta.value=txt; ta.style.position='fixed'; ta.style.top='-9999px'; ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select(); ta.setSelectionRange(0, 99999);
+          var ok=document.execCommand('copy');
+          document.body.removeChild(ta);
+          res(ok);
+        }catch(e){ res(false); }
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(function(){ res(true); }).catch(fallback);
+      } else fallback();
+    });
+  }
+
+  /* 社群彈窗 */
+  var cmt=$('#cmt'), lastTxt='', lastFocus=null;
+
+  function openCmt(txt, copied){
+    lastTxt=txt;
+    lastFocus=document.activeElement;
+    $('#cmtRaw').value=txt;
+
+    var ok=$('#cmtOk');
+    ok.classList.toggle('warn', !copied);
+    ok.textContent = copied ? '✓ 已複製訂單' : '！自動複製失敗，請展開下方手動複製';
+
+    /* 加入過社群 → 直接走「貼上」路線，不再叫他掃碼 */
+    var joined = store.get('sj_joined')==='1';
+    $('#cmtT').textContent = joined ? '前往社群貼上訂單' : '加入順記社群';
+    $('#cmtLead').innerHTML = joined
+      ? '訂單已經複製好了<br>點下方按鈕進社群，<b>長按輸入框 → 貼上 → 送出</b>'
+      : '用 LINE 掃描下方 QR 加入社群<br>進去後<b>長按輸入框 → 貼上 → 送出</b>就完成訂購';
+    ['#cmtQr','#cmtCap','#cmtSteps','#cmtJoin'].forEach(function(s){
+      $(s).style.display = joined ? 'none' : '';
+    });
+
+    cmt.classList.add('open');
+    document.body.style.overflow='hidden';
+    setTimeout(function(){ (joined ? $('#cmtPosted') : $('#cmtJoin')).focus(); }, 60);
+  }
+  function closeCmt(){
+    cmt.classList.remove('open');
+    document.body.style.overflow='';
+    if(lastFocus) lastFocus.focus();
+  }
+  $('#cmtX').addEventListener('click', closeCmt);
+  cmt.addEventListener('click', function(e){ if(e.target===cmt) closeCmt(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && cmt.classList.contains('open')) closeCmt();
+  });
+
+  /* 送出訂單 → 驗證 → 複製 → 開社群（防連點重複送出）*/
+  var sending=false;
+  $('#slipSend').addEventListener('click', function(){
+    if(sending) return;
+    if(!validate()) return;
+    sending=true;
+    ORDER_NO=newOrderNo();
+    saveForm();
+    var txt=buildOrder();
+    var sum=cart.length+' 項　NT$'+money(total())+'　'+ORDER_NO;
+    copyText(txt).then(function(ok){
+      $('#cmtSum').textContent=sum;
+      openCmt(txt, ok);
+      setTimeout(function(){ sending=false; }, 400);
+    });
+  });
+
+  /* 只複製訂單（不驗證、不開彈窗） */
+  $('#slipCopy').addEventListener('click', function(){
+    if(!cart.length){ toast('點餐單還是空的，先加點東西'); return; }
+    saveForm();
+    copyText(buildOrder()).then(function(ok){
+      toast(ok ? '已複製，可貼到社群或 LINE' : '複製失敗，請手動選取');
+    });
+  });
+
+  /* 進社群：開之前再複製一次（iOS 比較保險），並記住他已加入 */
+  function goCommunity(){
+    copyText(lastTxt).then(function(){
+      store.set('sj_joined','1');
+      if(COMMUNITY_URL) window.open(COMMUNITY_URL, '_blank', 'noopener');
+      else toast('尚未設定社群連結：請在 index.html 搜尋 COMMUNITY_URL 貼上邀請連結');
+    });
+  }
+  $('#cmtJoin').addEventListener('click', function(e){ e.preventDefault(); goCommunity(); });
+  $('#cmtPosted').addEventListener('click', goCommunity);
+
+  $('#cmtRecopy').addEventListener('click', function(){
+    var b=this;
+    copyText(lastTxt).then(function(ok){
+      b.textContent = ok ? '✓ 已複製' : '複製失敗，請手動全選';
+      setTimeout(function(){ b.textContent='再複製一次訂單'; }, 1800);
+    });
+  });
+
+  /* ---------- 燈箱 ---------- */
+  var lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg'), lbCap=document.getElementById('lbCap');
+  document.querySelectorAll('[data-lb]').forEach(function(img){
+    img.addEventListener('click', function(){
+      lbImg.hidden=false;
+      lbImg.src=img.currentSrc||img.src;
+      lbImg.alt=img.alt;
+      lbCap.textContent=img.getAttribute('data-cap')||'';
+      if(lb.showModal) lb.showModal();
+    });
+  });
+  document.getElementById('lbX').addEventListener('click', function(){ lb.close(); });
+  lb.addEventListener('click', function(e){ if(e.target===lb) lb.close(); });
+
+  /* ---------- Esc 關閉點餐單 ---------- */
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && slip.classList.contains('open')) openSlip(false);
+  });
+
+  render();
+})();
 </script>
 </body>
 </html>
