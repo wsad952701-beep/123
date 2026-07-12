@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>順記燒臘館 | 正宗港式燒臘</title>
+  <meta name="description" content="順記燒臘館 · 正宗港式燒臘 · 桃園中壢">
+
+  <!-- LINE LIFF SDK（必須最早載入）-->
+  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script src="config.js"></script>
+
+<style>
+/* ======== RESET ======== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC','微軟正黑體',sans-serif;background:#f4f0ea;color:#2c1a0e;overscroll-behavior:none;}
+.hidden{display:none!important;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;}
+
+/* ======== HEADER ======== */
+.site-header{
+  background:#c0392b;color:#fff;
+  padding:10px 16px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:60;
+  box-shadow:0 2px 12px rgba(0,0,0,.25);
+}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand-logo{width:36px;height:36px;background:rgba(255,255,255,.18);border-radius:9px;font-size:20px;font-weight:900;display:flex;align-items:center;justify-content:center;}
+.brand-name{font-size:16px;font-weight:700;letter-spacing:.5px;}
+.brand-sub{font-size:9px;letter-spacing:2.5px;opacity:.6;display:block;}
+
+/* 登入後頭像 chip */
+.user-chip{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);border-radius:20px;padding:3px 10px 3px 4px;}
+.user-chip img{width:26px;height:26px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(255,255,255,.5);}
+.user-chip .uname{font-size:11px;max-width:70px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.chip-logout{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:12px;padding:3px 9px;font-size:10px;cursor:pointer;margin-left:2px;}
+
+/* ======== HERO ======== */
+.hero{
+  background:linear-gradient(160deg,#1a0a00 0%,#330f00 55%,#1a0a00 100%);
+  padding:46px 24px 54px;text-align:center;position:relative;overflow:hidden;
+}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(192,57,43,.18) 0%,transparent 70%);border-radius:50%;}
+.hero::after{content:'';position:absolute;bottom:-40px;left:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(240,192,64,.12) 0%,transparent 70%);border-radius:50%;}
+.hero-inner{position:relative;z-index:1;}
+.hero-logo{width:80px;height:80px;background:#c0392b;border-radius:22px;color:#fff;font-size:44px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;box-shadow:0 6px 24px rgba(192,57,43,.5);}
+.hero-title{color:#fff;font-size:28px;font-weight:700;letter-spacing:3px;margin-bottom:6px;}
+.hero-en{color:rgba(255,255,255,.45);font-size:10px;letter-spacing:4px;margin-bottom:10px;}
+.hero-divider{width:40px;height:2px;background:#f0c040;margin:10px auto 18px;border-radius:1px;}
+.hero-tagline{color:#f0c040;font-size:13px;letter-spacing:1px;margin-bottom:36px;opacity:.9;}
+
+/* CTA 按鈕（立即訂餐）*/
+.btn-cta{
+  background:#c0392b;color:#fff;border:none;
+  border-radius:50px;padding:18px 50px;
+  font-size:20px;font-weight:700;letter-spacing:3px;cursor:pointer;
+  box-shadow:0 6px 22px rgba(192,57,43,.5),0 0 0 0 rgba(192,57,43,0);
+  animation:pring 2.5s ease-in-out infinite;
+  transition:transform .15s;
+}
+.btn-cta:active{transform:scale(.96);}
+@keyframes pring{
+  0%{box-shadow:0 6px 22px rgba(192,57,43,.5),0 0 0 0 rgba(192,57,43,.4);}
+  70%{box-shadow:0 6px 22px rgba(192,57,43,.5),0 0 0 15px rgba(192,57,43,0);}
+  100%{box-shadow:0 6px 22px rgba(192,57,43,.5),0 0 0 0 rgba(192,57,43,0);}
+}
+.hero-hint{color:rgba(255,255,255,.35);font-size:11px;margin-top:12px;letter-spacing:.5px;}
+
+/* ======== INFO CARDS ======== */
+.info-section{padding:14px 14px 90px;}
+.info-card{background:#fff;border-radius:16px;padding:15px 16px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,.06);display:flex;align-items:flex-start;gap:13px;}
+.info-card.tap{cursor:pointer;transition:background .15s;}
+.info-card.tap:active{background:#f9f5f0;}
+.iico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.iico.red{background:#fff0ef;} .iico.gold{background:#fffaec;} .iico.blue{background:#eff7ff;} .iico.grn{background:#f0fff6;}
+.ibody{flex:1;}
+.ilabel{font-size:11px;color:#aaa;font-weight:600;letter-spacing:1px;margin-bottom:3px;}
+.ivalue{font-size:14px;color:#2c1a0e;font-weight:600;line-height:1.5;}
+.ivalue small{color:#aaa;font-size:11px;}
+.ivalue a{color:#c0392b;font-weight:700;}
+.iarr{color:#ccc;font-size:18px;align-self:center;}
+.obadge{font-size:11px;font-weight:700;padding:1px 7px;border-radius:8px;}
+.obadge.open{background:#e6f9ee;color:#0a7a3a;} .obadge.closed{background:#ffe8e8;color:#c0392b;}
+
+/* ======== BOTTOM NAV ======== */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #eee;display:flex;padding:6px 0 calc(6px + env(safe-area-inset-bottom));box-shadow:0 -2px 14px rgba(0,0,0,.08);z-index:60;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px 0;color:#bbb;font-size:11px;font-weight:600;border:none;background:none;cursor:pointer;text-decoration:none;transition:color .15s;}
+.nav-item.active,.nav-item:active{color:#c0392b;}
+.nav-item svg{width:22px;height:22px;}
+
+/* ======== 訂餐 MODAL ======== */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:flex-end;z-index:200;}
+.order-sheet{background:#fff;width:100%;border-radius:22px 22px 0 0;max-height:93vh;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:calc(20px + env(safe-area-inset-bottom));animation:sup .28s ease;}
+@keyframes sup{from{transform:translateY(100%);}to{transform:translateY(0);}}
+.sheet-handle{width:38px;height:4px;background:#ddd;border-radius:2px;margin:12px auto 0;}
+
+/* -- LINE 登入面板（未登入時點訂餐出現）-- */
+#pane-login{padding:32px 24px 28px;text-align:center;}
+.lp-logo{width:66px;height:66px;background:#c0392b;border-radius:18px;color:#fff;font-size:38px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
+.lp-title{font-size:19px;font-weight:700;margin-bottom:8px;}
+.lp-desc{color:#666;font-size:13px;line-height:1.65;margin-bottom:24px;}
+.lp-desc strong{color:#06C755;}
+
+/* LINE App 登入按鈕 */
+.btn-line-app{
+  width:100%;background:#06C755;color:#fff;border:none;
+  border-radius:50px;padding:17px 20px;
+  font-size:17px;font-weight:700;letter-spacing:1px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  box-shadow:0 5px 18px rgba(6,199,85,.4);
+  transition:transform .15s;
+}
+.btn-line-app:active{transform:scale(.97);}
+.line-badge{width:32px;height:32px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.line-badge svg{width:24px;height:24px;}
+.lp-note{color:#bbb;font-size:11px;margin-top:10px;}
+
+/* 已在 LINE App 裡的提示 */
+.in-line-banner{background:#e6f9ee;border-radius:12px;padding:12px 14px;margin-bottom:20px;display:flex;align-items:center;gap:10px;font-size:13px;color:#0a7a3a;font-weight:600;}
+.in-line-banner svg{width:20px;height:20px;flex-shrink:0;}
+
+/* -- 使用者 bar（已登入後）-- */
+.order-user-bar{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#c0392b,#a93226);padding:14px 18px;color:#fff;}
+.order-user-bar img{width:38px;height:38px;border-radius:50%;border:2px solid rgba(255,255,255,.5);object-fit:cover;}
+.ou-name{font-size:15px;font-weight:700;}
+.ou-tag{font-size:11px;opacity:.7;}
+.ou-logout{margin-left:auto;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:16px;padding:5px 12px;font-size:11px;cursor:pointer;}
+
+/* -- 往下拉提示 -- */
+.scroll-hint{background:linear-gradient(135deg,#f0c040,#e89e20);color:#5a3000;text-align:center;padding:7px 12px;font-size:12px;font-weight:700;letter-spacing:1px;}
+.arr{display:inline-block;animation:bob 1.1s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(4px);}}
+
+/* -- 表單 -- */
+.order-form{padding:14px 18px 24px;}
+.fcard{background:#fafaf8;border-radius:14px;padding:15px 14px;margin-bottom:12px;border:1px solid #f0ebe4;}
+.fcard-ttl{font-size:13px;font-weight:700;color:#c0392b;padding-left:10px;border-left:3px solid #c0392b;margin-bottom:14px;}
+.fld{margin-bottom:12px;}
+.fld label{display:block;font-size:12px;font-weight:600;color:#555;margin-bottom:5px;}
+.req{color:#c0392b;}
+.fld input,.fld textarea{width:100%;border:1.5px solid #e0dbd5;border-radius:10px;padding:11px 13px;font-size:15px;outline:none;background:#fff;font-family:inherit;color:#2c1a0e;transition:border-color .2s;-webkit-appearance:none;}
+.fld input:focus,.fld textarea:focus{border-color:#c0392b;}
+.fld textarea{resize:vertical;line-height:1.5;}
+.veri-note{color:#06C755;font-size:11px;font-weight:600;margin-top:3px;}
+.btn-submit{width:100%;background:#c0392b;color:#fff;border:none;border-radius:14px;padding:17px;font-size:17px;font-weight:700;letter-spacing:2px;cursor:pointer;box-shadow:0 5px 18px rgba(192,57,43,.3);margin-top:4px;transition:transform .15s;}
+.btn-submit:active{transform:scale(.98);}
+
+/* ======== 導航 MODAL ======== */
+.nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.52);display:flex;align-items:flex-end;z-index:300;}
+.nav-sheet{background:#fff;width:100%;border-radius:22px 22px 0 0;padding:14px 20px calc(28px + env(safe-area-inset-bottom));animation:sup .28s ease;}
+.nav-handle{width:38px;height:4px;background:#ddd;border-radius:2px;margin:0 auto 18px;}
+.biz-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.biz-logo2{width:50px;height:50px;background:#c0392b;border-radius:12px;color:#fff;font-size:27px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.biz-n{font-size:17px;font-weight:700;} .biz-en2{font-size:10px;color:#888;letter-spacing:1.5px;}
+.biz-st{display:inline-block;padding:2px 9px;border-radius:10px;font-size:11px;font-weight:700;margin-top:4px;}
+.biz-st.open{background:#e6f9ee;color:#0a7a3a;} .biz-st.closed{background:#ffe8e8;color:#c0392b;}
+.nv-row{display:flex;gap:10px;padding:11px 0;border-bottom:1px solid #f2f2f2;font-size:13px;color:#444;line-height:1.6;}
+.nv-row .nico{font-size:16px;flex-shrink:0;}
+.nv-row small{color:#aaa;font-size:11px;}
+.nv-acts{display:flex;gap:8px;margin-top:16px;}
+.nv-btn{flex:1;padding:12px 6px;border-radius:12px;border:none;font-size:13px;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;transition:opacity .15s;}
+.nv-btn:active{opacity:.75;}
+.nv-btn svg{width:20px;height:20px;}
+.nvg{background:#e8f5e9;color:#2e7d32;} .nvy{background:#fff8e1;color:#e65100;} .nvb{background:#e3f2fd;color:#1565c0;}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="brand">
+    <div class="brand-logo">順</div>
+    <div>
+      <div class="brand-name">順記燒臘館</div>
+      <span class="brand-sub">SHUNJI ROAST HOUSE</span>
+    </div>
+  </div>
+  <div class="user-chip hidden" id="hdr-user">
+    <img id="hdr-avatar" src="" alt="">
+    <span class="uname" id="hdr-name"></span>
+    <button class="chip-logout" onclick="doLogout()">登出</button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-logo">順</div>
+    <div class="hero-title">順記燒臘館</div>
+    <div class="hero-en">SHUNJI ROAST HOUSE</div>
+    <div class="hero-divider"></div>
+    <div class="hero-tagline">正宗港式燒臘 · 新鮮美味每一天</div>
+    <button class="btn-cta" onclick="startOrder()">立即訂餐</button>
+    <div class="hero-hint">點擊後將開啟您手機的 LINE App 進行登入</div>
+  </div>
+</section>
+
+<!-- ============ INFO ============ -->
+<section class="info-section">
+  <div class="info-card tap" onclick="openNavModal()">
+    <div class="iico red">📍</div>
+    <div class="ibody">
+      <div class="ilabel">地址</div>
+      <div class="ivalue">桃園市中壢區南園二路 12 號</div>
+    </div>
+    <div class="iarr">›</div>
+  </div>
+  <div class="info-card">
+    <div class="iico gold">🕐</div>
+    <div class="ibody">
+      <div class="ilabel">營業時間</div>
+      <div class="ivalue">
+        週一至週五 10:30–14:00 / 16:30–20:00<br>
+        <small>週六、日及例假日公休</small>&ensp;<span id="home-status"></span>
+      </div>
+    </div>
+  </div>
+  <div class="info-card tap" onclick="location.href='tel:03-264-0001'">
+    <div class="iico blue">📞</div>
+    <div class="ibody">
+      <div class="ilabel">電話</div>
+      <div class="ivalue"><a href="tel:03-264-0001">03-264-0001</a></div>
+    </div>
+    <div class="iarr">›</div>
+  </div>
+  <div class="info-card tap" onclick="openGoogleReview()">
+    <div class="iico grn">⭐</div>
+    <div class="ibody">
+      <div class="ilabel">Google 評價</div>
+      <div class="ivalue">查看顧客評價</div>
+    </div>
+    <div class="iarr">›</div>
+  </div>
+</section>
+
+<!-- ============ BOTTOM NAV ============ -->
+<nav class="bottom-nav">
+  <a class="nav-item active" href="#">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>首頁
+  </a>
+  <button class="nav-item" onclick="openCommunity()">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 10.8C17.5 7 13.9 4 10 4 5.8 4 2 7.4 2 11.5c0 3.5 2.6 6.5 6.2 7.4l.6 2.1 3.3-2c.3 0 .6.1.9.1 1.1 0 2.1-.2 3-.6L19 21l-1.3-4.3C18.9 15.2 19.7 13 17.5 10.8z"/></svg>社群
+  </button>
+  <button class="nav-item" onclick="openNavModal()">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>導航
+  </button>
+  <a class="nav-item" href="tel:03-264-0001">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>電話
+  </a>
+</nav>
+
+
+<!-- ============ 訂餐 MODAL ============ -->
+<div class="overlay hidden" id="order-overlay" onclick="if(event.target===this)closeOrder()">
+  <div class="order-sheet">
+    <div class="sheet-handle"></div>
+
+    <!-- ① 未登入面板 -->
+    <div id="pane-login" class="hidden">
+      <div id="pane-login">
+        <div style="padding:30px 24px 26px;text-align:center;">
+
+          <!-- 已在 LINE App 內（不需要按鈕，直接自動登入）-->
+          <div class="in-line-banner hidden" id="in-line-msg">
+            <svg viewBox="0 0 24 24" fill="#06C755"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            偵測到您已在 LINE App 中，正在自動登入…
+          </div>
+
+          <div class="lp-logo">順</div>
+          <div class="lp-title">登入後即可訂餐</div>
+          <p class="lp-desc">
+            點擊下方按鈕，將<strong>直接開啟您手機的 LINE App</strong><br>
+            授權完成後自動返回，無需輸入帳號密碼
+          </p>
+
+          <button class="btn-line-app" id="btn-line-login" onclick="doLineLogin()">
+            <div class="line-badge">
+              <!-- LINE 官方圖示 -->
+              <svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+                <path d="M90 43.2C90 19.3 69.9 0 45 0S0 19.3 0 43.2C0 64.7 17.3 82.7 41 86.3c1.6.3 3.7.9 4.2 2.2.5 1.1.3 2.8.2 3.9l-.7 4.2c-.2 1.2-.9 4.7 4.1 2.6 5-2.1 27-15.8 36.8-27.1C92.7 64.7 90 54.2 90 43.2z" fill="#06C755"/>
+                <path d="M36.2 34.5h-3.3c-.5 0-.9.4-.9.9v20.4c0 .5.4.9.9.9h3.3c.5 0 .9-.4.9-.9V35.4c0-.5-.4-.9-.9-.9zm22.2 0h-3.3c-.5 0-.9.4-.9.9v12.1L44.5 35c-.1-.2-.3-.4-.6-.5H40.6c-.5 0-.9.4-.9.9v20.4c0 .5.4.9.9.9h3.3c.5 0 .9-.4.9-.9V43.7l9.7 12.5c.1.1.2.2.3.3h.1c.1 0 .2.1.3.1h3.2c.5 0 .9-.4.9-.9V35.4c0-.5-.4-.9-.9-.9zM30.1 52h-9V35.4c0-.5-.4-.9-.9-.9h-3.3c-.5 0-.9.4-.9.9v20.4c0 .2.1.4.3.6.2.1.4.2.6.2H30.1c.5 0 .9-.4.9-.9v-3.3c0-.5-.4-.8-.9-.8V52zm42.8-13.2c.5 0 .9-.4.9-.9v-3.3c0-.5-.4-.9-.9-.9H59.6c-.2 0-.5.1-.6.2-.2.2-.3.4-.3.6v20.4c0 .2.1.4.3.6.2.1.4.2.6.2H72.9c.5 0 .9-.4.9-.9v-3.3c0-.5-.4-.9-.9-.9h-9v-3.6h9c.5 0 .9-.4.9-.9v-3.3c0-.5-.4-.9-.9-.9h-9v-3.6h9v.2z" fill="white"/>
+              </svg>
+            </div>
+            開啟 LINE App 登入
+          </button>
+          <div class="lp-note">• 手機需已安裝 LINE App &nbsp;•&nbsp; 僅讀取顯示名稱與頭貼</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ② 已登入面板：訂單表單 -->
+    <div id="pane-form" class="hidden">
+      <div class="order-user-bar">
+        <img id="ou-avatar" src="" alt="">
+        <div>
+          <div class="ou-name" id="ou-name"></div>
+          <div class="ou-tag">✓ LINE 帳號已連結</div>
+        </div>
+        <button class="ou-logout" onclick="doLogout()">登出</button>
+      </div>
+      <div class="scroll-hint">往下拉，填寫訂購資料 <span class="arr">↓</span></div>
+      <div class="order-form">
+        <div class="fcard">
+          <div class="fcard-ttl">訂購人資料</div>
+          <div class="fld">
+            <label>姓名 <span class="req">*</span></label>
+            <input type="text" id="f-name" placeholder="請輸入姓名">
+            <div class="veri-note hidden" id="name-veri">✓ 已由 LINE 帳號自動填入</div>
+          </div>
+          <div class="fld">
+            <label>電話 <span class="req">*</span></label>
+            <input type="tel" id="f-phone" placeholder="09xx-xxx-xxx">
+          </div>
+          <div class="fld">
+            <label>公司名稱 / 取餐地址</label>
+            <input type="text" id="f-address" placeholder="可填公司名稱或詳細地址">
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-ttl">取餐時間</div>
+          <div class="fld">
+            <label>預計取餐時間</label>
+            <input type="time" id="f-time" value="12:00">
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-ttl">餐點需求 / 備註</div>
+          <div class="fld">
+            <textarea id="f-notes" rows="4" placeholder="請填寫餐點需求、口味偏好或其他備註…"></textarea>
+          </div>
+        </div>
+        <button class="btn-submit" onclick="submitOrder()">確認送出訂單</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============ 導航 MODAL ============ -->
+<div class="nav-overlay hidden" id="nav-modal" onclick="if(event.target===this)closeNavModal()">
+  <div class="nav-sheet">
+    <div class="nav-handle"></div>
+    <div class="biz-row">
+      <div class="biz-logo2">順</div>
+      <div>
+        <div class="biz-n">順記燒臘館</div>
+        <div class="biz-en2">SHUNJI ROAST HOUSE</div>
+        <span id="nav-status" class="biz-st"></span>
+      </div>
+    </div>
+    <div class="nv-row"><span class="nico">📍</span><span>桃園市中壢區南園二路 12 號</span></div>
+    <div class="nv-row"><span class="nico">🕐</span><div>週一至週五 10:30–14:00 / 16:30–20:00<br><small>週六、日及例假日公休</small></div></div>
+    <div class="nv-row"><span class="nico">📞</span><a href="tel:03-264-0001" style="color:#c0392b;font-weight:700;">03-264-0001</a></div>
+    <div class="nv-acts">
+      <button class="nv-btn nvg" onclick="openMaps()">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>導航
+      </button>
+      <button class="nv-btn nvy" onclick="openGoogleReview()">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>Google 評價
+      </button>
+      <button class="nv-btn nvb" onclick="location.href='tel:03-264-0001'">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>電話
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============ JAVASCRIPT ============ -->
+<script>
+/* ================================================
+   狀態
+================================================ */
+var _profile = null;
+var _liffReady = false;
+
+/* ================================================
+   初始化（靜默，不影響首頁顯示）
+================================================ */
+window.addEventListener('DOMContentLoaded', function () {
+  setBizStatus();
+  if (LIFF_ID && LIFF_ID.trim() !== '') {
+    initLiff();
+  }
+});
+
+async function initLiff () {
+  try {
+    await liff.init({ liffId: LIFF_ID });
+    _liffReady = true;
+
+    /* ── 情況 A：用戶在 LINE App 內開網頁 ──
+       liff.isInClient() = true → 直接已登入，自動取得資料，不需要按任何按鈕 */
+    if (liff.isInClient()) {
+      var p = await liff.getProfile();
+      _profile = p;
+      updateHeader(p);
+      // 如果有 orderIntent（使用者從首頁點訂餐進來）→ 打開訂單表單
+      if (sessionStorage.getItem('orderIntent') === '1') {
+        sessionStorage.removeItem('orderIntent');
+        openOrderForm();
+      }
+      return;
+    }
+
+    /* ── 情況 B：外部瀏覽器，但之前已授權過 ──
+       LIFF 會自動帶 token，isLoggedIn() = true */
+    if (liff.isLoggedIn()) {
+      var p2 = await liff.getProfile();
+      _profile = p2;
+      updateHeader(p2);
+      // 從「立即訂餐」→ LINE 授權 → 跳回來，自動打開表單
+      if (sessionStorage.getItem('orderIntent') === '1') {
+        sessionStorage.removeItem('orderIntent');
+        openOrderForm();
+      }
+    }
+    /* ── 情況 C：尚未登入 → 不做任何事，首頁正常顯示 ── */
+
+  } catch (e) {
+    console.warn('LIFF init error:', e);
+  }
+}
+
+/* ================================================
+   「立即訂餐」主入口
+================================================ */
+function startOrder () {
+  if (!LIFF_ID || LIFF_ID.trim() === '') {
+    alert('⚙ 請先在 config.js 填入 LIFF ID 以啟用訂餐功能');
+    return;
+  }
+
+  if (_profile) {
+    // 已有個人資料 → 直接打開訂單表單
+    openOrderForm();
+    return;
+  }
+
+  if (_liffReady && liff.isLoggedIn()) {
+    // LIFF 已就緒且已登入（有時 _profile 尚未取得）
+    liff.getProfile().then(function (p) {
+      _profile = p;
+      updateHeader(p);
+      openOrderForm();
+    });
+    return;
+  }
+
+  // 尚未登入 → 顯示登入面板
+  document.getElementById('order-overlay').classList.remove('hidden');
+  document.getElementById('pane-login').classList.remove('hidden');
+  document.getElementById('pane-form').classList.add('hidden');
+
+  // 如果已在 LINE App 裡（isInClient 但 _profile 還在跑）→ 顯示 loading 訊息
+  if (_liffReady && liff.isInClient()) {
+    document.getElementById('in-line-msg').classList.remove('hidden');
+    document.getElementById('btn-line-login').classList.add('hidden');
+  }
+}
+
+/* ================================================
+   「開啟 LINE App 登入」按鈕
+   → 呼叫 liff.login()，手機上會直接開啟 LINE App
+================================================ */
+function doLineLogin () {
+  if (!_liffReady) {
+    alert('LINE 服務初始化中，請稍候再試');
+    return;
+  }
+  // 記住「要訂餐」的意圖，授權跳回後自動開表單
+  sessionStorage.setItem('orderIntent', '1');
+  // ★ 這一行呼叫後，手機會直接跳到 LINE App 進行授權
+  liff.login();
+}
+
+/* ================================================
+   開啟訂單表單（已登入後）
+================================================ */
+function openOrderForm () {
+  document.getElementById('order-overlay').classList.remove('hidden');
+  document.getElementById('pane-login').classList.add('hidden');
+  document.getElementById('pane-form').classList.remove('hidden');
+
+  if (_profile) {
+    if (_profile.pictureUrl) document.getElementById('ou-avatar').src = _profile.pictureUrl;
+    if (_profile.displayName) {
+      document.getElementById('ou-name').textContent = _profile.displayName;
+      document.getElementById('f-name').value = _profile.displayName;
+      document.getElementById('name-veri').classList.remove('hidden');
+    }
+    if (_profile.pictureUrl) {
+      // 同步更新 header
+      updateHeader(_profile);
+    }
+  }
+}
+
+function closeOrder () {
+  document.getElementById('order-overlay').classList.add('hidden');
+}
+
+/* ================================================
+   Header 更新（登入後顯示頭像）
+================================================ */
+function updateHeader (profile) {
+  var chip = document.getElementById('hdr-user');
+  if (profile.pictureUrl) document.getElementById('hdr-avatar').src = profile.pictureUrl;
+  document.getElementById('hdr-name').textContent = profile.displayName || '';
+  chip.classList.remove('hidden');
+}
+
+/* ================================================
+   登出
+================================================ */
+function doLogout () {
+  if (!confirm('確定要登出嗎？')) return;
+  _profile = null;
+  document.getElementById('hdr-user').classList.add('hidden');
+  closeOrder();
+  try { liff.logout(); } catch(e){}
+  sessionStorage.removeItem('orderIntent');
+  location.reload();
+}
+
+/* ================================================
+   訂單送出
+================================================ */
+function submitOrder () {
+  var name    = (document.getElementById('f-name').value || '').trim();
+  var phone   = (document.getElementById('f-phone').value || '').trim();
+  var address = (document.getElementById('f-address').value || '').trim();
+  var time    = document.getElementById('f-time').value;
+  var notes   = (document.getElementById('f-notes').value || '').trim();
+
+  if (!name)  { alert('請填寫姓名'); return; }
+  if (!phone) { alert('請填寫電話'); return; }
+
+  var lines = ['【順記燒臘館 線上訂購】','姓名：'+name,'電話：'+phone];
+  if (address) lines.push('地址：'+address);
+  lines.push('取餐時間：'+time);
+  if (notes) lines.push('備註：'+notes);
+  var text = lines.join('\n');
+
+  // 在 LINE App 裡 → 直接發訊息到聊天室
+  if (_liffReady && liff.isInClient()) {
+    liff.sendMessages([{type:'text',text:text}])
+      .then(function(){ alert('✅ 訂單已成功送出！'); resetForm(); closeOrder(); })
+      .catch(function(){ copyText(text); });
+  } else {
+    copyText(text);
+  }
+}
+
+function copyText (text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function(){
+      alert('✅ 訂單已複製！\n請開啟 LINE，貼到聊天室傳給店家。');
+      resetForm(); closeOrder();
+    });
+  } else {
+    alert('訂單內容：\n\n'+text);
+  }
+}
+
+function resetForm () {
+  ['f-phone','f-address','f-notes'].forEach(function(id){ document.getElementById(id).value=''; });
+  document.getElementById('f-time').value='12:00';
+  document.getElementById('f-name').value = _profile ? _profile.displayName : '';
+}
+
+/* ================================================
+   導航 Modal
+================================================ */
+function openNavModal  (){ document.getElementById('nav-modal').classList.remove('hidden'); setBizStatus(); }
+function closeNavModal (){ document.getElementById('nav-modal').classList.add('hidden'); }
+function openMaps      (){ window.open('https://www.google.com/maps/dir/?api=1&destination=桃園市中壢區南園二路12號','_blank'); }
+function openGoogleReview(){ window.open('https://www.google.com/maps/search/順記燒臘館+中壢','_blank'); }
+
+/* ================================================
+   社群
+================================================ */
+function openCommunity () {
+  var url = (typeof LINE_COMMUNITY_URL!=='undefined') ? LINE_COMMUNITY_URL : '';
+  if (url && url.indexOf('YOUR_GROUP')===-1) { window.open(url,'_blank'); }
+  else { alert('社群連結尚未設定，請在 config.js 填入 LINE_COMMUNITY_URL'); }
+}
+
+/* ================================================
+   即時營業狀態
+================================================ */
+function setBizStatus () {
+  var now=new Date(), day=now.getDay(), hm=now.getHours()*60+now.getMinutes();
+  var isWD=day>=1&&day<=5;
+  var isOpen=isWD&&((hm>=630&&hm<840)||(hm>=990&&hm<1200));
+  var txt, cls;
+  if (!isWD)      { txt='今日公休';     cls='closed'; }
+  else if (isOpen){ txt='● 現在營業中'; cls='open';   }
+  else            { txt='暫時休息';     cls='closed'; }
+
+  // 首頁小徽章
+  var hs=document.getElementById('home-status');
+  if(hs){ hs.className='obadge '+cls; hs.textContent=txt; }
+  // 導航 modal
+  var ns=document.getElementById('nav-status');
+  if(ns){ ns.className='biz-st '+cls; ns.textContent=txt; }
+}
+</script>
+
+</body>
+</html>
