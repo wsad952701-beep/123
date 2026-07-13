@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0B0907">
+<meta name="robots" content="noindex,nofollow">
+<title>後台 · 順記</title>
+<style>
+  :root{
+    --bg:#0B0907; --card:#16110C; --card-2:#120E0A; --field:rgba(255,255,255,.045);
+    --gold:#E7CB92; --gold-soft:#C9A96B; --ink:#F0E8DB; --muted:#948A7E;
+    --hair:rgba(231,203,146,.15); --edge:rgba(231,203,146,.3);
+    --ok:#5FD08A; --no:#D97C6E;
+    --serif:"Songti TC","Noto Serif CJK TC","Noto Serif TC",serif;
+    --sans:"PingFang TC","Noto Sans CJK TC","Noto Sans TC",-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  [hidden]{display:none!important}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    -webkit-font-smoothing:antialiased}
+  body{min-height:100dvh;padding-bottom:60px}
+  .wrap{width:100%;max-width:520px;margin:0 auto;padding:0 16px}
+
+  input,textarea,button,select{font-family:var(--sans);font-size:16px}
+  input,textarea{width:100%;background:var(--field);border:1px solid var(--hair);border-radius:10px;
+    color:var(--ink);padding:12px 13px;outline:none;transition:border-color .16s}
+  input:focus,textarea:focus{border-color:var(--edge)}
+  input::placeholder,textarea::placeholder{color:rgba(148,138,126,.5)}
+  input[type=number]{font-variant-numeric:tabular-nums}
+  textarea{resize:vertical;min-height:72px;line-height:1.6}
+  input:disabled{opacity:.45}
+
+  .btn{border:1px solid transparent;border-radius:11px;font-weight:600;letter-spacing:.06em;
+    cursor:pointer;padding:13px 18px;display:flex;align-items:center;justify-content:center;gap:7px;
+    transition:transform .12s,filter .16s}
+  .btn:active{transform:scale(.98)}
+  .btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .gold{background:var(--gold);color:#1A130B}
+  .ghost{background:transparent;border-color:var(--edge);color:var(--gold)}
+  .quiet{background:transparent;border-color:var(--hair);color:var(--muted)}
+  .danger{background:transparent;border-color:rgba(217,124,110,.45);color:var(--no)}
+  .full{width:100%}
+
+  /* ── 登入 ── */
+  .login{min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px 16px}
+  .login .box{width:100%;max-width:340px}
+  .seal{width:56px;height:56px;border:1px solid var(--edge);border-radius:14px;margin:0 auto 20px;
+    display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:26px;
+    color:var(--gold);background:linear-gradient(180deg,#1E1710,#130F0B)}
+  .login h1{font-family:var(--serif);font-size:20px;letter-spacing:.3em;color:var(--gold);
+    text-align:center;margin:0 0 6px;text-indent:.3em}
+  .login .h-sub{text-align:center;color:var(--muted);font-size:12.5px;letter-spacing:.1em;margin:0 0 28px}
+  .login .f{margin-bottom:12px}
+  .login .f span{display:block;font-size:11.5px;color:var(--muted);letter-spacing:.14em;margin-bottom:7px}
+  .remember{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:13.5px;
+    margin:16px 0 18px;cursor:pointer;user-select:none}
+  .remember input{width:17px;height:17px;accent-color:var(--gold);padding:0;flex:0 0 auto}
+  .login .err{color:var(--no);font-size:13px;text-align:center;min-height:19px;margin-bottom:8px}
+  .login .foot{text-align:center;margin-top:26px;font-size:11.5px;color:rgba(148,138,126,.55);line-height:1.9}
+  .login .foot a{color:var(--muted)}
+
+  /* ── 主體 ── */
+  .top{position:sticky;top:0;z-index:10;background:rgba(11,9,7,.94);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--hair)}
+  .top-in{max-width:520px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;gap:10px}
+  .top h1{flex:1;font-family:var(--serif);font-size:16px;letter-spacing:.18em;color:var(--gold);margin:0}
+  .top a,.top button{background:none;border:0;color:var(--muted);font-size:13px;cursor:pointer;
+    text-decoration:none;letter-spacing:.06em;padding:6px 2px}
+  .top a:hover,.top button:hover{color:var(--gold-soft)}
+
+  .tabs{max-width:520px;margin:0 auto;padding:0 16px;display:flex;gap:4px}
+  .tabs button{flex:1;background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);
+    font-size:14px;letter-spacing:.1em;padding:13px 0;cursor:pointer;transition:.16s}
+  .tabs button[aria-selected="true"]{color:var(--gold);border-bottom-color:var(--gold)}
+
+  .state{max-width:520px;margin:16px auto 0;padding:0 16px}
+  .state .pill{display:flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.05em;
+    border:1px solid var(--hair);border-radius:10px;padding:10px 13px;color:var(--muted);
+    background:rgba(255,255,255,.02)}
+  .state .pill b{color:var(--gold-soft);font-weight:600}
+  .state .pill.warn{border-color:rgba(231,203,146,.35);background:rgba(231,203,146,.06)}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--ok);flex:0 0 auto}
+  .dot.warn{background:var(--gold)}
+
+  section[hidden]{display:none!important}
+  .pane{padding-top:18px}
+
+  /* ── 商品列 ── */
+  .prow{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:start;
+    background:linear-gradient(180deg,var(--card),var(--card-2));
+    border:1px solid var(--hair);border-radius:14px;padding:12px;margin-bottom:10px}
+  .prow.off{opacity:.5}
+  .pimg{padding:0;border:1px solid var(--hair);border-radius:10px;overflow:hidden;background:#14100C;
+    width:64px;height:64px;cursor:pointer;position:relative;display:block}
+  .pimg img{width:100%;height:100%;object-fit:cover;display:block}
+  .pimg::after{content:"換圖";position:absolute;left:0;right:0;bottom:0;font-size:10px;
+    letter-spacing:.1em;color:var(--gold);background:rgba(11,9,7,.78);padding:2.5px 0;text-align:center}
+  .pmain{min-width:0}
+  .pname{padding:8px 10px;font-size:15px;font-weight:600;margin-bottom:7px}
+  .pnums{display:flex;gap:7px}
+  .num{flex:1;display:flex;align-items:center;gap:5px;background:var(--field);
+    border:1px solid var(--hair);border-radius:9px;padding:0 10px;min-width:0}
+  .num:focus-within{border-color:var(--edge)}
+  .num span{font-size:11px;color:var(--muted);letter-spacing:.06em;flex:0 0 auto}
+  .num input{border:0;background:none;padding:9px 0;font-size:15px;font-weight:600;min-width:0;
+    color:var(--gold);border-radius:0}
+  .num input:focus{border:0}
+  .num.stk input{color:var(--ink);font-weight:400}
+  .pside{display:flex;flex-direction:column;align-items:center;gap:8px}
+  .tg{width:40px;height:23px;border-radius:99px;border:1px solid var(--hair);background:rgba(255,255,255,.05);
+    position:relative;cursor:pointer;padding:0;transition:.18s;flex:0 0 auto}
+  .tg::after{content:"";position:absolute;top:2px;left:2px;width:17px;height:17px;border-radius:50%;
+    background:var(--muted);transition:.18s}
+  .tg[aria-pressed="true"]{background:rgba(231,203,146,.28);border-color:var(--edge)}
+  .tg[aria-pressed="true"]::after{left:19px;background:var(--gold)}
+  .ex{background:none;border:0;color:var(--muted);font-size:15px;cursor:pointer;padding:2px 6px;
+    line-height:1;transition:transform .2s}
+  .prow.open .ex{transform:rotate(180deg)}
+  .pmore{grid-column:1/-1;border-top:1px solid var(--hair);padding-top:12px;margin-top:2px}
+  .pmore .f{margin-bottom:9px}
+  .pmore .f span{display:block;font-size:11px;color:var(--muted);letter-spacing:.12em;margin-bottom:6px}
+  .pmore .acts{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+  .pmore .acts button{font-size:12.5px;padding:9px 12px;border-radius:9px;flex:0 0 auto}
+
+  .addrow{margin-top:4px}
+  .hint{color:var(--muted);font-size:12.5px;line-height:1.85;margin:14px 2px 0;letter-spacing:.02em}
+
+  /* ── 設定 ── */
+  .f{margin-bottom:15px}
+  .f > span{display:block;font-size:11.5px;color:var(--muted);letter-spacing:.14em;margin-bottom:7px}
+  .f .tip{display:block;color:rgba(148,138,126,.75);font-size:11.5px;letter-spacing:0;
+    margin-top:6px;line-height:1.6}
+  .imgf{display:flex;align-items:center;gap:12px}
+  .imgf .pv{width:62px;height:62px;border-radius:10px;border:1px solid var(--hair);object-fit:cover;
+    background:#14100C;flex:0 0 auto}
+  .imgf .pv.wide{width:110px;height:62px}
+  .imgf .bs{display:flex;gap:7px;flex-wrap:wrap}
+  .imgf .bs button{font-size:12.5px;padding:9px 13px;border-radius:9px}
+  .group{border:1px solid var(--hair);border-radius:14px;padding:16px;margin-bottom:16px;
+    background:rgba(255,255,255,.02)}
+  .group h3{font-family:var(--serif);font-size:14.5px;letter-spacing:.14em;color:var(--gold-soft);
+    margin:0 0 14px;font-weight:600}
+
+  /* ── 發佈 ── */
+  .note{border:1px solid var(--hair);border-radius:12px;padding:14px 15px;font-size:13px;
+    line-height:1.9;color:var(--muted);margin-bottom:16px;background:rgba(255,255,255,.02)}
+  .note b{color:var(--gold-soft);font-weight:600}
+  .note.warn{border-color:rgba(217,124,110,.35);background:rgba(217,124,110,.06)}
+  .steps{counter-reset:s;margin:10px 0 0;padding:0;list-style:none}
+  .steps li{counter-increment:s;position:relative;padding-left:26px;margin-bottom:7px}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:1px;width:17px;height:17px;
+    border:1px solid var(--edge);border-radius:50%;color:var(--gold);font-size:10px;
+    display:flex;align-items:center;justify-content:center}
+  .stack{display:flex;flex-direction:column;gap:9px}
+  details.adv{border:1px solid var(--hair);border-radius:12px;padding:0 15px;margin-bottom:16px;
+    background:rgba(255,255,255,.02)}
+  details.adv summary{cursor:pointer;list-style:none;padding:14px 0;font-size:13.5px;
+    color:var(--gold-soft);letter-spacing:.06em}
+  details.adv summary::-webkit-details-marker{display:none}
+  details.adv summary::before{content:"＋ "}
+  details.adv[open] summary::before{content:"− "}
+  details.adv .in{padding-bottom:16px;border-top:1px solid var(--hair);padding-top:14px}
+  code{font-family:ui-monospace,Menlo,monospace;font-size:12px;background:rgba(231,203,146,.09);
+    color:var(--gold-soft);padding:1.5px 5px;border-radius:4px;word-break:break-all}
+  pre{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.7;
+    background:rgba(0,0,0,.35);border:1px solid var(--hair);border-radius:9px;padding:12px;
+    overflow-x:auto;color:var(--gold-soft);margin:10px 0 0}
+
+  .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,16px);z-index:50;
+    background:#1E1811;border:1px solid var(--edge);color:var(--gold);padding:12px 20px;
+    border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:.24s;
+    max-width:88vw;text-align:center;line-height:1.5}
+  .toast.on{opacity:1;transform:translate(-50%,0)}
+  .toast.bad{border-color:rgba(217,124,110,.6);color:#F0B3A8}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ 登入 ══════════════ -->
+<div class="login" id="login">
+  <div class="box">
+    <div class="seal">順</div>
+    <h1>後　台</h1>
+    <p class="h-sub">登入後可調整圖片、價格、數量</p>
+
+    <div class="f"><span>帳號</span>
+      <input id="lu" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false"></div>
+    <div class="f"><span>密碼</span>
+      <input id="lp" type="password" autocomplete="current-password"></div>
+
+    <label class="remember"><input type="checkbox" id="lr" checked>這台裝置記住我 30 天</label>
+
+    <div class="err" id="lerr"></div>
+    <button class="btn gold full" id="lgo">登入</button>
+
+    <p class="foot">
+      這是純前端後台，帳密只擋一般客人，不是真的資安。<br>
+      <a href="index.html">← 回點餐頁</a>
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════ 後台 ══════════════ -->
+<div id="app" hidden>
+  <div class="top">
+    <div class="top-in">
+      <h1>順記後台</h1>
+      <a href="index.html" target="_blank" rel="noopener">看點餐頁 ↗</a>
+      <button id="out">登出</button>
+    </div>
+    <div class="tabs" role="tablist">
+      <button role="tab" id="t-items" aria-selected="true" aria-controls="p-items">商品</button>
+      <button role="tab" id="t-set"   aria-selected="false" aria-controls="p-set">設定</button>
+      <button role="tab" id="t-pub"   aria-selected="false" aria-controls="p-pub">發佈</button>
+    </div>
+  </div>
+
+  <div class="state">
+    <div class="pill" id="pill"><span class="dot" id="dot"></span><span id="pillText"></span></div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- ── 商品 ── -->
+    <section class="pane" id="p-items" role="tabpanel" aria-labelledby="t-items">
+      <div id="rows"></div>
+      <button class="btn ghost full addrow" id="add">＋ 新增商品</button>
+      <p class="hint">
+        點縮圖換照片 · 直接在框裡改價格 · 數量留白＝不限量、填 0＝售完<br>
+        改完會自動存在這台裝置，記得到「發佈」把新菜單推給客人。
+      </p>
+    </section>
+
+    <!-- ── 設定 ── -->
+    <section class="pane" id="p-set" role="tabpanel" aria-labelledby="t-set" hidden>
+      <div class="group">
+        <h3>店家</h3>
+        <div class="f"><span>店名</span><input id="s-brand"></div>
+        <div class="f"><span>副標</span><input id="s-sub" placeholder="碳燒燒鵝 · 線上點餐"></div>
+        <div class="f"><span>公告</span>
+          <textarea id="s-notice" placeholder="今日 20:00 收單；燒鵝售完為止"></textarea>
+          <span class="tip">留白就不顯示。會出現在點餐頁最上方。</span>
+        </div>
+      </div>
+
+      <div class="group">
+        <h3>圖片</h3>
+        <div class="f"><span>店家 LOGO</span>
+          <div class="imgf">
+            <img class="pv" id="s-logo-pv" alt="">
+            <div class="bs">
+              <button class="btn ghost" data-pick="logo">選圖片</button>
+              <button class="btn quiet" data-clr="logo">移除</button>
+            </div>
+          </div>
+          <span class="tip">會印在訂單圖片的最上方，也會出現在點餐頁。建議用去背 PNG。</span>
+        </div>
+        <div class="f"><span>點餐頁主視覺</span>
+          <div class="imgf">
+            <img class="pv wide" id="s-hero-pv" alt="">
+            <div class="bs">
+              <button class="btn ghost" data-pick="hero">選圖片</button>
+              <button class="btn quiet" data-clr="hero">移除</button>
+            </div>
+          </div>
+          <span class="tip">橫幅照片，寬一點的比較好看。</span>
+        </div>
+      </div>
+
+      <div class="group">
+        <h3>訂單</h3>
+        <div class="f"><span>LINE 社群連結</span>
+          <input id="s-community" placeholder="https://line.me/ti/g2/xxxxxxxx" inputmode="url">
+          <span class="tip">填了之後，訂單頁分享失敗時會多一顆「開啟社群」的備援按鈕。</span>
+        </div>
+        <div class="f"><span>取餐方式</span>
+          <input id="s-modes" placeholder="外送,自取,內用">
+          <span class="tip">用逗號分開。第一個是預設值。</span>
+        </div>
+        <div class="f"><span>外送最低消費</span>
+          <input id="s-min" type="number" inputmode="numeric" min="0" placeholder="0">
+          <span class="tip">0 = 不限。</span>
+        </div>
+        <div class="f"><span>訂單編號開頭</span><input id="s-prefix" placeholder="SJ" maxlength="6"></div>
+        <div class="f"><span>訂單圖片頁尾字</span><input id="s-footer"></div>
+      </div>
+
+      <div class="group">
+        <h3>帳號密碼</h3>
+        <div class="f"><span>帳號</span><input id="c-user" autocapitalize="off" spellcheck="false"></div>
+        <div class="f"><span>新密碼</span><input id="c-pass" type="password" placeholder="至少 4 個字"></div>
+        <div class="f"><span>再輸入一次</span><input id="c-pass2" type="password"></div>
+        <button class="btn ghost full" id="c-go">更新帳號密碼</button>
+        <div id="c-out" hidden>
+          <p class="hint" style="margin-top:14px">
+            <b style="color:var(--gold-soft)">這台裝置已經生效。</b>
+            要讓其他裝置也生效，把下面這段貼回 <code>shunji-store.js</code> 最上面的 <code>var ADMIN</code>：
+          </p>
+          <pre id="c-snip"></pre>
+          <button class="btn quiet full" id="c-copy" style="margin-top:9px">複製這段</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 發佈 ── -->
+    <section class="pane" id="p-pub" role="tabpanel" aria-labelledby="t-pub" hidden>
+      <div class="note" id="pubNote"></div>
+
+      <div class="note warn">
+        <b>先講清楚，免得你白忙一場：</b><br>
+        這個網站沒有伺服器，你在後台改的東西<b>只存在你這台裝置</b>。<br>
+        客人用自己的手機打開，看到的是網站上的 <code>data/menu.json</code>。<br>
+        所以改完一定要「發佈」——把新的 menu.json 放回網站——客人才看得到。<br>
+        <span style="color:rgba(148,138,126,.8)">（如果你是拿一台平板放在店裡給客人點，那不用發佈也會動。）</span>
+      </div>
+
+      <div class="group">
+        <h3>方法一 · 手動（不用設定）</h3>
+        <ol class="steps">
+          <li>按下面的「下載 menu.json」</li>
+          <li>把檔案上傳到 GitHub，覆蓋 <code>data/menu.json</code></li>
+          <li>等一分鐘，客人重新整理就看到新的了</li>
+        </ol>
+        <div class="stack" style="margin-top:14px">
+          <button class="btn gold full" id="dl">下載 menu.json</button>
+          <button class="btn ghost full" id="cp">複製 JSON</button>
+          <button class="btn quiet full" id="imp">從 menu.json 匯入</button>
+          <button class="btn quiet full" id="mk">我已經上傳好了，標記為已發佈</button>
+        </div>
+        <input type="file" id="impFile" accept="application/json,.json" hidden>
+      </div>
+
+      <details class="adv">
+        <summary>方法二 · 一鍵發佈到 GitHub（要先設定一次）</summary>
+        <div class="in">
+          <p class="hint" style="margin:0 0 14px">
+            設定好之後，以後在手機上改完價錢，按一下就直接更新到網站，不用碰電腦。
+          </p>
+          <div class="f"><span>GitHub 帳號</span><input id="g-owner" placeholder="wsad952701-beep" autocapitalize="off" spellcheck="false"></div>
+          <div class="f"><span>儲存庫名稱</span><input id="g-repo" placeholder="shunji-share" autocapitalize="off" spellcheck="false"></div>
+          <div class="f"><span>分支</span><input id="g-branch" placeholder="main" autocapitalize="off" spellcheck="false"></div>
+          <div class="f"><span>檔案路徑</span><input id="g-path" placeholder="data/menu.json" autocapitalize="off" spellcheck="false"></div>
+          <div class="f"><span>存取權杖 Token</span>
+            <input id="g-token" type="password" placeholder="github_pat_…" autocapitalize="off" spellcheck="false">
+            <span class="tip">
+              GitHub → Settings → Developer settings → Personal access tokens →
+              Fine-grained tokens → 只選這一個 repo，權限 <code>Contents: Read and write</code>。<br>
+              權杖只存在這台裝置的瀏覽器，不會進到 menu.json 裡。手機不是你的就別存。
+            </span>
+          </div>
+          <button class="btn gold full" id="pub">發佈到網站</button>
+        </div>
+      </details>
+
+      <div class="group">
+        <h3>重來</h3>
+        <div class="stack">
+          <button class="btn quiet full" id="rv">丟掉本機的修改，回到網站上的版本</button>
+          <button class="btn danger full" id="rs">清除全部本機資料（含登入、GitHub 設定）</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<input type="file" id="pick" accept="image/*" hidden>
+<div class="toast" id="toast"></div>
+
+<script src="./shunji-store.js"></script>
+<script>
+(function(){
+  'use strict';
+  var S = window.ShunjiStore;
+  var $ = function(s){ return document.querySelector(s); };
+  var esc = S.esc;
+
+  var D = null;         // 工作中的資料（副本）
+  var open = {};        // 哪幾列展開著
+  var pickTarget = null;
+
+  function rowEl(id){
+    var all = $('#rows').querySelectorAll('.prow');
+    for (var i = 0; i < all.length; i++) if (all[i].dataset.id === id) return all[i];
+    return null;
+  }
+
+  /* ─────────────── 提示 ─────────────── */
+  function toast(m, bad){
+    var t = $('#toast');
+    t.textContent = m;
+    t.classList.toggle('bad', !!bad);
+    t.classList.add('on');
+    clearTimeout(toast._t);
+    toast._t = setTimeout(function(){ t.classList.remove('on'); }, bad ? 4200 : 2000);
+  }
+
+  /* ─────────────── 登入 ─────────────── */
+  function tryLogin(){
+    var u = $('#lu').value, p = $('#lp').value;
+    if (!S.login(u, p)){
+      $('#lerr').textContent = '帳號或密碼不對';
+      $('#lp').value = '';
+      $('#lp').focus();
+      return;
+    }
+    S.markLoggedIn($('#lr').checked);
+    boot();
+  }
+  $('#lgo').addEventListener('click', tryLogin);
+  $('#lp').addEventListener('keydown', function(e){ if (e.key === 'Enter') tryLogin(); });
+  $('#lu').addEventListener('keydown', function(e){ if (e.key === 'Enter') $('#lp').focus(); });
+
+  $('#out').addEventListener('click', function(){
+    S.logout();
+    location.reload();
+  });
+
+  /* ─────────────── 存檔 ─────────────── */
+  var timer = null, pending = false;
+
+  function save(now){
+    pending = true;
+    clearTimeout(timer);
+    var go = function(){
+      pending = false;
+      try { S.save(D); pill(); }
+      catch (e){ toast(e.message, true); }
+    };
+    if (now) go(); else timer = setTimeout(go, 500);
+  }
+
+  // 打完字 500ms 內就切走 App / 關分頁 → 那一筆會不見。走之前先寫掉。
+  function flush(){
+    if (!pending || !D) return;
+    clearTimeout(timer);
+    pending = false;
+    try { S.save(D); } catch (e) {}
+  }
+  window.addEventListener('beforeunload', flush);
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) flush(); });
+
+  function pill(){
+    var dirty = S.isDirty();
+    var heavy = S.bytes() > 2200000;          // 瀏覽器大約只給 5MB，本機和快取各存一份
+    $('#dot').className = 'dot' + (dirty ? ' warn' : '');
+    $('#pill').className = 'pill' + (dirty || heavy ? ' warn' : '');
+    $('#pillText').innerHTML =
+      (dirty ? '有改過但<b>還沒發佈</b> · 客人看到的還是舊的' : '目前和網站上的菜單一致') +
+      ' · 資料 ' + S.sizeText() +
+      (heavy ? '<br><b>圖片快把瀏覽器空間塞滿了</b>，建議少放幾張，或改用「圖片網址」' : '');
+    if (!$('#p-pub').hidden) pubNote();
+  }
+
+  /* ─────────────── 商品 ─────────────── */
+  function rowHTML(it, idx, n){
+    var o = !!open[it.id];
+    return '<div class="prow' + (it.on ? '' : ' off') + (o ? ' open' : '') + '" data-id="' + esc(it.id) + '">' +
+      '<button class="pimg" data-act="img" aria-label="更換 ' + esc(it.name) + ' 的圖片">' +
+        '<img src="' + esc(S.imgOf(it)) + '" alt=""></button>' +
+      '<div class="pmain">' +
+        '<input class="pname" data-f="name" value="' + esc(it.name) + '" placeholder="品名">' +
+        '<div class="pnums">' +
+          '<label class="num"><span>NT$</span>' +
+            '<input type="number" inputmode="numeric" min="0" step="1" data-f="price" value="' + it.price + '"></label>' +
+          '<label class="num stk"><span>數量</span>' +
+            '<input type="number" inputmode="numeric" min="0" step="1" data-f="stock" placeholder="不限" value="' +
+              (it.stock == null ? '' : it.stock) + '"></label>' +
+        '</div>' +
+      '</div>' +
+      '<div class="pside">' +
+        '<button class="tg" data-act="on" aria-pressed="' + it.on + '" aria-label="上架"></button>' +
+        '<button class="ex" data-act="ex" aria-label="更多">⌄</button>' +
+      '</div>' +
+      (o ?
+      '<div class="pmore">' +
+        '<div class="f"><span>描述</span><input data-f="desc" value="' + esc(it.desc) + '" placeholder="帶皮鵝腿 · 附例湯"></div>' +
+        '<div class="f"><span>分類</span><input data-f="cat" value="' + esc(it.cat) + '" placeholder="飯類"></div>' +
+        '<div class="f"><span>圖片網址（進階，可不填）</span>' +
+          '<input data-f="imgurl" value="' + (/^data:/.test(it.img) ? '' : esc(it.img)) + '" placeholder="' +
+          (/^data:/.test(it.img) ? '目前用的是上傳的照片' : 'img/goose.jpg') + '">' +
+          '<span class="tip">改放 repo 裡的圖檔路徑，menu.json 會小很多、客人也載得比較快。</span></div>' +
+        '<div class="acts">' +
+          '<button class="btn quiet" data-act="clr">移除圖片</button>' +
+          '<button class="btn quiet" data-act="up"' + (idx === 0 ? ' disabled' : '') + '>上移</button>' +
+          '<button class="btn quiet" data-act="dn"' + (idx === n - 1 ? ' disabled' : '') + '>下移</button>' +
+          '<button class="btn danger" data-act="del">刪除</button>' +
+        '</div>' +
+      '</div>' : '') +
+    '</div>';
+  }
+
+  function rows(){
+    $('#rows').innerHTML = D.items.length
+      ? D.items.map(function(it, i){ return rowHTML(it, i, D.items.length); }).join('')
+      : '<p class="hint" style="text-align:center;padding:30px 0">還沒有商品。按下面的按鈕新增第一個。</p>';
+    pill();
+  }
+
+  function idxOf(id){
+    for (var i = 0; i < D.items.length; i++) if (D.items[i].id === id) return i;
+    return -1;
+  }
+
+  // 打字：只改資料，不重畫（重畫會把游標踢掉）
+  $('#rows').addEventListener('input', function(e){
+    var f = e.target.dataset.f;
+    if (!f) return;
+    var i = idxOf(e.target.closest('.prow').dataset.id);
+    if (i < 0) return;
+    var v = e.target.value;
+
+    if (f === 'price') D.items[i].price = Math.max(0, parseInt(v, 10) || 0);
+    else if (f === 'stock') D.items[i].stock = (v === '' ? null : Math.max(0, parseInt(v, 10) || 0));
+    else if (f === 'imgurl'){
+      // 填了網址就用網址；清空、而且目前不是上傳的照片 → 變成沒圖
+      if (v) D.items[i].img = v;
+      else if (!/^data:/.test(D.items[i].img)) D.items[i].img = '';
+    }
+    else D.items[i][f] = v;
+
+    // 沒放圖的商品，縮圖是品名第一個字 → 邊打字邊換
+    if (f === 'name' && !D.items[i].img){
+      var t = e.target.closest('.prow').querySelector('.pimg img');
+      if (t) t.src = S.placeholder(v);
+    }
+
+    save();
+  });
+
+  $('#rows').addEventListener('change', function(e){
+    if (e.target.dataset.f !== 'imgurl') return;
+    var row = e.target.closest('.prow');
+    var i = idxOf(row.dataset.id);
+    if (i < 0) return;
+    row.querySelector('.pimg img').src = S.imgOf(D.items[i]);
+  });
+
+  $('#rows').addEventListener('click', function(e){
+    var b = e.target.closest('[data-act]');
+    if (!b) return;
+    var row = b.closest('.prow');
+    var id = row.dataset.id;
+    var i = idxOf(id);
+    if (i < 0) return;
+    var act = b.dataset.act;
+
+    if (act === 'img'){ pickTarget = id; $('#pick').value = ''; $('#pick').click(); return; }
+
+    if (act === 'on'){
+      D.items[i].on = !D.items[i].on;
+      b.setAttribute('aria-pressed', D.items[i].on);
+      row.classList.toggle('off', !D.items[i].on);
+      save(true);
+      return;
+    }
+
+    if (act === 'ex'){ open[id] = !open[id]; rows(); return; }
+
+    if (act === 'clr'){
+      D.items[i].img = '';
+      row.querySelector('.pimg img').src = S.placeholder(D.items[i].name);
+      save(true);
+      toast('已移除圖片');
+      return;
+    }
+
+    if (act === 'up' && i > 0){
+      D.items.splice(i - 1, 0, D.items.splice(i, 1)[0]);
+      save(true); rows(); return;
+    }
+    if (act === 'dn' && i < D.items.length - 1){
+      D.items.splice(i + 1, 0, D.items.splice(i, 1)[0]);
+      save(true); rows(); return;
+    }
+    if (act === 'del'){
+      if (!confirm('刪掉「' + D.items[i].name + '」？')) return;
+      D.items.splice(i, 1);
+      delete open[id];
+      save(true); rows();
+      toast('已刪除');
+    }
+  });
+
+  $('#add').addEventListener('click', function(){
+    var id = 'i' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
+    D.items.push({ id: id, name: '新商品', desc: '', cat: '', price: 0, stock: null, img: '', on: true });
+    open[id] = true;
+    save(true); rows();
+    var last = $('#rows').lastElementChild;
+    if (last){
+      last.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      var n = last.querySelector('.pname');
+      if (n){ n.focus(); n.select(); }
+    }
+  });
+
+  /* ─────────────── 選圖片 ─────────────── */
+  $('#pick').addEventListener('change', function(e){
+    var f = e.target.files && e.target.files[0];
+    if (!f || !pickTarget) return;
+    var t = pickTarget;
+    pickTarget = null;
+
+    var isLogo = (t === 'logo');
+    var opt = isLogo ? { max: 300, type: 'image/png' }
+            : t === 'hero' ? { max: 1100, type: 'image/jpeg', quality: 0.78 }
+            : { max: 800, type: 'image/jpeg', quality: 0.75 };
+
+    toast('處理圖片中…');
+    S.readImage(f, opt).then(function(url){
+      if (t === 'logo' || t === 'hero'){
+        D.settings[t] = url;
+        $('#s-' + t + '-pv').src = url;
+      } else {
+        var i = idxOf(t);
+        if (i < 0) return;
+        D.items[i].img = url;
+        var row = rowEl(t);
+        if (row) row.querySelector('.pimg img').src = url;
+      }
+      save(true);
+      toast('圖片已更新 · 資料 ' + S.sizeText());
+    })['catch'](function(err){ toast(err.message || '圖片處理失敗', true); });
+  });
+
+  document.addEventListener('click', function(e){
+    if (!D || !e.target || !e.target.closest) return;
+    var p = e.target.closest('[data-pick]');
+    if (p){ pickTarget = p.dataset.pick; $('#pick').value = ''; $('#pick').click(); return; }
+    var c = e.target.closest('[data-clr]');
+    if (c){
+      var k = c.dataset.clr;
+      D.settings[k] = '';
+      $('#s-' + k + '-pv').src = S.placeholder(k === 'logo' ? D.settings.brand : '圖');
+      save(true);
+      toast('已移除');
+    }
+  });
+
+  /* ─────────────── 設定 ─────────────── */
+  var SF = {
+    's-brand':'brand', 's-sub':'brandSub', 's-notice':'notice',
+    's-community':'communityUrl', 's-prefix':'codePrefix', 's-footer':'footer'
+  };
+
+  function fillSettings(){
+    var st = D.settings;
+    for (var id in SF) $('#' + id).value = st[SF[id]] || '';
+    $('#s-modes').value = (st.modes || []).join(',');
+    $('#s-min').value = st.minOrder || 0;
+    $('#s-logo-pv').src = st.logo || S.placeholder(st.brand);
+    $('#s-hero-pv').src = st.hero || S.placeholder('圖');
+    $('#c-user').value = S.credUser();
+
+    var g = S.ghConf();
+    $('#g-owner').value = g.owner || '';
+    $('#g-repo').value = g.repo || '';
+    $('#g-branch').value = g.branch || 'main';
+    $('#g-path').value = g.path || 'data/menu.json';
+    $('#g-token').value = g.token || '';
+  }
+
+  $('#p-set').addEventListener('input', function(e){
+    var id = e.target.id;
+    if (SF[id]){ D.settings[SF[id]] = e.target.value; save(); return; }
+    if (id === 's-modes'){
+      var m = e.target.value.split(/[,，、\s]+/).filter(Boolean);
+      D.settings.modes = m.length ? m : ['外送', '自取', '內用'];
+      save(); return;
+    }
+    if (id === 's-min'){
+      D.settings.minOrder = Math.max(0, parseInt(e.target.value, 10) || 0);
+      save(); return;
+    }
+  });
+
+  $('#c-go').addEventListener('click', function(){
+    var u = $('#c-user').value.trim();
+    var p = $('#c-pass').value;
+    var p2 = $('#c-pass2').value;
+    if (!u) return toast('帳號不能空白', true);
+    if (p.length < 4) return toast('密碼至少 4 個字', true);
+    if (p !== p2) return toast('兩次密碼不一樣', true);
+
+    var c = S.changeCred(u, p);
+    $('#c-snip').textContent = S.credSnippet(c);
+    $('#c-out').hidden = false;
+    $('#c-pass').value = ''; $('#c-pass2').value = '';
+    toast('帳號密碼已更新');
+  });
+
+  $('#c-copy').addEventListener('click', function(){
+    var t = $('#c-snip').textContent;
+    if (navigator.clipboard) navigator.clipboard.writeText(t)['catch'](function(){});
+    toast('已複製');
+  });
+
+  /* ─────────────── 發佈 ─────────────── */
+  function pubNote(){
+    var dirty = S.isDirty();
+    $('#pubNote').innerHTML = dirty
+      ? '<b>目前有還沒發佈的修改。</b><br>資料大小 ' + S.sizeText() +
+        '。用下面任一個方法把它推到網站上，客人才會看到新價錢和新照片。'
+      : '<b>目前沒有待發佈的修改。</b><br>資料大小 ' + S.sizeText() + '。改了東西之後再回來這裡。';
+  }
+
+  $('#dl').addEventListener('click', function(){ S.download(); toast('已下載 menu.json'); });
+
+  $('#cp').addEventListener('click', function(){
+    if (navigator.clipboard) navigator.clipboard.writeText(S.json())['catch'](function(){});
+    toast('JSON 已複製');
+  });
+
+  $('#mk').addEventListener('click', function(){
+    S.markPublished(); pill(); toast('已標記為已發佈');
+  });
+
+  $('#imp').addEventListener('click', function(){ $('#impFile').value = ''; $('#impFile').click(); });
+
+  $('#impFile').addEventListener('change', function(e){
+    var f = e.target.files && e.target.files[0];
+    if (!f) return;
+    var r = new FileReader();
+    r.onload = function(){
+      try {
+        S.importJSON(String(r.result));
+        D = S.edit();
+        open = {};
+        rows(); fillSettings(); pill();
+        toast('已匯入');
+      } catch (err){ toast('匯入失敗：' + (err.message || '這不是有效的 menu.json'), true); }
+    };
+    r.onerror = function(){ toast('檔案讀不到', true); };
+    r.readAsText(f);
+  });
+
+  ['g-owner','g-repo','g-branch','g-path','g-token'].forEach(function(id){
+    $('#' + id).addEventListener('input', function(){
+      S.ghConf({
+        owner:  $('#g-owner').value.trim(),
+        repo:   $('#g-repo').value.trim(),
+        branch: $('#g-branch').value.trim() || 'main',
+        path:   $('#g-path').value.trim() || 'data/menu.json',
+        token:  $('#g-token').value.trim()
+      });
+    });
+  });
+
+  $('#pub').addEventListener('click', function(){
+    var b = this;
+    b.disabled = true;
+    b.textContent = '發佈中…';
+    S.publish().then(function(){
+      b.textContent = '發佈到網站';
+      b.disabled = false;
+      pill();
+      toast('已發佈！GitHub Pages 大約一分鐘後生效');
+    })['catch'](function(e){
+      b.textContent = '發佈到網站';
+      b.disabled = false;
+      toast(e.message || '發佈失敗', true);
+    });
+  });
+
+  $('#rv').addEventListener('click', function(){
+    if (!confirm('丟掉這台裝置上所有還沒發佈的修改？')) return;
+    S.discardLocal();
+    D = S.edit();
+    rows(); fillSettings(); pill();
+    toast('已還原成網站上的版本');
+  });
+
+  $('#rs').addEventListener('click', function(){
+    if (!confirm('清除這台裝置的全部本機資料？\n（包含未發佈的修改、登入狀態、GitHub 設定）')) return;
+    S.resetAll();
+    location.reload();
+  });
+
+  /* ─────────────── 分頁 ─────────────── */
+  [['t-items','p-items'], ['t-set','p-set'], ['t-pub','p-pub']].forEach(function(p){
+    $('#' + p[0]).addEventListener('click', function(){
+      ['t-items','t-set','t-pub'].forEach(function(t){
+        $('#' + t).setAttribute('aria-selected', t === p[0]);
+      });
+      ['p-items','p-set','p-pub'].forEach(function(x){ $('#' + x).hidden = (x !== p[1]); });
+      if (p[1] === 'p-pub') pubNote();
+      window.scrollTo({ top: 0 });
+    });
+  });
+
+  /* ─────────────── 啟動 ─────────────── */
+  function boot(){
+    $('#login').hidden = true;
+    $('#app').hidden = false;
+    D = S.edit();
+    rows();
+    fillSettings();
+    pill();
+  }
+
+  if (S.isLoggedIn()){
+    boot();
+  } else {
+    $('#lu').focus();
+  }
+
+  // 抓一下網站上的菜單，沒有本機修改的話就吃新的
+  S.refresh().then(function(){
+    if (!S.isDirty() && !$('#app').hidden){
+      D = S.edit();
+      rows(); fillSettings(); pill();
+    }
+  });
+})();
+</script>
+</body>
+</html>

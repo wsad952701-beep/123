@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0B0907">
+<title>順記 · 訂單送出</title>
+<style>
+  :root{
+    --bg:#0B0907; --card-1:#1B1510; --card-2:#110D0A;
+    --gold:#E7CB92; --gold-soft:#C9A96B; --ink:#F0E8DB; --muted:#948A7E;
+    --hair:rgba(231,203,146,.18); --edge:rgba(231,203,146,.30);
+    --line:#06C755;
+    --serif:"Songti TC","Noto Serif CJK TC","Noto Serif TC",serif;
+    --sans:"PingFang TC","Noto Sans CJK TC","Noto Sans TC",-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  [hidden]{display:none!important}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    -webkit-font-smoothing:antialiased}
+  body{min-height:100dvh;display:flex;justify-content:center;padding:24px 16px 40px}
+  .wrap{width:100%;max-width:440px}
+
+  .card{
+    background:linear-gradient(180deg,var(--card-1),var(--card-2));
+    border:1px solid var(--edge);border-radius:22px;padding:30px 22px 24px;
+    box-shadow:0 24px 60px -24px rgba(0,0,0,.9);
+  }
+  .code{font-family:var(--serif);font-weight:700;font-size:34px;letter-spacing:.18em;
+    color:var(--gold);text-align:center;margin:0 0 10px;text-indent:.18em}
+  .meta{text-align:center;color:var(--muted);font-size:15px;letter-spacing:.12em;margin-bottom:22px}
+
+  .items{background:rgba(255,255,255,.035);border:1px solid var(--hair);
+    border-radius:14px;padding:16px 18px}
+  .row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+    font-size:16px;padding:5px 0}
+  .row .n{color:var(--ink)}
+  .row .p{color:var(--gold);font-weight:600;font-variant-numeric:tabular-nums}
+
+  hr.hair{border:0;border-top:1px solid var(--hair);margin:22px 0}
+
+  .total{display:flex;align-items:baseline;justify-content:space-between}
+  .total .lab{color:var(--muted);font-size:15px;letter-spacing:.2em}
+  .total .amt{font-size:34px;font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums}
+
+  .preview{margin:22px 0 6px;text-align:center}
+  .preview img{width:62%;max-width:210px;border-radius:10px;display:block;margin:0 auto 10px;
+    border:1px solid var(--hair)}
+  .preview .cap{color:var(--muted);font-size:13px;letter-spacing:.06em}
+  .preview .cap b{color:var(--gold-soft);font-weight:600}
+
+  .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+    border-radius:14px;font-family:var(--serif);font-size:19px;font-weight:700;
+    letter-spacing:.08em;padding:17px 12px;border:1px solid transparent;cursor:pointer;
+    transition:transform .12s ease,filter .18s ease}
+  .btn:active{transform:scale(.985)}
+  .btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .btn-line{background:var(--line);color:#fff;box-shadow:0 0 26px -6px rgba(6,199,85,.55);margin-top:18px}
+  .btn-line small{display:block;font-family:var(--sans);font-size:12px;font-weight:400;
+    letter-spacing:.04em;opacity:.85;margin-top:3px}
+  .btn-ghost{background:transparent;border-color:var(--edge);color:var(--gold);margin-top:12px;font-size:17px}
+
+  .alt{display:flex;justify-content:center;gap:6px;margin-top:16px;flex-wrap:wrap}
+  .alt button{background:none;border:0;color:var(--muted);font-size:13.5px;
+    font-family:var(--sans);padding:6px 8px;cursor:pointer;text-decoration:underline;
+    text-underline-offset:3px;text-decoration-color:rgba(148,138,126,.4)}
+  .alt button:hover{color:var(--gold-soft)}
+  .alt .sep{color:rgba(148,138,126,.35);align-self:center}
+
+  .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);
+    background:#1E1811;border:1px solid var(--edge);color:var(--gold);
+    padding:12px 20px;border-radius:999px;font-size:14px;letter-spacing:.05em;
+    opacity:0;pointer-events:none;transition:.25s ease;z-index:9;max-width:88vw;text-align:center}
+  .toast.on{opacity:1;transform:translate(-50%,0)}
+
+  details.diag{margin-top:22px;color:var(--muted);font-size:12.5px}
+  details.diag summary{cursor:pointer;letter-spacing:.08em;list-style:none}
+  details.diag summary::-webkit-details-marker{display:none}
+  details.diag summary::before{content:"＋ ";color:var(--gold-soft)}
+  details.diag[open] summary::before{content:"− "}
+  details.diag pre{white-space:pre-wrap;word-break:break-all;background:rgba(255,255,255,.03);
+    border:1px solid var(--hair);border-radius:10px;padding:12px;margin-top:10px;line-height:1.7}
+  .ok{color:#5FD08A} .no{color:#D97C6E}
+  .demoflag{margin-top:14px;text-align:center;font-size:12px;color:#D97C6E;letter-spacing:.05em}
+  .again{text-align:center;margin-top:20px}
+  .again a{color:var(--muted);font-size:13px;letter-spacing:.1em;text-decoration:none;
+    border-bottom:1px solid rgba(148,138,126,.25);padding-bottom:2px}
+  .again a:hover{color:var(--gold-soft)}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1 class="code" id="code">—</h1>
+    <div class="meta" id="meta"></div>
+
+    <div class="items" id="items"></div>
+
+    <hr class="hair">
+
+    <div class="total">
+      <span class="lab">合計</span>
+      <span class="amt" id="total"></span>
+    </div>
+
+    <div class="preview" id="preview" hidden>
+      <img id="thumb" alt="訂單圖片預覽">
+      <div class="cap">按下方按鈕，<b>這張圖</b>就會送進社群</div>
+    </div>
+
+    <button class="btn btn-line" id="go">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff" aria-hidden="true" style="flex:0 0 auto">
+        <path d="M12 2C6.5 2 2 5.6 2 10c0 4 3.6 7.3 8.4 7.9.3.07.8.22.9.5.1.26.06.66.03.92l-.14.86c-.04.25-.2 1 .87.55 1.07-.46 5.77-3.4 7.87-5.82C21.3 13.3 22 11.7 22 10c0-4.4-4.5-8-10-8Z"/>
+      </svg>
+      <span>貼到 LINE 社群
+        <small id="goSub">分享 → 選 LINE → 選社群 → 送出</small>
+      </span>
+    </button>
+
+    <button class="btn btn-ghost" id="community" hidden>開啟社群（文字已複製）</button>
+
+    <div class="alt">
+      <button id="asText">改用文字分享</button><span class="sep">·</span>
+      <button id="save">儲存圖片</button><span class="sep">·</span>
+      <button id="copy">只複製文字</button>
+    </div>
+
+    <div class="demoflag" id="demoflag" hidden>⚠ 目前顯示的是示範訂單（沒有收到訂單資料）</div>
+
+    <div class="again"><a href="index.html">← 再點一單</a></div>
+
+    <details class="diag">
+      <summary>裝置支援檢測</summary>
+      <pre id="diag">檢測中…</pre>
+    </details>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="./shunji-store.js"></script>
+<script src="./shunji-share.js"></script>
+<script>
+/* ══════════════════════════════════════════════════════════
+   ① 設定 —— 現在統一在「後台 → 設定」改，不用動這個檔
+      （admin.html 登入後改店名、LOGO、社群連結、頁尾字）
+   ══════════════════════════════════════════════════════════ */
+function settings(){
+  const s = ShunjiStore.settings();
+  return {
+    brand       : s.brand,
+    brandSub    : s.brandSub,
+    logo        : s.logo,          // 會印在訂單圖片最上方
+    communityUrl: s.communityUrl,
+    footer      : s.footer
+  };
+}
+
+/* ══════════════════════════════════════════════════════════
+   ② 訂單從哪來 —— 四種都支援，由上往下找，找到就用
+   ══════════════════════════════════════════════════════════ */
+const DEMO = {
+  code:'SJ0713-2678', mode:'外送', when:'7/13（一）12:00',
+  items:[{ name:'碳燒原隻燒鵝腿飯', qty:2, price:440 }],
+  total:440, note:'', customer:{ name:'', phone:'', address:'' }
+};
+
+let isDemo = false;
+
+function readOrder(){
+  // (1) 你的程式碼在載入本頁前掛上全域變數
+  if (window.SHUNJI_ORDER) return window.SHUNJI_ORDER;
+
+  // (2) 上一頁用 sessionStorage 傳過來（最推薦）
+  //     sessionStorage.setItem('shunji_order', JSON.stringify(order));
+  //     location.href = 'order.html';
+  try {
+    const s = sessionStorage.getItem('shunji_order');
+    if (s) return JSON.parse(s);
+  } catch(e){}
+
+  // (3) 網址參數 ?o=<base64url(JSON)>
+  try {
+    const q = new URLSearchParams(location.search).get('o');
+    if (q) {
+      const b64 = q.replace(/-/g,'+').replace(/_/g,'/');
+      const bin = atob(b64);
+      const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
+      return JSON.parse(new TextDecoder().decode(bytes));
+    }
+  } catch(e){}
+
+  // (4) 都沒有 → 示範訂單
+  isDemo = true;
+  return DEMO;
+}
+
+/* ══════════════════════════════════════════════════════════
+   ③ 啟動 —— 訂單一進來就先把圖畫好（不要等按鈕）
+   ══════════════════════════════════════════════════════════ */
+const order = readOrder();
+
+function apply(){
+  ShunjiShare.config(settings()).setOrder(order);   // 立刻在背景產圖
+  ShunjiShare.ready().then(paintImage);
+}
+apply();
+
+/* ---- 畫面 ---- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+$('#code').textContent  = order.code || '';
+$('#meta').textContent  = [order.mode, order.when].filter(Boolean).join('　');
+$('#total').textContent = 'NT$' + (order.total ?? '');
+$('#items').innerHTML   = (order.items || []).map(i =>
+  `<div class="row"><span class="n">${esc(i.name)}${i.qty ? ' ×' + i.qty + ' 份' : ''}</span>` +
+  `<span class="p">${i.price ?? ''}</span></div>`
+).join('');
+$('#demoflag').hidden = !isDemo;
+
+function toast(msg){
+  const t = $('#toast'); t.textContent = msg; t.classList.add('on');
+  clearTimeout(toast._t); toast._t = setTimeout(()=>t.classList.remove('on'), 2400);
+}
+
+function revealCommunity(){
+  if (ShunjiShare.hasCommunity()) $('#community').hidden = false;
+}
+
+/* 圖畫好 → 縮圖 + 檢測結果 */
+function paintImage(){
+  const url = ShunjiShare.imageUrl();
+  if (url){ $('#thumb').src = url; $('#preview').hidden = false; }
+  revealCommunity();
+
+  const c = ShunjiShare.caps();
+  $('#diag').innerHTML =
+    `圖片分享　navigator.share({files})　${c.shareFile ? '<span class="ok">✓ 可用</span>' : '<span class="no">✗ 不支援</span>'}\n` +
+    `文字分享　navigator.share({text})　 ${c.shareText ? '<span class="ok">✓ 可用</span>' : '<span class="no">✗ 不支援</span>'}\n` +
+    `LINE 內建瀏覽器　　　　　　　　　　${c.inLine ? '<span class="ok">是</span>' : '否'}\n` +
+    `訂單圖片　　　　　　　　　　　　　${c.imageReady ? '<span class="ok">已備妥</span>' : '<span class="no">產生失敗</span>'}\n` +
+    `安全連線 HTTPS　　　　　　　　　　${window.isSecureContext ? '<span class="ok">是</span>' : '<span class="no">否（分享功能需要 HTTPS）</span>'}`;
+
+  if (!c.shareFile && !c.shareText) $('#goSub').textContent = '此裝置不支援直接分享，將改開 LINE';
+}
+
+/* 去網站抓最新的店家設定（LOGO 換了、社群連結填了…）→ 重畫一次圖 */
+ShunjiStore.refresh().then(apply);
+
+/* ---- 按鈕 ----
+   ⚠️ handler 不可以是 async，share() 必須在點擊的同一拍同步呼叫，
+      否則 iOS 會把手勢授權收回 → NotAllowedError                     */
+$('#go').addEventListener('click', () => {
+  ShunjiShare.share().then(r => {
+    if (r === 'image')  toast('已送出訂單圖片');
+    if (r === 'text')   toast('已送出訂單文字');
+    if (r === 'cancel') { toast('已取消（文字仍在剪貼簿）'); revealCommunity(); }
+  }).catch(() => { toast('分享失敗，文字已複製'); revealCommunity(); });
+});
+
+$('#asText').addEventListener('click', () => {
+  const t = ShunjiShare.text();
+  if (navigator.share) navigator.share({ text:t }).catch(()=>{});
+  else { ShunjiShare.copy(); toast('已複製訂單文字'); }
+});
+
+$('#save').addEventListener('click', () => {
+  toast(ShunjiShare.saveImage() ? '圖片已下載' : '圖片尚未備妥，請稍候再試');
+});
+
+$('#copy').addEventListener('click', () => {
+  ShunjiShare.copy(); toast('訂單文字已複製');
+});
+
+$('#community').addEventListener('click', () => ShunjiShare.openCommunity());
+</script>
+</body>
+</html>
