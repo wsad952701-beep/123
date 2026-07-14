@@ -38,6 +38,59 @@ var ST = {
   del: function(k){ try{ localStorage.removeItem(k); }catch(e){ delete mem[k]; } }
 };
 
+/* ---------- GitHub 發佈設定 ---------- */
+var KEY_GH = 'sj_github_cfg';
+function ghCfg(){
+  try{ var o = JSON.parse(ST.get(KEY_GH) || 'null'); return o && typeof o === 'object' ? o : {}; }
+  catch(e){ return {}; }
+}
+function ghSave(o){ ST.set(KEY_GH, JSON.stringify(o)); }
+
+/* GitHub Contents API：更新 menu-data.js */
+function ghPublish(code, cb){
+  var cfg = ghCfg();
+  if(!cfg.token || !cfg.owner || !cfg.repo || !cfg.path){
+    return cb(false, '請先在「發佈設定」填好 GitHub 帳號、倉庫、Token');
+  }
+  var apiUrl = 'https://api.github.com/repos/' + cfg.owner + '/' + cfg.repo + '/contents/' + cfg.path;
+  var headers = {
+    'Authorization': 'token ' + cfg.token,
+    'Accept': 'application/vnd.github.v3+json',
+    'Content-Type': 'application/json'
+  };
+  /* 先 GET 拿到現在的 SHA */
+  fetch(apiUrl, { headers: headers, cache: 'no-store' })
+    .then(function(r){ return r.ok ? r.json() : r.json().then(function(j){ return Promise.reject(j); }); })
+    .then(function(info){
+      var sha = info.sha;
+      var b64 = btoa(unescape(encodeURIComponent(code)));
+      var body = JSON.stringify({
+        message: '後台更新 ' + new Date().toLocaleString('zh-TW'),
+        content: b64,
+        sha: sha
+      });
+      return fetch(apiUrl, { method: 'PUT', headers: headers, body: body });
+    })
+    .then(function(r){ return r.ok ? r.json() : r.json().then(function(j){ return Promise.reject(j); }); })
+    .then(function(){ cb(true, '✅ 發佈成功！客人約 30 秒內就看到'); })
+    .catch(function(err){
+      /* 檔案不存在 → 新建 */
+      if(err && (err.message === 'Not Found' || (err.status && err.status === 404))){
+        var b64 = btoa(unescape(encodeURIComponent(code)));
+        var body = JSON.stringify({
+          message: '後台新建 menu-data.js',
+          content: b64
+        });
+        fetch(apiUrl, { method: 'PUT', headers: headers, body: body })
+          .then(function(r){ return r.ok ? r.json() : r.json().then(function(j){ return Promise.reject(j); }); })
+          .then(function(){ cb(true, '✅ 發佈成功（新建檔案）！'); })
+          .catch(function(e2){ cb(false, '發佈失敗：' + (e2.message || JSON.stringify(e2))); });
+      } else {
+        cb(false, '發佈失敗：' + (err.message || JSON.stringify(err)));
+      }
+    });
+}
+
 /* ---------- 覆寫資料 ----------
    {
      price   : { "順記三寶飯": 150, ... },       // 改過的價格
@@ -545,7 +598,8 @@ function build(){
         '<div class="adm-tabs" role="tablist">' +
           '<button class="adm-tab" role="tab" data-k="price" aria-selected="true">價格・售完・下架</button>' +
           '<button class="adm-tab" role="tab" data-k="img" aria-selected="false">換照片</button>' +
-          '<button class="adm-tab" role="tab" data-k="pub" aria-selected="false">發佈給客人</button>' +
+          '<button class="adm-tab" role="tab" data-k="pub" aria-selected="false">🚀 發佈給客人</button>' +
+          '<button class="adm-tab" role="tab" data-k="cfg" aria-selected="false">⚙ 發佈設定</button>' +
         '</div>' +
 
         '<div id="admPrice">' +
@@ -562,18 +616,47 @@ function build(){
 
         '<div id="admPub" style="display:none">' +
           '<p class="adm-hint">' +
-          '⚠️ <b>重要</b>：上面改的東西<b>只存在這支手機／這台電腦</b>，客人看到的還是舊的。<br><br>' +
-          '要讓<b>所有客人</b>都看到新價格：<br>' +
-          '① 按「複製設定碼」<br>' +
-          '② 到 GitHub 開 <b>menu-data.js</b>（沒有就新建一個）<br>' +
-          '③ 把裡面全部刪掉，貼上剛複製的內容 → Commit<br>' +
-          '④ 等 2 分鐘，全部客人的網頁就更新了</p>' +
+          '按下方按鈕，<b>一鍵發佈到 GitHub</b>，客人約 30 秒後自動看到最新內容。<br>' +
+          '（首次使用請先到「⚙ 發佈設定」填好 GitHub 帳號和 Token）</p>' +
           '<div class="adm-pub">' +
-            '<textarea id="admCode" readonly spellcheck="false"></textarea>' +
-            '<div class="b2">' +
-              '<button id="admCopy" type="button">📋 複製設定碼</button>' +
-              '<button id="admDl" type="button">⬇ 下載 menu-data.js</button>' +
-            '</div>' +
+            '<button id="admGhPub" type="button" style="width:100%;padding:16px;border:0;border-radius:12px;cursor:pointer;' +
+              'background:linear-gradient(135deg,#5aa86c,#3d8b50);color:#fff;font-size:17px;font-weight:700;' +
+              'letter-spacing:.12em;font-family:inherit;box-shadow:0 4px 16px rgba(90,168,108,.35);margin-bottom:14px">' +
+              '🚀 一鍵發佈到 GitHub</button>' +
+            '<p id="admGhStatus" style="text-align:center;font-size:14px;color:#9ff0b0;min-height:22px;margin-bottom:12px"></p>' +
+            '<details style="margin-top:10px">' +
+              '<summary style="cursor:pointer;color:#8b8177;font-size:12.5px">📋 手動方式（進階）</summary>' +
+              '<textarea id="admCode" readonly spellcheck="false" style="margin-top:8px"></textarea>' +
+              '<div class="b2">' +
+                '<button id="admCopy" type="button">📋 複製設定碼</button>' +
+                '<button id="admDl" type="button">⬇ 下載 menu-data.js</button>' +
+              '</div>' +
+            '</details>' +
+          '</div>' +
+        '</div>' +
+
+        '<div id="admCfg" style="display:none">' +
+          '<p class="adm-hint">' +
+          '填好以下資訊，系統就能<b>一鍵幫你發佈</b>到 GitHub Pages。<br>' +
+          'Token 不會上傳，只存在你這台手機／電腦的瀏覽器裡。</p>' +
+          '<div style="display:flex;flex-direction:column;gap:10px">' +
+            '<label style="font-size:13px;color:#a89e92">GitHub 帳號' +
+              '<input id="cfgOwner" class="adm-in" placeholder="例：wsad952701-beep" style="margin-top:4px">' +
+            '</label>' +
+            '<label style="font-size:13px;color:#a89e92">倉庫名稱' +
+              '<input id="cfgRepo" class="adm-in" placeholder="例：123" style="margin-top:4px">' +
+            '</label>' +
+            '<label style="font-size:13px;color:#a89e92">檔案路徑（menu-data.js 的位置）' +
+              '<input id="cfgPath" class="adm-in" placeholder="例：33/shunji-web-v10/menu-data.js" style="margin-top:4px">' +
+            '</label>' +
+            '<label style="font-size:13px;color:#a89e92">GitHub Token（Personal Access Token）' +
+              '<input id="cfgToken" class="adm-in" type="password" placeholder="ghp_xxxx..." style="margin-top:4px">' +
+            '</label>' +
+            '<button id="cfgSaveBtn" type="button" style="padding:13px;border:0;border-radius:10px;cursor:pointer;' +
+              'background:linear-gradient(180deg,#e8c988,#d6a44e 55%,#b9873a);color:#2a1a06;' +
+              'font-size:15px;font-weight:700;letter-spacing:.1em;font-family:inherit;margin-top:6px">' +
+              '💾 儲存設定</button>' +
+            '<p id="cfgMsg" style="text-align:center;font-size:13px;color:#5aa86c;min-height:20px"></p>' +
           '</div>' +
         '</div>' +
       '</div>' +
@@ -805,8 +888,10 @@ function wire(){
       $('admPrice').style.display = (k === 'price') ? 'block' : 'none';
       $('admImg').style.display   = (k === 'img')   ? 'block' : 'none';
       $('admPub').style.display   = (k === 'pub')   ? 'block' : 'none';
+      $('admCfg').style.display   = (k === 'cfg')   ? 'block' : 'none';
       if(k === 'img') renderImgs();
       if(k === 'pub') renderPub();
+      if(k === 'cfg') loadGhCfg();
       panel.scrollTop = 0;
     });
   });
@@ -846,6 +931,45 @@ function wire(){
     setTimeout(function(){ URL.revokeObjectURL(a.href); }, 3000);
     atoast('已下載 menu-data.js');
   });
+
+  /* ★ 一鍵發佈到 GitHub */
+  $('admGhPub').addEventListener('click', function(){
+    var btn = this;
+    var st  = $('admGhStatus');
+    btn.disabled = true;
+    btn.textContent = '⏳ 發佈中…';
+    btn.style.opacity = '0.6';
+    st.textContent = '';
+    st.style.color = '#9ff0b0';
+    var code = renderPub();
+    ghPublish(code, function(ok, msg){
+      btn.disabled = false;
+      btn.textContent = '🚀 一鍵發佈到 GitHub';
+      btn.style.opacity = '1';
+      st.textContent = msg;
+      st.style.color = ok ? '#9ff0b0' : '#ff8f8f';
+      if(ok) atoast('🚀 發佈成功！');
+    });
+  });
+
+  /* ★ GitHub 設定：儲存 */
+  $('cfgSaveBtn').addEventListener('click', function(){
+    var c = {
+      owner: $('cfgOwner').value.trim(),
+      repo:  $('cfgRepo').value.trim(),
+      path:  $('cfgPath').value.trim(),
+      token: $('cfgToken').value.trim()
+    };
+    if(!c.owner || !c.repo || !c.path || !c.token){
+      $('cfgMsg').textContent = '⚠️ 四個欄位都要填';
+      $('cfgMsg').style.color = '#ff8f8f';
+      return;
+    }
+    ghSave(c);
+    $('cfgMsg').textContent = '✅ 設定已儲存（只存在這台裝置）';
+    $('cfgMsg').style.color = '#5aa86c';
+    atoast('GitHub 設定已儲存');
+  });
 }
 
 function copy(t){
@@ -867,6 +991,17 @@ function copy(t){
 }
 
 /* ---- 開 / 關 ---- */
+/* 載入 GitHub 設定到表單 */
+function loadGhCfg(){
+  var c = ghCfg();
+  var $ = function(i){ return document.getElementById(i); };
+  $('cfgOwner').value = c.owner || '';
+  $('cfgRepo').value  = c.repo  || '';
+  $('cfgPath').value  = c.path  || '';
+  $('cfgToken').value = c.token || '';
+  $('cfgMsg').textContent = '';
+}
+
 function enter(){
   DRAFT = readOv();
   scan();
@@ -952,7 +1087,7 @@ window.SJ_ADMIN.paintSold = paintSold;
   /* 判斷是不是 admin.html → 不刷 */
   if(location.pathname.indexOf('admin') >= 0) return;
   /* 後台面板打開中 → 不刷 */
-  var INTERVAL = 2 * 60 * 1000;  /* 2 分鐘 */
+  var INTERVAL = 30 * 1000;  /* 30 秒 */
   var lastData = '';
 
   setInterval(function(){
