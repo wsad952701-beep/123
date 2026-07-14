@@ -943,4 +943,44 @@ window.addEventListener('load', function(){
 window.SJ_ADMIN.open = open_;
 window.SJ_ADMIN.paintSold = paintSold;
 
+/* ══════════════════════════════════════════════════════════════
+   ⑤ 前端自動刷新（每 2 分鐘拉一次 menu-data.js）
+   ★ 只在 index.html（客人頁面）跑，admin.html 不跑
+   ★ 後台發佈後，客人不用手動 F5，2 分鐘內就看到最新資料
+   ══════════════════════════════════════════════════════════════ */
+(function autoRefresh(){
+  /* 判斷是不是 admin.html → 不刷 */
+  if(location.pathname.indexOf('admin') >= 0) return;
+  /* 後台面板打開中 → 不刷 */
+  var INTERVAL = 2 * 60 * 1000;  /* 2 分鐘 */
+  var lastData = '';
+
+  setInterval(function(){
+    /* 後台面板打開中不刷 */
+    if(panel && panel.classList.contains('open')) return;
+    /* 加 cache-bust 參數避免 CDN 快取 */
+    var url = 'menu-data.js?_t=' + Date.now();
+    fetch(url, { cache: 'no-store' })
+      .then(function(r){ return r.ok ? r.text() : Promise.reject(); })
+      .then(function(txt){
+        if(!txt || txt === lastData) return;  /* 沒變就不刷 */
+        lastData = txt;
+        /* 解析新的 MENU_DATA */
+        try{
+          var m = txt.match(/var\s+MENU_DATA\s*=\s*(\{[\s\S]*?\});/);
+          if(m && m[1]){
+            var newData = JSON.parse(m[1]);
+            /* 比對是否真的變了 */
+            if(JSON.stringify(newData) !== JSON.stringify(window.MENU_DATA || {})){
+              window.MENU_DATA = newData;
+              /* 靜靜地重新載入頁面以套用新資料 */
+              location.reload();
+            }
+          }
+        }catch(e){ /* 解析失敗就算了 */ }
+      })
+      .catch(function(){ /* 網路斷了就算了，下次再試 */ });
+  }, INTERVAL);
+})();
+
 })();
