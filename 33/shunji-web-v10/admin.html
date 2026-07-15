@@ -9,6 +9,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 <script src="menu-data.js"></script>
 <script src="config.js"></script>
 <style>
@@ -254,61 +257,7 @@ a{color:var(--gold2);text-decoration:none}
 .bulk-btn:hover{color:#fff;border-color:var(--gold2);background:var(--gold2);color:#2a1a06}
 .bulk-btn.danger:hover{background:#a8181c;border-color:#a8181c;color:#fff}
 
-/* ══ 訂單記錄 ══ */
-.order-item{padding:14px;border-radius:var(--r2);margin-bottom:10px;
-  background:rgba(255,255,255,.028);border:1px solid rgba(255,255,255,.06);transition:.2s}
-.order-item:hover{border-color:rgba(255,255,255,.14)}
-.order-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;
-  padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.06)}
-.order-time{flex:1;font-size:12.5px;color:var(--muted);font-family:var(--num);letter-spacing:.02em}
-.order-total{font-family:var(--num);font-size:14.5px;font-weight:600;color:var(--gold)}
-.order-status{padding:3px 8px;border-radius:999px;font-size:10.5px;font-weight:600;letter-spacing:.05em}
-.order-status.pending{background:var(--warn-bg);color:var(--warn)}
-.order-status.done{background:var(--ok-bg);color:var(--ok)}
-.order-items{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
-.order-line{display:flex;justify-content:space-between;font-size:13px;gap:12px}
-.order-line-name{color:var(--txt2)}
-.order-line-qty{font-family:var(--num);color:var(--muted);flex:none}
-.order-line-qty b{color:var(--gold2)}
-.order-actions{display:flex;gap:6px}
-.order-btn{flex:1;padding:9px;border-radius:8px;font-size:12.5px;cursor:pointer;
-  border:1px solid rgba(255,255,255,.14);color:var(--muted);background:rgba(0,0,0,.15);transition:.15s}
-.order-btn:hover{color:#fff;border-color:#fff}
-.order-btn.primary{background:var(--ok);border-color:var(--ok);color:#fff;font-weight:600}
-.order-btn.primary:hover{background:#4a9057;border-color:#4a9057;filter:brightness(1.05)}
-.order-btn.danger:hover{background:#a8181c;border-color:#a8181c;color:#fff}
 
-/* ══ 公告 ══ */
-.notice-area textarea{width:100%;height:110px;padding:12px 14px;border-radius:var(--r);font-size:14px;
-  border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.28);color:var(--txt);
-  resize:vertical;line-height:1.7;font-family:inherit}
-.notice-area textarea:focus{outline:none;border-color:var(--gold2)}
-.notice-types{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
-.nt-btn{padding:9px 15px;border-radius:8px;font-size:13px;cursor:pointer;
-  border:1px solid rgba(255,255,255,.14);color:var(--muted);background:rgba(0,0,0,.15);transition:.2s}
-.nt-btn:hover{color:var(--txt)}
-.nt-btn.on{font-weight:700;transform:translateY(-1px)}
-.nt-btn.on[data-t="info"]{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
-.nt-btn.on[data-t="warn"]{background:var(--warn-bg);border-color:var(--warn);color:var(--warn)}
-.nt-btn.on[data-t="promo"]{background:rgba(232,201,136,.14);border-color:var(--gold2);color:var(--gold)}
-
-.preview-banner{padding:14px 18px;border-radius:var(--r);margin-top:14px;font-size:14px;
-  line-height:1.7;word-break:break-word}
-.preview-banner.info{background:var(--ok-bg);border:1px solid var(--ok-line);color:#9fdfab}
-.preview-banner.warn{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn)}
-.preview-banner.promo{background:rgba(232,201,136,.08);border:1px solid rgba(232,201,136,.24);color:var(--gold)}
-
-/* ══ 設定 ══ */
-.setting-group{margin-bottom:18px;padding:16px 18px;border-radius:var(--r2);
-  background:rgba(255,255,255,.028);border:1px solid rgba(255,255,255,.06)}
-.setting-group h3{font-size:14.5px;color:var(--gold);margin:0 0 12px;font-weight:600;letter-spacing:.03em}
-.setting-row{margin-bottom:12px}
-.setting-row:last-child{margin-bottom:0}
-.setting-row label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px;letter-spacing:.06em;font-weight:500}
-.setting-input{width:100%;padding:11px 13px;border-radius:8px;font-size:14px;
-  border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.28);color:var(--txt);
-  font-family:var(--num)}
-.setting-input:focus{outline:none;border-color:var(--gold2);background:rgba(0,0,0,.4)}
 
 /* ══ 換照片 ══ */
 .img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
@@ -388,7 +337,6 @@ a{color:var(--gold2);text-decoration:none}
 <div class="top">
   <div class="top-logo">順</div>
   <h1>店家後台<small>SHUNJI ADMIN DASHBOARD</small></h1>
-  <span class="top-badge" id="ghStatus" style="display:none">已連線</span>
   <button class="top-btn" onclick="location.href='index.html'">← 前台</button>
   <button class="top-btn" id="logoutBtn" style="display:none" onclick="doLogout()">登出</button>
 </div>
@@ -412,10 +360,7 @@ a{color:var(--gold2);text-decoration:none}
     <button class="tab" data-tab="price">🍱 菜單管理</button>
     <button class="tab" data-tab="special">⭐ 今日特餐</button>
     <button class="tab" data-tab="qty">📦 庫存管理</button>
-    <button class="tab" data-tab="orders">📋 訂單記錄<span class="tab-badge" id="orderBadge" style="display:none">0</span></button>
     <button class="tab" data-tab="img">🖼 換照片</button>
-    <button class="tab" data-tab="notice">📢 公告欄</button>
-    <button class="tab" data-tab="setting">⚙️ 發佈設定</button>
   </div>
 
   <!-- ─── 儀表板 ─── -->
@@ -454,8 +399,8 @@ a{color:var(--gold2);text-decoration:none}
     </div>
 
     <div class="dash-sec">
-      <h3>📋 最近訂單 <span class="cnt" id="recentOrdCnt">0</span></h3>
-      <div id="recentOrders"><p class="dash-empty">還沒有訂單紀錄<br><small>客人送出訂單後會在這裡顯示</small></p></div>
+      <h3>🔥 Firebase 即時連線 <span class="cnt" id="fbStatus">—</span></h3>
+      <div id="fbInfo"><p class="dash-empty">檢查中…</p></div>
     </div>
   </div>
 
@@ -493,87 +438,10 @@ a{color:var(--gold2);text-decoration:none}
     <div id="qtyList"></div>
   </div>
 
-  <!-- ─── 訂單記錄 ─── -->
-  <div class="panel" id="panelOrders">
-    <p class="hint">這裡顯示<b>從這台裝置</b>送出的訂單。<br>店家在 LINE 社群裡收到訂單後，可以按「✓ 確認扣庫存」把這些數量從剩餘份數扣除。<br>⚠️ 只有這台手機／電腦看得到，換裝置就不會有。</p>
-
-    <div class="qty-bulk">
-      <span>批次操作：</span>
-      <button class="bulk-btn" onclick="ordersBulk('confirmAll')">✓ 全部確認扣庫存</button>
-      <button class="bulk-btn danger" onclick="ordersBulk('clear')">清空紀錄</button>
-    </div>
-
-    <div id="ordersList"></div>
-  </div>
-
   <!-- ─── 換照片 ─── -->
   <div class="panel" id="panelImg">
     <p class="hint">按「換照片」→ 從手機相簿選一張，馬上就換好。照片建議先壓到 <b>1MB 以內</b>（太大存不進去）。系統會自動幫你縮到 1200px。<br>⚠️ 換完照片記得按底下的<b>「一鍵發佈」</b>，客人才看得到新照片。</p>
     <div class="img-grid" id="imgGrid"></div>
-  </div>
-
-  <!-- ─── 公告欄 ─── -->
-  <div class="panel" id="panelNotice">
-    <p class="hint">輸入公告內容，會顯示在前台最上方。留空 = 不顯示。<br>例：「明天（週六）公休」「本週五加賣魚蛋、牛腩」「颱風天休息一天」</p>
-    <div class="notice-area">
-      <textarea id="noticeText" placeholder="輸入公告內容（留空 = 不顯示）"></textarea>
-      <div class="notice-types">
-        <button class="nt-btn on" data-t="info">ℹ️ 一般</button>
-        <button class="nt-btn" data-t="warn">⚠️ 重要</button>
-        <button class="nt-btn" data-t="promo">🏷️ 促銷</button>
-      </div>
-      <div id="noticePreview"></div>
-    </div>
-  </div>
-
-  <!-- ─── 發佈設定 ─── -->
-  <div class="panel" id="panelSetting">
-    <div class="setting-group">
-      <h3>🔗 GitHub 自動發佈設定</h3>
-      <p class="hint" style="margin-bottom:14px">
-        填好以下資料，就能在後台<b>一鍵發佈</b>，不用再手動複製貼上。<br><br>
-        <b>怎麼拿 Token？</b><br>
-        ① 到 <a href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a><br>
-        ② Generate new token → <b>Classic</b><br>
-        ③ Note 填「順記後台」、Expiration 選 No expiration<br>
-        ④ 勾選 <b>repo</b>（第一個）→ Generate<br>
-        ⑤ 複製 token 貼到下面
-      </p>
-      <div class="setting-row">
-        <label>GitHub 帳號（Owner）</label>
-        <input class="setting-input" id="ghOwner" placeholder="例：wsad952701-beep">
-      </div>
-      <div class="setting-row">
-        <label>倉庫名稱（Repository）</label>
-        <input class="setting-input" id="ghRepo" placeholder="例：123">
-      </div>
-      <div class="setting-row">
-        <label>檔案路徑（menu-data.js 在倉庫裡的路徑）</label>
-        <input class="setting-input" id="ghPath" placeholder="例：13/menu-data.js 或 menu-data.js">
-      </div>
-      <div class="setting-row">
-        <label>Personal Access Token</label>
-        <input class="setting-input" id="ghToken" type="password" placeholder="ghp_xxxxxxxxxxxx">
-      </div>
-      <button class="btn-gold" style="margin-top:12px" onclick="saveGH()">💾 儲存設定</button>
-    </div>
-
-    <div class="setting-group">
-      <h3>📝 手動發佈</h3>
-      <p class="hint">如果不想設定 GitHub Token，也可以用舊方法：複製下面的設定碼，到 GitHub 手動貼上。</p>
-      <textarea id="manualCode" readonly style="width:100%;height:140px;padding:12px;border-radius:8px;
-        font-size:11px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.32);
-        color:#9ff0b0;font-family:var(--num);resize:vertical;line-height:1.6"></textarea>
-      <div style="display:flex;gap:7px;margin-top:10px">
-        <button class="top-btn" style="flex:1;padding:11px;text-align:center" onclick="copyCode()">📋 複製設定碼</button>
-        <button class="top-btn" style="flex:1;padding:11px;text-align:center" onclick="dlCode()">⬇ 下載 menu-data.js</button>
-      </div>
-    </div>
-
-    <div class="setting-group">
-      <h3>📡 連線狀態</h3>
-      <p id="ghInfo" style="font-size:13px;color:var(--muted);line-height:1.9">尚未設定</p>
-    </div>
   </div>
 </div>
 
@@ -741,10 +609,7 @@ $('tabBar').addEventListener('click',function(e){
   if(k==='price')renderPriceList();
   if(k==='special'){renderSpecial();fillSpSelect()}
   if(k==='qty')renderQtyList();
-  if(k==='orders')renderOrders();
   if(k==='img')renderImgGrid();
-  if(k==='notice')renderNoticePreview();
-  if(k==='setting')renderCode();
   window.scrollTo({top:0,behavior:'smooth'});
 });
 
@@ -824,27 +689,18 @@ function renderDashboard(){
     $('spSummary').innerHTML='<p class="dash-empty">還沒設定今日特餐<br><small>切到「今日特餐」頁籤設定</small></p>';
   }
 
-  /* 最近訂單 */
-  var orders=[];
-  try{orders=JSON.parse(S.get('sj_orders_log')||'[]')||[]}catch(e){}
-  $('recentOrdCnt').textContent=orders.length;
-  var pending=orders.filter(function(o){return !o.confirmed}).length;
-  var badge=$('orderBadge');
-  if(pending>0){badge.textContent=pending;badge.style.display=''}
-  else badge.style.display='none';
-
-  if(orders.length){
-    $('recentOrders').innerHTML=orders.slice(0,3).map(function(o){
-      return '<div class="alert-row" style="background:rgba(255,255,255,.028);border-color:rgba(255,255,255,.08)">'+
-               '<span class="alert-icon">'+(o.confirmed?'✓':'⏳')+'</span>'+
-               '<span class="alert-name">'+timeAgo(o.t)+' · '+
-                 (o.items||[]).length+' 個品項</span>'+
-               '<span class="alert-count" style="color:var(--gold)">NT$'+
-                 (o.items||[]).reduce(function(s,i){return s+(i.q*i.p)},0)+'</span>'+
-             '</div>'
-    }).join('');
+  /* Firebase 連線狀態 */
+  var fbEl=$('fbInfo');
+  if(typeof firebase!=='undefined'&&firebase.database){
+    $('fbStatus').textContent='✓';
+    fbEl.innerHTML='<div class="alert-row" style="background:var(--ok-bg);border-color:var(--ok-line)">'+
+      '<span class="alert-icon">🟢</span>'+
+      '<span class="alert-name" style="color:var(--ok)">Firebase 已連線，資料即時同步中</span></div>';
   }else{
-    $('recentOrders').innerHTML='<p class="dash-empty">還沒有訂單紀錄<br><small>客人送出訂單後會在這裡顯示</small></p>';
+    $('fbStatus').textContent='✗';
+    fbEl.innerHTML='<div class="alert-row critical">'+
+      '<span class="alert-icon">🔴</span>'+
+      '<span class="alert-name" style="color:var(--err)">Firebase 尚未連線</span></div>';
   }
 }
 
@@ -1137,115 +993,7 @@ window.qtyBulk=function(op,val){
   }
 };
 
-/* ══════════════════════════════════════════════════════════
-   Panel: 訂單記錄
-   ══════════════════════════════════════════════════════════ */
-function loadOrders(){
-  try{return JSON.parse(S.get('sj_orders_log')||'[]')||[]}catch(e){return []}
-}
-function saveOrders(list){
-  try{S.set('sj_orders_log',JSON.stringify(list))}catch(e){}
-}
 
-function renderOrders(){
-  var orders=loadOrders();
-  var box=$('ordersList');
-  if(!orders.length){
-    box.innerHTML='<p class="dash-empty" style="padding:40px 0">還沒有訂單紀錄<br><small>客人從<b>這台裝置</b>送出訂單後，會顯示在這裡</small></p>';
-    return;
-  }
-  box.innerHTML=orders.map(function(o,idx){
-    var items=o.items||[];
-    var total=items.reduce(function(s,i){return s+(i.q*i.p)},0);
-    var statusCls=o.confirmed?'done':'pending';
-    var statusTxt=o.confirmed?'✓ 已扣庫存':'⏳ 待確認';
-    return '<div class="order-item">'+
-             '<div class="order-head">'+
-               '<span class="order-time">'+new Date(o.t).toLocaleString('zh-TW')+'</span>'+
-               '<span class="order-status '+statusCls+'">'+statusTxt+'</span>'+
-               '<span class="order-total">NT$'+total+'</span>'+
-             '</div>'+
-             '<div class="order-items">'+
-               items.map(function(i){
-                 return '<div class="order-line">'+
-                          '<span class="order-line-name">'+esc(i.n)+'</span>'+
-                          '<span class="order-line-qty"><b>×'+i.q+'</b> '+esc(i.u||'份')+' · NT$'+(i.q*i.p)+'</span>'+
-                        '</div>'
-               }).join('')+
-             '</div>'+
-             '<div class="order-actions">'+
-               (o.confirmed?
-                 '<button class="order-btn" onclick="orderAct(\'unconfirm\','+idx+')">↩ 取消扣庫存</button>':
-                 '<button class="order-btn primary" onclick="orderAct(\'confirm\','+idx+')">✓ 確認扣庫存</button>')+
-               '<button class="order-btn danger" onclick="orderAct(\'delete\','+idx+')">刪除紀錄</button>'+
-             '</div>'+
-           '</div>';
-  }).join('');
-}
-
-window.orderAct=function(op,idx){
-  var orders=loadOrders();
-  var o=orders[idx];if(!o)return;
-
-  if(op==='confirm'){
-    /* 把訂單裡的每個品項的數量加到 soldToday */
-    (o.items||[]).forEach(function(i){
-      var s=DRAFT.soldToday[i.n]||0;
-      DRAFT.soldToday[i.n]=s+i.q;
-    });
-    o.confirmed=true;
-    saveOrders(orders);
-    saveDraft();
-    renderOrders();
-    toast('已扣庫存 ✓','ok');
-  }else if(op==='unconfirm'){
-    /* 把訂單裡的每個品項的數量從 soldToday 扣掉 */
-    (o.items||[]).forEach(function(i){
-      var s=DRAFT.soldToday[i.n]||0;
-      DRAFT.soldToday[i.n]=Math.max(0,s-i.q);
-      if(!DRAFT.soldToday[i.n])delete DRAFT.soldToday[i.n];
-    });
-    o.confirmed=false;
-    saveOrders(orders);
-    saveDraft();
-    renderOrders();
-    toast('已取消扣庫存','info');
-  }else if(op==='delete'){
-    if(!confirm('確定要刪除這筆訂單紀錄嗎？\n（不會影響已扣的庫存）'))return;
-    orders.splice(idx,1);
-    saveOrders(orders);
-    renderOrders();
-    toast('已刪除紀錄','info');
-  }
-};
-
-window.ordersBulk=function(op){
-  var orders=loadOrders();
-  if(!orders.length){toast('沒有訂單紀錄','warn');return}
-
-  if(op==='confirmAll'){
-    var pending=orders.filter(function(o){return !o.confirmed});
-    if(!pending.length){toast('沒有待確認的訂單','info');return}
-    if(!confirm('確定要扣「所有待確認訂單」的庫存嗎？\n共 '+pending.length+' 筆訂單'))return;
-    orders.forEach(function(o){
-      if(o.confirmed)return;
-      (o.items||[]).forEach(function(i){
-        var s=DRAFT.soldToday[i.n]||0;
-        DRAFT.soldToday[i.n]=s+i.q;
-      });
-      o.confirmed=true;
-    });
-    saveOrders(orders);
-    saveDraft();
-    renderOrders();
-    toast('已扣 '+pending.length+' 筆訂單的庫存 ✓','ok');
-  }else if(op==='clear'){
-    if(!confirm('確定要「清空所有訂單紀錄」嗎？\n（已扣的庫存不會回復，只是清掉紀錄）'))return;
-    S.del('sj_orders_log');
-    renderOrders();
-    toast('已清空訂單紀錄','info');
-  }
-};
 
 /* ══════════════════════════════════════════════════════════
    Panel: 換照片
@@ -1342,97 +1090,7 @@ function shrinkImg(file,cb){
   fr.readAsDataURL(file);
 }
 
-/* ══════════════════════════════════════════════════════════
-   Panel: 公告
-   ══════════════════════════════════════════════════════════ */
-$('noticeText').addEventListener('input',function(){
-  DRAFT.notice=$('noticeText').value;
-  renderNoticePreview();
-});
 
-document.querySelectorAll('.nt-btn').forEach(function(b){
-  b.addEventListener('click',function(){
-    document.querySelectorAll('.nt-btn').forEach(function(x){x.classList.remove('on')});
-    b.classList.add('on');
-    DRAFT.noticeType=b.getAttribute('data-t');
-    renderNoticePreview();
-  })
-});
-
-function renderNoticePreview(){
-  var box=$('noticePreview');
-  var txt=DRAFT.notice||'';
-  if(!txt.trim()){box.innerHTML='';return}
-  var t=DRAFT.noticeType||'info';
-  var icon={info:'ℹ️',warn:'⚠️',promo:'🏷️'}[t]||'ℹ️';
-  box.innerHTML='<p style="margin-top:14px;font-size:12px;color:var(--muted);letter-spacing:.06em">前台預覽：</p>'+
-    '<div class="preview-banner '+t+'">'+icon+' '+esc(txt)+'</div>';
-}
-
-/* ══════════════════════════════════════════════════════════
-   Panel: 發佈設定 / GitHub
-   ══════════════════════════════════════════════════════════ */
-function loadGH(){
-  $('ghOwner').value=S.get('sj_gh_owner')||'wsad952701-beep';
-  $('ghRepo').value=S.get('sj_gh_repo')||'123';
-  $('ghPath').value=S.get('sj_gh_path')||'33/shunji-web-v10/menu-data.js';
-  $('ghToken').value=S.get('sj_gh_token')||'';
-  updateGHStatus();
-}
-
-window.saveGH=function(){
-  S.set('sj_gh_owner',$('ghOwner').value.trim());
-  S.set('sj_gh_repo',$('ghRepo').value.trim());
-  S.set('sj_gh_path',$('ghPath').value.trim()||'menu-data.js');
-  S.set('sj_gh_token',$('ghToken').value.trim());
-  updateGHStatus();
-  toast('GitHub 設定已儲存','ok');
-};
-
-function ghReady(){
-  return !!(S.get('sj_gh_owner')&&S.get('sj_gh_repo')&&S.get('sj_gh_token'));
-}
-
-function updateGHStatus(){
-  var badge=$('ghStatus'),info=$('ghInfo');
-  if(ghReady()){
-    badge.style.display='inline-flex';badge.textContent='已連線';badge.style.background='var(--ok)';
-    info.innerHTML='<span class="status-dot on"></span>已設定 GitHub 自動發佈<br>'+
-      '<b>倉庫：</b>'+esc(S.get('sj_gh_owner'))+'/'+esc(S.get('sj_gh_repo'))+'<br>'+
-      '<b>路徑：</b>'+esc(S.get('sj_gh_path')||'menu-data.js');
-  }else{
-    badge.style.display='none';
-    info.innerHTML='<span class="status-dot off"></span>尚未設定 GitHub 自動發佈<br>'+
-      '<span style="font-size:12px;color:var(--muted2)">請到「發佈設定」頁籤填入 GitHub 資料</span>';
-  }
-}
-
-function buildMenuDataJS(){
-  var d={
-    price:DRAFT.price,sold:DRAFT.sold,hidden:DRAFT.hidden,img:DRAFT.img,
-    special:DRAFT.special,qty:DRAFT.qty,soldToday:DRAFT.soldToday,
-    notice:DRAFT.notice,noticeType:DRAFT.noticeType
-  };
-  return '/* 順記燒臘館 · 菜單設定（後台自動產生 '+new Date().toLocaleString('zh-TW')+'）\n'+
-    '   ★ 不要手動改。要改請用 admin.html 後台，改完按一鍵發佈。 */\n'+
-    'var MENU_DATA = '+JSON.stringify(d,null,1)+';\n';
-}
-
-function renderCode(){$('manualCode').value=buildMenuDataJS()}
-
-window.copyCode=function(){
-  renderCode();
-  var t=$('manualCode').value;
-  copyText(t).then(function(ok){toast(ok?'已複製！去 GitHub 貼上':'複製失敗，請手動全選',ok?'ok':'err')})
-};
-window.dlCode=function(){
-  renderCode();
-  var a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob([buildMenuDataJS()],{type:'text/javascript'}));
-  a.download='menu-data.js';a.click();
-  setTimeout(function(){URL.revokeObjectURL(a.href)},3000);
-  toast('已下載 menu-data.js','info');
-};
 
 /* ══════════════════════════════════════════════════════════
    Publish to GitHub
@@ -1445,12 +1103,8 @@ window.doPublish=function(){
   /* 先存本機 */
   saveDraft();
 
-  if(!ghReady()){
-    /* 沒設定 GitHub → 只存本機 + 提示 */
-    toast('已存本機。要發佈給客人請先設定 GitHub','warn');
-    /* 跳到設定頁籤 */
-    var setBtn=document.querySelector('.tab[data-tab="setting"]');
-    if(setBtn)setBtn.click();
+  if (typeof firebase === 'undefined' || !firebase.database) {
+    toast('Firebase 尚未載入，請稍後重試', 'err');
     return;
   }
 
@@ -1458,46 +1112,24 @@ window.doPublish=function(){
   var btn=$('pubBtn');
   btn.disabled=true;btn.classList.add('busy');btn.textContent='發佈中…';
 
-  var owner=S.get('sj_gh_owner'),repo=S.get('sj_gh_repo'),
-      path=S.get('sj_gh_path')||'menu-data.js',token=S.get('sj_gh_token');
-  var content=buildMenuDataJS();
-  var apiUrl='https://api.github.com/repos/'+owner+'/'+repo+'/contents/'+path;
-  var headers={'Authorization':'token '+token,'Content-Type':'application/json','Accept':'application/vnd.github.v3+json'};
+  var d={
+    price:DRAFT.price,sold:DRAFT.sold,hidden:DRAFT.hidden,img:DRAFT.img,
+    special:DRAFT.special,qty:DRAFT.qty,soldToday:DRAFT.soldToday,
+    notice:DRAFT.notice,noticeType:DRAFT.noticeType
+  };
 
-  /* Step 1: get current file SHA */
-  fetch(apiUrl,{headers:headers})
-  .then(function(r){
-    if(r.status===404){
-      /* 檔案不存在，新建 */
-      return {sha:null};
-    }
-    if(!r.ok) throw new Error('GitHub API 錯誤：'+r.status);
-    return r.json();
-  })
-  .then(function(data){
-    var body={
-      message:'🍖 更新菜單設定 ('+new Date().toLocaleString('zh-TW')+')',
-      content:btoa(unescape(encodeURIComponent(content)))
-    };
-    if(data.sha) body.sha=data.sha;
-
-    return fetch(apiUrl,{method:'PUT',headers:headers,body:JSON.stringify(body)});
-  })
-  .then(function(r){
-    if(!r.ok) throw new Error('發佈失敗：'+r.status);
-    return r.json();
-  })
-  .then(function(){
-    publishing=false;
-    btn.disabled=false;btn.classList.remove('busy');btn.textContent='📡 一鍵發佈給所有客人';
-    toast('✓ 已發佈！客人 2 分鐘內會看到更新','ok');
-  })
-  .catch(function(err){
-    publishing=false;
-    btn.disabled=false;btn.classList.remove('busy');btn.textContent='📡 一鍵發佈給所有客人';
-    toast('發佈失敗：'+err.message,'err');
-    console.error('[順記後台]',err);
-  });
+  firebase.database().ref('menu-data').set(d)
+    .then(function() {
+      publishing=false;
+      btn.disabled=false;btn.classList.remove('busy');btn.textContent='📡 一鍵發佈給所有客人';
+      toast('✅ 發佈成功！資料已即時同步給所有客人','ok');
+    })
+    .catch(function(err) {
+      publishing=false;
+      btn.disabled=false;btn.classList.remove('busy');btn.textContent='📡 一鍵發佈給所有客人';
+      toast('發佈失敗：' + err.message, 'err');
+      console.error('[順記後台]',err);
+    });
 };
 
 window.doLocalSave=function(){
@@ -1554,19 +1186,12 @@ function enter(){
   $('logoutBtn').style.display='';
 
   loadDraft();
-  loadGH();
   renderDashboard();
   renderPriceList();
   renderSpecial();
   fillSpSelect();
   renderQtyList();
-  renderOrders();
   renderImgGrid();
-  $('noticeText').value=DRAFT.notice||'';
-  document.querySelectorAll('.nt-btn').forEach(function(b){
-    b.classList.toggle('on',b.getAttribute('data-t')===(DRAFT.noticeType||'info'))
-  });
-  renderNoticePreview();
 }
 
 /* ══════════════════════════════════════════════════════════
