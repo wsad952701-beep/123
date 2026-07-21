@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap 位置（Google / Bing 主要靠這一行找到 sitemap）
-Sitemap: https://www.fengyanzhu.tw/sitemap.xml
+Sitemap: https://feng561.com/sitemap.xml
